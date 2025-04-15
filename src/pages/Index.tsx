@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Footer from '../components/Footer';
 import AboutSection from '../components/AboutSection';
@@ -50,23 +51,23 @@ const Index: React.FC = () => {
               </p>
             </div>
 
-            {/* Experience & Presence */}
-            <div className="grid md:grid-cols-2 gap-8 mt-12">
-              <div className="bg-black/70 p-8 rounded-lg border border-vf-orange/20">
-                <h3 className="text-3xl font-bold mb-4">
-                  <span className="text-vf-orange">6+</span> Anos
-                </h3>
-                <p className="text-xl">
-                  De experiência transformando vidas através do treinamento personalizado
-                </p>
+            {/* Experience & Statistics */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+              <div className="bg-black/70 p-6 rounded-lg border border-vf-orange/20">
+                <h3 className="text-4xl font-bold text-vf-orange mb-2">+17</h3>
+                <p className="text-sm uppercase tracking-wider">Anos de Experiência</p>
               </div>
-              <div className="bg-black/70 p-8 rounded-lg border border-vf-orange/20">
-                <h3 className="text-3xl font-bold mb-4">
-                  <span className="text-vf-orange">4+</span> Países
-                </h3>
-                <p className="text-xl">
-                  Atendendo alunos internacionalmente com resultados comprovados
-                </p>
+              <div className="bg-black/70 p-6 rounded-lg border border-vf-orange/20">
+                <h3 className="text-4xl font-bold text-vf-orange mb-2">+200 MIL</h3>
+                <p className="text-sm uppercase tracking-wider">Transformações</p>
+              </div>
+              <div className="bg-black/70 p-6 rounded-lg border border-vf-orange/20">
+                <h3 className="text-4xl font-bold text-vf-orange mb-2">+60</h3>
+                <p className="text-sm uppercase tracking-wider">Países com Atendimento</p>
+              </div>
+              <div className="bg-black/70 p-6 rounded-lg border border-vf-orange/20">
+                <h3 className="text-4xl font-bold text-vf-orange mb-2">+98%</h3>
+                <p className="text-sm uppercase tracking-wider">Aprovação da Consultoria</p>
               </div>
             </div>
           </div>
