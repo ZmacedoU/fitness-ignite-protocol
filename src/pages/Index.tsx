@@ -1,6 +1,9 @@
-
 import React from 'react';
 import Footer from '../components/Footer';
+import AboutSection from '../components/AboutSection';
+import ServicesSection from '../components/ServicesSection';
+import TestimonialsSection from '../components/TestimonialsSection';
+import CTASection from '../components/CTASection';
 
 const Index: React.FC = () => {
   return (
@@ -69,6 +72,11 @@ const Index: React.FC = () => {
           </div>
         </section>
 
+        {/* Rest of the sections */}
+        <AboutSection />
+        <ServicesSection />
+        <TestimonialsSection />
+        <CTASection />
         <Footer />
       </div>
     </div>
