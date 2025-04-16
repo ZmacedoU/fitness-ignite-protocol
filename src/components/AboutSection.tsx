@@ -4,8 +4,9 @@ import { Award, Globe, GraduationCap } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   return (
-    <section id="sobre" className="py-20 bg-gradient-to-b from-white/5 to-black relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-vf-orange/20 opacity-80"></div>
+    <section id="sobre" className="py-20 bg-gradient-to-b from-white/10 to-black relative">
+      {/* Light gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-80"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12">

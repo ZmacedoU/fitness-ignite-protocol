@@ -35,22 +35,22 @@ const Index: React.FC = () => {
           </div>
         </div>
 
-        {/* Hero Section */}
+        {/* Hero Section - Section 1 */}
         <HeroSection />
 
-        {/* Method Section - Protocol */}
-        <MethodSection />
-
-        {/* Results Section */}
-        <ResultsSection />
-
-        {/* About Section - Trainer */}
+        {/* About Section - Section 2: Quem é Vinicius Di Fiore? */}
         <AboutSection />
 
-        {/* Plans Section */}
+        {/* Method Section - Section 3: Protocolo */}
+        <MethodSection />
+
+        {/* Results Section - Section 4 */}
+        <ResultsSection />
+
+        {/* Plans Section - Section 5 */}
         <PlansSection />
 
-        {/* CTA Section */}
+        {/* CTA Section - Final Section */}
         <CTASection />
 
         <Footer />
