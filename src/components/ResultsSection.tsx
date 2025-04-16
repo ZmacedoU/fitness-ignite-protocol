@@ -59,7 +59,7 @@ const ResultsSection: React.FC = () => {
           </Carousel>
         </div>
 
-        <div className="text-center">
+        <div className="flex justify-center">
           <Button 
             onClick={() => scrollToSection('planos')}
             className="btn-primary orange-glow text-xl px-8 py-6 h-auto font-bold flex items-center gap-2"
