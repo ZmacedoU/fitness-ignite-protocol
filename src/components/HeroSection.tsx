@@ -53,28 +53,33 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
         
-        {/* Authority Cards with Icons */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 mb-16">
-          <div className="backdrop-blur-sm bg-white/5 p-8 rounded-3xl transition-all duration-300 hover:bg-white/10 border border-vf-orange/20 shadow-lg shadow-vf-orange/5 group">
-            <div className="text-vf-orange mb-4 flex justify-center">
-              <Calendar size={40} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
+        {/* Authority Cards with Icons - Updated Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 mb-16">
+          {/* Card 1 */}
+          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 group animate-fade-in" style={{ minHeight: '280px' }}>
+            <div className="text-vf-orange mb-6">
+              <Calendar size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h3 className="text-5xl font-bold text-vf-orange mb-3">+6</h3>
-            <p className="text-sm uppercase tracking-wider font-light">Anos de Experiência</p>
+            <h3 className="text-6xl font-bold text-vf-orange mb-4 transition-colors">+6</h3>
+            <p className="text-gray-300 text-sm uppercase tracking-wider font-light text-center">Anos de Experiência</p>
           </div>
-          <div className="backdrop-blur-sm bg-white/5 p-8 rounded-3xl transition-all duration-300 hover:bg-white/10 border border-vf-orange/20 shadow-lg shadow-vf-orange/5 group">
-            <div className="text-vf-orange mb-4 flex justify-center">
-              <Users size={40} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
+          
+          {/* Card 2 */}
+          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 group animate-fade-in" style={{ minHeight: '280px', animationDelay: '0.2s' }}>
+            <div className="text-vf-orange mb-6">
+              <Users size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h3 className="text-5xl font-bold text-vf-orange mb-3">+100</h3>
-            <p className="text-sm uppercase tracking-wider font-light">Transformações</p>
+            <h3 className="text-6xl font-bold text-vf-orange mb-4 transition-colors">+100</h3>
+            <p className="text-gray-300 text-sm uppercase tracking-wider font-light text-center">Transformações</p>
           </div>
-          <div className="backdrop-blur-sm bg-white/5 p-8 rounded-3xl transition-all duration-300 hover:bg-white/10 border border-vf-orange/20 shadow-lg shadow-vf-orange/5 group">
-            <div className="text-vf-orange mb-4 flex justify-center">
-              <Globe size={40} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
+          
+          {/* Card 3 */}
+          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 group animate-fade-in" style={{ minHeight: '280px', animationDelay: '0.4s' }}>
+            <div className="text-vf-orange mb-6">
+              <Globe size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h3 className="text-5xl font-bold text-vf-orange mb-3">+5</h3>
-            <p className="text-sm uppercase tracking-wider font-light">Países com Atendimento</p>
+            <h3 className="text-6xl font-bold text-vf-orange mb-4 transition-colors">+5</h3>
+            <p className="text-gray-300 text-sm uppercase tracking-wider font-light text-center">Países com Atendimento</p>
           </div>
         </div>
 
