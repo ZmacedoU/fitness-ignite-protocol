@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Award, Globe, GraduationCap } from 'lucide-react';
 
@@ -17,9 +16,6 @@ const AboutSection: React.FC = () => {
                 alt="Vinicius Di Fiore" 
                 className="rounded-lg shadow-2xl border border-vf-orange/30"
               />
-              
-              {/* Orange Glow Effect */}
-              <div className="absolute -inset-4 rounded-lg bg-vf-orange/20 filter blur-xl z-0"></div>
             </div>
           </div>
           
