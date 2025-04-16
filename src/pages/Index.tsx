@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Footer from '../components/Footer';
 import AboutSection from '../components/AboutSection';
@@ -33,10 +32,7 @@ const Index: React.FC = () => {
           </div>
         </div>
 
-        {/* Services Section First */}
-        <ServicesSection />
-
-        {/* Hero Section */}
+        {/* Hero Section First */}
         <section className="min-h-screen flex items-center">
           <div className="container mx-auto px-6 py-20">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
@@ -72,10 +68,18 @@ const Index: React.FC = () => {
           </div>
         </section>
 
-        {/* Rest of the sections */}
-        <AboutSection />
+        {/* Services Section Second (Protocol + Benefits) */}
+        <ServicesSection />
+
+        {/* Testimonials Section Third (Real Results) */}
         <TestimonialsSection />
+
+        {/* About Section Fourth (Vinicius Di Fiore Trainer) */}
+        <AboutSection />
+
+        {/* CTA Section Fifth (1x0) */}
         <CTASection />
+
         <Footer />
       </div>
     </div>
