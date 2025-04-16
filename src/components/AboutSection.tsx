@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Award, Globe, Dumbbell, GraduationCap, CheckCircle2 } from 'lucide-react';
+import { Award, Globe, GraduationCap } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   return (
@@ -14,9 +14,11 @@ const AboutSection: React.FC = () => {
               <img 
                 src="/lovable-uploads/167c89d1-45ae-470d-9b2a-0e3ad7f022d7.png" 
                 alt="Vinicius Di Fiore" 
-                className="rounded-lg shadow-lg border-2 border-vf-orange/30"
+                className="rounded-lg shadow-2xl border border-vf-orange/30"
               />
-              <div className="absolute -inset-2 bg-vf-orange/10 rounded-lg blur-xl -z-10"></div>
+              
+              {/* Orange Glow Effect */}
+              <div className="absolute -inset-4 rounded-lg bg-vf-orange/20 filter blur-xl z-0"></div>
             </div>
           </div>
           
@@ -38,24 +40,25 @@ const AboutSection: React.FC = () => {
               resultados.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               {certifications.map((item, index) => (
-                <div key={index} className="flex items-start gap-4 p-4 backdrop-blur-sm bg-white/5 rounded-2xl border border-vf-orange/20">
-                  <item.icon className="text-vf-orange mt-1 flex-shrink-0" size={24} />
-                  <div>
-                    <h4 className="font-bold">{item.title}</h4>
+                <div 
+                  key={index} 
+                  className="flex flex-col items-center gap-4 p-6 backdrop-blur-sm bg-white/5 rounded-2xl border border-vf-orange/20 hover:bg-white/10 transition-colors"
+                >
+                  <item.icon className="text-vf-orange" size={32} />
+                  <div className="text-center">
+                    <h4 className="font-bold text-lg">{item.title}</h4>
                     <p className="text-sm text-gray-300">{item.description}</p>
                   </div>
                 </div>
               ))}
             </div>
             
-            <div className="mt-8">
-              <blockquote className="text-2xl font-light italic text-gray-300 border-l-4 border-vf-orange pl-6">
-                "O foco do treinamento precisa ser nos pontos fracos e desvios posturais, 
-                mas sem esquecer de manter o físico bem harmonioso."
-              </blockquote>
-            </div>
+            <blockquote className="text-2xl font-light italic text-gray-300 border-l-4 border-vf-orange pl-6">
+              "O foco do treinamento precisa ser nos pontos fracos e desvios posturais, 
+              mas sem esquecer de manter o físico bem harmonioso."
+            </blockquote>
           </div>
         </div>
       </div>
@@ -65,22 +68,17 @@ const AboutSection: React.FC = () => {
 
 const certifications = [
   {
-    title: "Formação Especializada",
+    title: "Formação",
     description: "Bacharel em Educação Física e especialista em Hipertrofia",
     icon: GraduationCap
   },
   {
-    title: "Certificações Internacionais",
+    title: "Certificações",
     description: "NSCA, ACSM e outras certificações de elite",
     icon: Award
   },
   {
-    title: "Metodologia Exclusiva",
-    description: "Protocolo desenvolvido após anos de estudo e prática",
-    icon: Dumbbell
-  },
-  {
-    title: "Atendimento Internacional",
+    title: "Atendimento",
     description: "Brasil, Portugal, EUA, Canadá e Austrália",
     icon: Globe
   }
