@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Flame, Diamond } from 'lucide-react';
+import { CheckCircle, Flame, Diamond, ArrowRight } from 'lucide-react';
 
 const plans = [
   {
