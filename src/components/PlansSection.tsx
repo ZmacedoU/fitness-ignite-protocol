@@ -1,12 +1,10 @@
-
 import React from 'react';
-import { CheckCircle, Flame, Diamond, ArrowRight } from 'lucide-react';
+import { CheckCircle, Flame, Diamond, ArrowRight, DollarSign } from 'lucide-react';
 import { Button } from './ui/button';
 
 const PlansSection: React.FC = () => {
   return (
     <section id="planos" className="py-20 bg-gradient-to-br from-black via-black/95 to-vf-orange/20 relative overflow-hidden">
-      {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-vf-orange opacity-5 blur-3xl rounded-full"></div>
       
       <div className="container mx-auto px-6 relative z-10">
@@ -24,15 +22,22 @@ const PlansSection: React.FC = () => {
             <div 
               key={index} 
               className={`rounded-2xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 ${
-                index === 1 
-                  ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/30 border-2 border-vf-orange/70 shadow-lg shadow-vf-orange/20' 
-                  : index === 2
-                    ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/20 border border-vf-orange/40 shadow-lg shadow-vf-orange/10'
-                    : 'bg-white/5 backdrop-blur-sm border border-vf-orange/20'
+                index === 0 
+                  ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/10 border-2 border-vf-orange/70 shadow-lg shadow-vf-orange/20' 
+                  : index === 1
+                    ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/30 border-2 border-vf-orange/70 shadow-lg shadow-vf-orange/20'
+                    : index === 2
+                      ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/20 border border-vf-orange/40 shadow-lg shadow-vf-orange/10'
+                      : 'bg-white/5 backdrop-blur-sm border border-vf-orange/20'
               }`}
             >
-              {/* Plan Header */}
               <div className="p-6 bg-black/50 backdrop-blur-sm relative">
+                {index === 0 && (
+                  <div className="absolute top-0 right-0 bg-white/10 text-white px-3 py-1 rounded-bl-lg flex items-center">
+                    <DollarSign className="mr-1" size={16} />
+                    <span className="text-xs font-bold">MELHOR CUSTO-BENEFÍCIO</span>
+                  </div>
+                )}
                 {index === 1 && (
                   <div className="absolute top-0 right-0 bg-vf-orange text-white px-3 py-1 rounded-bl-lg flex items-center">
                     <Flame className="mr-1" size={16} />
@@ -46,7 +51,6 @@ const PlansSection: React.FC = () => {
                   </div>
                 )}
                 
-                {/* Mockup Image */}
                 <div className="mb-4 bg-gray-800 h-40 rounded-lg flex items-center justify-center">
                   <p className="text-sm text-gray-500">Mockup do plano</p>
                 </div>
@@ -73,7 +77,6 @@ const PlansSection: React.FC = () => {
                 </div>
               </div>
               
-              {/* Plan Features */}
               <div className="p-6">
                 <h4 className="font-bold mb-4 text-gray-300">O que está incluso:</h4>
                 <ul className="space-y-3 mb-6">
@@ -117,51 +120,51 @@ const PlansSection: React.FC = () => {
 
 const plans = [
   {
-    title: "STARTER",
-    description: "Ideal para quem está começando sua jornada",
+    title: "Protocolo START",
+    description: "Para quem quer sair do sedentarismo com um plano simples e prático",
     price: "297",
     buttonText: "Quero esse plano",
-    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20plano%20STARTER",
+    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20plano%20START",
     features: [
-      "Protocolo personalizado de treino",
-      "Acesso ao app exclusivo",
-      "Suporte via WhatsApp",
-      "1 ajuste mensal"
+      "PDF com exercícios básicos (iniciante)",
+      "Introdução à reeducação alimentar",
+      "Conteúdo entregue automaticamente após pagamento",
+      "Plano pronto, sem personalização",
+      "Sem acompanhamento individual"
     ],
     testimonial: "Perfeito para iniciar minha transformação. - João P."
   },
   {
-    title: "EVOLUÇÃO",
-    description: "Para quem quer resultados consistentes",
+    title: "Protocolo de Treinamento",
+    description: "Treinamento exclusivo com análise corporal e acesso direto ao Vinicius",
     originalPrice: "891",
     price: "747",
     discount: 16,
     buttonText: "Começar agora",
-    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20plano%20EVOLUÇÃO",
+    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Protocolo%20de%20Treinamento",
     features: [
-      "Tudo do plano STARTER",
-      "Avaliação postural completa",
-      "Ajustes semanais de treino",
-      "Acesso a vídeos exclusivos de execução",
-      "Suporte prioritário"
+      "Avaliação do físico (pontos fortes e fracos)",
+      "Protocolo de treino 100% personalizado",
+      "Acesso direto ao treinador",
+      "Ajustes conforme evolução",
+      "Suporte contínuo via WhatsApp"
     ],
     testimonial: "Meus resultados aceleraram muito! - Maria C."
   },
   {
-    title: "PREMIUM",
-    description: "Experiência VIP com resultados máximos",
+    title: "Protocolo Black",
+    description: "Treinamento + dieta supervisionada por Vinicius e Mayra (nutri)",
     originalPrice: "1.797",
     price: "1.377",
     discount: 23,
     buttonText: "Garantir minha vaga",
-    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20plano%20PREMIUM",
+    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20Protocolo%20Black",
     features: [
-      "Tudo do plano EVOLUÇÃO",
-      "Consultas por vídeo mensais",
-      "Análise biomecânica avançada",
-      "Protocolos de recuperação exclusivos",
-      "Contato direto 24/7",
-      "Estratégias para atletas"
+      "Tudo do plano de treinamento",
+      "Protocolo dietético elaborado pela Mayra (nutri)",
+      "Supervisão direta de treino + dieta",
+      "Suporte completo",
+      "Resultados integrados com foco em alta performance"
     ],
     testimonial: "Melhor investimento que já fiz! - Carlos M."
   }
