@@ -13,7 +13,7 @@ const AboutSection: React.FC = () => {
           <div className="md:w-2/5">
             <div className="relative">
               <img 
-                src="/lovable-uploads/167c89d1-45ae-470d-9b2a-0e3ad7f022d7.png" 
+                src="/lovable-uploads/ae4d02a8-2331-4e52-b495-c3dbb118f8ad.png" 
                 alt="Vinicius Di Fiore" 
                 className="rounded-lg shadow-2xl border border-vf-orange/30"
               />
@@ -25,21 +25,30 @@ const AboutSection: React.FC = () => {
           
           <div className="md:w-3/5">
             <h2 className="text-4xl md:text-5xl font-bold mb-2 tracking-tight uppercase">
-              Vinicius <span className="text-vf-orange">Di Fiore</span>
+              Quem é <span className="text-vf-orange">Vinicius Di Fiore</span>?
             </h2>
-            <h3 className="text-xl md:text-2xl mb-8 text-vf-orange/90">TREINADOR</h3>
             
-            <p className="text-lg mb-6">
-              Sou apaixonado por transformar vidas através do treinamento personalizado e ciência aplicada.
-              Há mais de 6 anos, desenvolvo protocolos exclusivos que vão muito além do simples "treinar por treinar".
-            </p>
-            
-            <p className="text-lg mb-8">
-              Um protocolo de treinamento não pode ser negligenciado, cada pessoa precisa
-              trabalhar regiões do corpo de forma específica, cada treino tem que ser exclusivo ou
-              você apenas estará brincando igual a grande maioria das pessoas que não tem
-              resultados.
-            </p>
+            <div className="space-y-6 mb-8">
+              <p className="text-lg">
+                Sou treinador especializado em transformação física real, com mais de 6 anos de experiência ajudando pessoas comuns a alcançarem resultados extraordinários.
+              </p>
+              
+              <p className="text-lg">
+                Minha missão é levar você ao próximo nível, com um método baseado em ciência, prática e acompanhamento verdadeiro — sem fórmulas genéricas, sem promessas vazias.
+              </p>
+              
+              <p className="text-xl font-bold text-vf-orange">
+                "Acredita, vamo!" 💥
+              </p>
+              
+              <p className="text-lg">
+                Desenvolvi o Protocolo de Treinamento Di Fiore, um método autoral baseado em resultados reais de alunos e nas estratégias mais atuais do mundo fitness.
+              </p>
+              
+              <p className="text-lg">
+                Se você está cansado de não ver resultados, chegou a hora de virar o jogo.
+              </p>
+            </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               {certifications.map((item, index) => (
@@ -55,11 +64,6 @@ const AboutSection: React.FC = () => {
                 </div>
               ))}
             </div>
-            
-            <blockquote className="text-2xl font-light italic text-gray-300 border-l-4 border-vf-orange pl-6">
-              "O foco do treinamento precisa ser nos pontos fracos e desvios posturais, 
-              mas sem esquecer de manter o físico bem harmonioso."
-            </blockquote>
           </div>
         </div>
       </div>
@@ -70,12 +74,12 @@ const AboutSection: React.FC = () => {
 const certifications = [
   {
     title: "Formação",
-    description: "Bacharel em Educação Física e especialista em Hipertrofia",
+    description: "Bacharel em Educação Física (UNIP) e Pós em Bodybuilding Coach",
     icon: GraduationCap
   },
   {
     title: "Certificações",
-    description: "NSCA, ACSM e outras certificações de elite",
+    description: "Hormonização, Nutrição, Musculação e Performance Física",
     icon: Award
   },
   {
