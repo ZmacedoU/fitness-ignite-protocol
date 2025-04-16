@@ -1,7 +1,66 @@
-
 import React from 'react';
-import { CheckCircle, Flame, Diamond, ArrowRight } from 'lucide-react';
-import { Button } from './ui/button';
+import { CheckCircle, Flame, Diamond } from 'lucide-react';
+
+const plans = [
+  {
+    title: "PROTOCOLO START",
+    description: "Para quem quer sair do sedentarismo com um plano simples e prático",
+    price: "297",
+    buttonText: "Quero esse plano",
+    badge: {
+      text: "💰 Melhor custo-benefício",
+      style: "bg-gray-200/10 text-gray-200"
+    },
+    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20plano%20STARTER",
+    features: [
+      "PDF com exercícios básicos (iniciante)",
+      "Introdução à reeducação alimentar",
+      "Conteúdo entregue automaticamente após pagamento",
+      "Plano pronto, sem personalização",
+      "Sem acompanhamento individual"
+    ]
+  },
+  {
+    title: "PROTOCOLO DE TREINAMENTO",
+    description: "Treinamento exclusivo com análise corporal e acesso direto ao Vinicius",
+    originalPrice: "891",
+    price: "747",
+    discount: 16,
+    badge: {
+      text: "🔥 Mais escolhido",
+      style: "bg-vf-orange text-white"
+    },
+    buttonText: "Começar agora",
+    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20plano%20EVOLUÇÃO",
+    features: [
+      "Avaliação do físico (pontos fortes e fracos)",
+      "Protocolo de treino 100% personalizado",
+      "Acesso direto ao treinador",
+      "Ajustes conforme evolução",
+      "Suporte contínuo via WhatsApp"
+    ]
+  },
+  {
+    title: "PROTOCOLO BLACK",
+    description: "Treinamento + dieta supervisionada por Vinicius e Mayra (nutri)",
+    originalPrice: "1.797",
+    price: "1.377",
+    discount: 23,
+    badge: {
+      text: "💎 Premium",
+      style: "bg-gradient-to-r from-white/90 to-white/70 text-black"
+    },
+    buttonText: "Garantir minha vaga",
+    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20plano%20PREMIUM",
+    features: [
+      "Tudo do plano de treinamento",
+      "Protocolo dietético elaborado pela Mayra (nutri)",
+      "Supervisão direta de treino + dieta",
+      "Suporte completo",
+      "Resultados integrados com foco em alta performance"
+    ]
+  }
+];
 
 const PlansSection: React.FC = () => {
   return (
@@ -33,18 +92,10 @@ const PlansSection: React.FC = () => {
             >
               {/* Plan Header */}
               <div className="p-6 bg-black/50 backdrop-blur-sm relative">
-                {index === 1 && (
-                  <div className="absolute top-0 right-0 bg-vf-orange text-white px-3 py-1 rounded-bl-lg flex items-center">
-                    <Flame className="mr-1" size={16} />
-                    <span className="text-xs font-bold">MAIS ESCOLHIDO</span>
-                  </div>
-                )}
-                {index === 2 && (
-                  <div className="absolute top-0 right-0 bg-gradient-to-r from-white/80 to-white/30 text-black px-3 py-1 rounded-bl-lg flex items-center">
-                    <Diamond className="mr-1" size={16} />
-                    <span className="text-xs font-bold">PREMIUM</span>
-                  </div>
-                )}
+                {/* Badge */}
+                <div className={`absolute top-0 right-0 ${plan.badge.style} px-3 py-1 rounded-bl-lg text-xs font-bold`}>
+                  {plan.badge.text}
+                </div>
                 
                 {/* Mockup Image */}
                 <div className="mb-4 bg-gray-800 h-40 rounded-lg flex items-center justify-center">
@@ -85,12 +136,6 @@ const PlansSection: React.FC = () => {
                   ))}
                 </ul>
                 
-                {plan.testimonial && (
-                  <div className="mb-6 p-3 bg-black/30 rounded-lg italic text-sm">
-                    "{plan.testimonial}"
-                  </div>
-                )}
-                
                 <a 
                   href={plan.link}
                   target="_blank"
@@ -114,57 +159,5 @@ const PlansSection: React.FC = () => {
     </section>
   );
 };
-
-const plans = [
-  {
-    title: "STARTER",
-    description: "Ideal para quem está começando sua jornada",
-    price: "297",
-    buttonText: "Quero esse plano",
-    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20plano%20STARTER",
-    features: [
-      "Protocolo personalizado de treino",
-      "Acesso ao app exclusivo",
-      "Suporte via WhatsApp",
-      "1 ajuste mensal"
-    ],
-    testimonial: "Perfeito para iniciar minha transformação. - João P."
-  },
-  {
-    title: "EVOLUÇÃO",
-    description: "Para quem quer resultados consistentes",
-    originalPrice: "891",
-    price: "747",
-    discount: 16,
-    buttonText: "Começar agora",
-    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20plano%20EVOLUÇÃO",
-    features: [
-      "Tudo do plano STARTER",
-      "Avaliação postural completa",
-      "Ajustes semanais de treino",
-      "Acesso a vídeos exclusivos de execução",
-      "Suporte prioritário"
-    ],
-    testimonial: "Meus resultados aceleraram muito! - Maria C."
-  },
-  {
-    title: "PREMIUM",
-    description: "Experiência VIP com resultados máximos",
-    originalPrice: "1.797",
-    price: "1.377",
-    discount: 23,
-    buttonText: "Garantir minha vaga",
-    link: "https://wa.me/5500000000000?text=Olá,%20tenho%20interesse%20no%20plano%20PREMIUM",
-    features: [
-      "Tudo do plano EVOLUÇÃO",
-      "Consultas por vídeo mensais",
-      "Análise biomecânica avançada",
-      "Protocolos de recuperação exclusivos",
-      "Contato direto 24/7",
-      "Estratégias para atletas"
-    ],
-    testimonial: "Melhor investimento que já fiz! - Carlos M."
-  }
-];
 
 export default PlansSection;
