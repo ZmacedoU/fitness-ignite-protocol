@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { 
   Smartphone, MessageCircle, User, Pill, 
-  Settings, TrendingUp, FlaskRound, Trophy 
+  Settings, TrendingUp, FlaskRound, Trophy, 
+  Brain, Activity, ScrollText, Medal
 } from 'lucide-react';
 
 const MethodSection: React.FC = () => {
@@ -92,44 +94,44 @@ const pillars = [
 
 const benefits = [
   {
-    title: "🎥 Acesso exclusivo ao meu app de treinos",
+    title: "Acesso exclusivo ao meu app de treinos",
     description: "Vídeos gravados por mim ou meus alunos com execução perfeita dos exercícios. Nada terceirizado. Nada copiado.",
     icon: Smartphone
   },
   {
-    title: "💬 Suporte direto comigo",
+    title: "Suporte direto comigo",
     description: "Atendimento pessoal pelo app de treinos e também via WhatsApp, sem intermediários.",
     icon: MessageCircle
   },
   {
-    title: "🧍‍♂️ Análise física completa",
+    title: "Análise física completa",
     description: "Avaliação do seu físico para identificar pontos fracos e montar um plano de evolução harmônica.",
     icon: User
   },
   {
-    title: "🧘 Correção postural e reequilíbrio corporal",
+    title: "Correção postural e reequilíbrio corporal",
     description: "Análise postural focada em corrigir desvios e aliviar dores causadas por má postura.",
-    icon: Pill
+    icon: Activity
   },
   {
-    title: "🧠 Treino 100% personalizado",
+    title: "Treino 100% personalizado",
     description: "Protocolos adaptados à sua rotina semanal e ao seu objetivo específico, criados do zero.",
-    icon: Settings
+    icon: Brain
   },
   {
-    title: "📈 Acompanhamento de evolução",
+    title: "Acompanhamento de evolução",
     description: "Feedbacks e comparações constantes para ajustar o plano e manter sua evolução constante.",
     icon: TrendingUp
   },
   {
-    title: "🧪 Estratégias baseadas em ciência e prática",
+    title: "Estratégias baseadas em ciência e prática",
     description: "Técnicas modernas do fisiculturismo, aplicadas com lógica, estudo e adaptação individual.",
     icon: FlaskRound
   },
   {
-    title: "🏆 Protocolos adaptados de campeões",
+    title: "Protocolos adaptados de campeões",
     description: "Modelos e práticas usados por atletas adaptados para pessoas comuns que querem resultados reais.",
-    icon: Trophy
+    icon: Medal
   }
 ];
 

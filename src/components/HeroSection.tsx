@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowDown, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
@@ -65,8 +64,7 @@ const HeroSection: React.FC = () => {
       </div>
       
       <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
-        onClick={() => scrollToSection('metodo')}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
       >
         <ArrowDown size={32} className="text-vf-orange" />
       </div>
