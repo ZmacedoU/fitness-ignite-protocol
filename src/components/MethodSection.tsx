@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { 
-  Smartphone, MessageCircle, User, Yoga, 
+  Smartphone, MessageCircle, User, Pillow, 
   Settings, TrendingUp, FlaskRound, Trophy 
 } from 'lucide-react';
 
@@ -110,7 +109,7 @@ const benefits = [
   {
     title: "🧘 Correção postural e reequilíbrio corporal",
     description: "Análise postural focada em corrigir desvios e aliviar dores causadas por má postura.",
-    icon: Yoga
+    icon: Pillow
   },
   {
     title: "🧠 Treino 100% personalizado",
@@ -135,4 +134,3 @@ const benefits = [
 ];
 
 export default MethodSection;
-
