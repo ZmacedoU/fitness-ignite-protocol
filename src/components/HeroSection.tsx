@@ -54,20 +54,8 @@ const HeroSection: React.FC = () => {
           </div>
           
           <div className="lg:w-2/5 relative animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            {/* Trainer Image */}
-            <div className="relative z-10">
-              <img 
-                src="/lovable-uploads/167c89d1-45ae-470d-9b2a-0e3ad7f022d7.png" 
-                alt="Vinicius Di Fiore" 
-                className="rounded-lg shadow-2xl border border-vf-orange/30"
-              />
-              
-              {/* Orange Glow */}
-              <div className="absolute -inset-4 rounded-lg bg-vf-orange/20 filter blur-xl z-0"></div>
-            </div>
-            
             {/* Video Space */}
-            <div className="mt-10 backdrop-blur-sm bg-white/5 rounded-3xl p-8 shadow-lg shadow-vf-orange/5 border border-vf-orange/20">
+            <div className="backdrop-blur-sm bg-white/5 rounded-3xl p-8 shadow-lg shadow-vf-orange/5 border border-vf-orange/20">
               <p className="text-xl text-center text-gray-400 font-light">
                 Espaço reservado para vídeo do YouTube
               </p>
