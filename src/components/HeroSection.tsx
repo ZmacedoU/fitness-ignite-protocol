@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowDown, ArrowRight, Calendar, Users, Globe } from 'lucide-react';
 import { Button } from './ui/button';
@@ -52,28 +53,28 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
         
-        {/* Authority Cards */}
+        {/* Authority Cards with Icons */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 mb-16">
-          <div className="backdrop-blur-sm bg-black/40 p-8 rounded-2xl transition-all duration-300 hover:bg-black/50 border border-vf-orange/20 shadow-lg hover:shadow-vf-orange/20 group flex flex-col items-center justify-center">
-            <div className="text-vf-orange mb-4">
+          <div className="backdrop-blur-sm bg-white/5 p-8 rounded-3xl transition-all duration-300 hover:bg-white/10 border border-vf-orange/20 shadow-lg shadow-vf-orange/5 group">
+            <div className="text-vf-orange mb-4 flex justify-center">
               <Calendar size={40} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
             <h3 className="text-5xl font-bold text-vf-orange mb-3">+6</h3>
-            <p className="text-sm uppercase tracking-wider font-light text-center">Anos de Experiência</p>
+            <p className="text-sm uppercase tracking-wider font-light">Anos de Experiência</p>
           </div>
-          <div className="backdrop-blur-sm bg-black/40 p-8 rounded-2xl transition-all duration-300 hover:bg-black/50 border border-vf-orange/20 shadow-lg hover:shadow-vf-orange/20 group flex flex-col items-center justify-center">
-            <div className="text-vf-orange mb-4">
+          <div className="backdrop-blur-sm bg-white/5 p-8 rounded-3xl transition-all duration-300 hover:bg-white/10 border border-vf-orange/20 shadow-lg shadow-vf-orange/5 group">
+            <div className="text-vf-orange mb-4 flex justify-center">
               <Users size={40} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
             <h3 className="text-5xl font-bold text-vf-orange mb-3">+100</h3>
-            <p className="text-sm uppercase tracking-wider font-light text-center">Transformações</p>
+            <p className="text-sm uppercase tracking-wider font-light">Transformações</p>
           </div>
-          <div className="backdrop-blur-sm bg-black/40 p-8 rounded-2xl transition-all duration-300 hover:bg-black/50 border border-vf-orange/20 shadow-lg hover:shadow-vf-orange/20 group flex flex-col items-center justify-center">
-            <div className="text-vf-orange mb-4">
+          <div className="backdrop-blur-sm bg-white/5 p-8 rounded-3xl transition-all duration-300 hover:bg-white/10 border border-vf-orange/20 shadow-lg shadow-vf-orange/5 group">
+            <div className="text-vf-orange mb-4 flex justify-center">
               <Globe size={40} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
             <h3 className="text-5xl font-bold text-vf-orange mb-3">+5</h3>
-            <p className="text-sm uppercase tracking-wider font-light text-center">Países com Atendimento</p>
+            <p className="text-sm uppercase tracking-wider font-light">Países com Atendimento</p>
           </div>
         </div>
 
