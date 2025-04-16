@@ -1,6 +1,9 @@
 
 import React from 'react';
-import { Users, Brain, TrendingUp, CheckCircle } from 'lucide-react';
+import { 
+  Smartphone, MessageCircle, User, Yoga, 
+  Settings, TrendingUp, FlaskRound, Trophy 
+} from 'lucide-react';
 
 const MethodSection: React.FC = () => {
   return (
@@ -34,19 +37,30 @@ const MethodSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="backdrop-blur-sm bg-white/5 rounded-3xl p-12 border border-vf-orange/20 shadow-lg shadow-vf-orange/5">
-          <h3 className="text-3xl font-bold mb-8">✅ Você vai ter:</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {benefits.map((benefit, index) => (
-              <div 
-                key={index} 
-                className="flex items-start gap-4 p-4 backdrop-blur-sm bg-white/5 rounded-2xl transition-all duration-300 hover:bg-white/10 border border-vf-orange/10"
-              >
-                <CheckCircle className="text-vf-orange mt-1 flex-shrink-0" />
-                <p className="text-gray-200">{benefit}</p>
+        {/* Benefits Section */}
+        <div className="text-center mb-12">
+          <h3 className="text-3xl font-bold mb-8">
+            Tudo o que você recebe com minha consultoria
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {benefits.map((benefit, index) => (
+            <div 
+              key={index}
+              className="group backdrop-blur-sm bg-white/5 rounded-2xl p-6 transition-all duration-300 hover:bg-white/10 border border-vf-orange/20 shadow-lg hover:shadow-vf-orange/20 animate-fade-in"
+            >
+              <div className="flex items-start gap-6">
+                <div className="text-vf-orange transition-colors group-hover:text-vf-orange/80">
+                  <benefit.icon size={40} className="flex-shrink-0" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold mb-2">{benefit.title}</h4>
+                  <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         <div className="mt-12 text-center">
@@ -63,12 +77,12 @@ const pillars = [
   {
     title: "Personalização",
     description: "Identificação de pontos fracos e construção de um físico harmônico, adaptado às suas necessidades específicas.",
-    icon: Users,
+    icon: User,
   },
   {
     title: "Mentalidade",
     description: "Desenvolvimento de disciplina e consistência, transformando o treinamento em um hábito prazeroso e produtivo.",
-    icon: Brain,
+    icon: Settings,
   },
   {
     title: "Evolução Constante",
@@ -78,14 +92,47 @@ const pillars = [
 ];
 
 const benefits = [
-  "Um app exclusivo com vídeos gravados por mim ou por meus alunos mostrando execuções de exercícios com qualidade máxima. Nada terceirizado. Nada copiado.",
-  "Suporte direto comigo pelo app de treinamento e também via WhatsApp.",
-  "Análise completa do seu físico, focada em identificar seus pontos fracos e construir um físico mais harmônico e evoluído.",
-  "Análise postural para correção de desvios, desenvolvimento equilibrado e eliminação de dores causadas por má postura.",
-  "Protocolos de treino personalizados, baseados na sua rotina semanal, criados especialmente para o seu objetivo físico.",
-  "Acompanhamento periódico da sua evolução, com comparações, feedbacks e reajustes de rota.",
-  "Estratégias de treino com técnicas e métodos avançados, embasados na ciência do fitness e no que há de mais moderno no mundo do fisiculturismo.",
-  "Protocolos adaptados dos campeões e campeãs do fisiculturismo, pensados para o público geral alcançar resultados reais.",
+  {
+    title: "🎥 Acesso exclusivo ao meu app de treinos",
+    description: "Vídeos gravados por mim ou meus alunos com execução perfeita dos exercícios. Nada terceirizado. Nada copiado.",
+    icon: Smartphone
+  },
+  {
+    title: "💬 Suporte direto comigo",
+    description: "Atendimento pessoal pelo app de treinos e também via WhatsApp, sem intermediários.",
+    icon: MessageCircle
+  },
+  {
+    title: "🧍‍♂️ Análise física completa",
+    description: "Avaliação do seu físico para identificar pontos fracos e montar um plano de evolução harmônica.",
+    icon: User
+  },
+  {
+    title: "🧘 Correção postural e reequilíbrio corporal",
+    description: "Análise postural focada em corrigir desvios e aliviar dores causadas por má postura.",
+    icon: Yoga
+  },
+  {
+    title: "🧠 Treino 100% personalizado",
+    description: "Protocolos adaptados à sua rotina semanal e ao seu objetivo específico, criados do zero.",
+    icon: Settings
+  },
+  {
+    title: "📈 Acompanhamento de evolução",
+    description: "Feedbacks e comparações constantes para ajustar o plano e manter sua evolução constante.",
+    icon: TrendingUp
+  },
+  {
+    title: "🧪 Estratégias baseadas em ciência e prática",
+    description: "Técnicas modernas do fisiculturismo, aplicadas com lógica, estudo e adaptação individual.",
+    icon: FlaskRound
+  },
+  {
+    title: "🏆 Protocolos adaptados de campeões",
+    description: "Modelos e práticas usados por atletas adaptados para pessoas comuns que querem resultados reais.",
+    icon: Trophy
+  }
 ];
 
 export default MethodSection;
+
