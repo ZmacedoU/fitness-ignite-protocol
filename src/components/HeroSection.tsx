@@ -36,6 +36,7 @@ const HeroSection: React.FC = () => {
           </div>
           
           <div className="lg:w-2/5 relative animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            {/* Video Space with Enhanced Styling */}
             <div className="backdrop-blur-sm bg-white/5 rounded-3xl p-6 shadow-lg shadow-vf-orange/10 border border-vf-orange/20 relative overflow-hidden transition-all duration-300 hover:shadow-vf-orange/20">
               <div className="absolute inset-0 bg-gradient-to-br from-transparent to-vf-orange/5 z-0"></div>
               <div className="relative z-10 aspect-video flex items-center justify-center">
@@ -51,32 +52,32 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 mb-16">
-          <div className="backdrop-blur-sm bg-black/40 p-8 rounded-2xl border border-vf-orange/20 shadow-lg hover:shadow-vf-orange/20 transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center text-center aspect-square animate-fade-in group">
-            <div className="text-vf-orange mb-6 transition-transform duration-300 group-hover:scale-110">
-              <Calendar size={48} strokeWidth={1.5} />
+        {/* Authority Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 mb-16">
+          <div className="backdrop-blur-sm bg-black/40 p-8 rounded-2xl transition-all duration-300 hover:bg-black/50 border border-vf-orange/20 shadow-lg hover:shadow-vf-orange/20 group flex flex-col items-center justify-center">
+            <div className="text-vf-orange mb-4">
+              <Calendar size={40} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h3 className="text-5xl font-bold text-vf-orange mb-4">+6</h3>
-            <p className="text-sm uppercase tracking-wider font-light text-gray-300">Anos de Experiência</p>
+            <h3 className="text-5xl font-bold text-vf-orange mb-3">+6</h3>
+            <p className="text-sm uppercase tracking-wider font-light text-center">Anos de Experiência</p>
           </div>
-          
-          <div className="backdrop-blur-sm bg-black/40 p-8 rounded-2xl border border-vf-orange/20 shadow-lg hover:shadow-vf-orange/20 transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center text-center aspect-square animate-fade-in group" style={{ animationDelay: '0.2s' }}>
-            <div className="text-vf-orange mb-6 transition-transform duration-300 group-hover:scale-110">
-              <Users size={48} strokeWidth={1.5} />
+          <div className="backdrop-blur-sm bg-black/40 p-8 rounded-2xl transition-all duration-300 hover:bg-black/50 border border-vf-orange/20 shadow-lg hover:shadow-vf-orange/20 group flex flex-col items-center justify-center">
+            <div className="text-vf-orange mb-4">
+              <Users size={40} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h3 className="text-5xl font-bold text-vf-orange mb-4">+100</h3>
-            <p className="text-sm uppercase tracking-wider font-light text-gray-300">Transformações</p>
+            <h3 className="text-5xl font-bold text-vf-orange mb-3">+100</h3>
+            <p className="text-sm uppercase tracking-wider font-light text-center">Transformações</p>
           </div>
-          
-          <div className="backdrop-blur-sm bg-black/40 p-8 rounded-2xl border border-vf-orange/20 shadow-lg hover:shadow-vf-orange/20 transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center text-center aspect-square animate-fade-in group" style={{ animationDelay: '0.4s' }}>
-            <div className="text-vf-orange mb-6 transition-transform duration-300 group-hover:scale-110">
-              <Globe size={48} strokeWidth={1.5} />
+          <div className="backdrop-blur-sm bg-black/40 p-8 rounded-2xl transition-all duration-300 hover:bg-black/50 border border-vf-orange/20 shadow-lg hover:shadow-vf-orange/20 group flex flex-col items-center justify-center">
+            <div className="text-vf-orange mb-4">
+              <Globe size={40} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h3 className="text-5xl font-bold text-vf-orange mb-4">+5</h3>
-            <p className="text-sm uppercase tracking-wider font-light text-gray-300">Países com Atendimento</p>
+            <h3 className="text-5xl font-bold text-vf-orange mb-3">+5</h3>
+            <p className="text-sm uppercase tracking-wider font-light text-center">Países com Atendimento</p>
           </div>
         </div>
 
+        {/* CTA Button - Centered */}
         <div className="flex justify-center">
           <Button 
             onClick={() => scrollToSection('planos')}
