@@ -33,6 +33,9 @@ const Index: React.FC = () => {
           </div>
         </div>
 
+        {/* Services Section First */}
+        <ServicesSection />
+
         {/* Hero Section */}
         <section className="min-h-screen flex items-center">
           <div className="container mx-auto px-6 py-20">
@@ -71,7 +74,6 @@ const Index: React.FC = () => {
 
         {/* Rest of the sections */}
         <AboutSection />
-        <ServicesSection />
         <TestimonialsSection />
         <CTASection />
         <Footer />

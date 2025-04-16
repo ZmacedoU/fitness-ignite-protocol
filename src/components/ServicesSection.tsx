@@ -1,50 +1,40 @@
-
 import React from 'react';
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
 const ServicesSection: React.FC = () => {
   return (
-    <section id="servicos" className="py-20 bg-vf-black">
+    <section className="py-20 bg-gradient-to-r from-black via-black/95 to-vf-orange/40">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="section-title mx-auto">
-            PROTOCOLO DE <span className="text-vf-orange">TREINAMENTO</span> EXCLUSIVO
-          </h2>
-          <p className="text-xl max-w-3xl mx-auto">
-            O protocolo de treinamento é para você que busca atingir um novo nível.
-            Se você se sente estagnado com o seu físico e quer realmente evoluir, meu acompanhamento 
-            é feito para transformar o seu corpo e a sua rotina com consistência e estratégia.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="service-card"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="backdrop-blur-sm bg-white/5 rounded-3xl p-8 transition-all duration-300 hover:bg-white/10"
             >
-              <div className="feature-icon">{service.icon}</div>
-              <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-              <p className="mb-4 text-gray-300">{service.description}</p>
+              <div className="text-vf-orange mb-6 text-4xl">{service.icon}</div>
+              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+              <p className="text-gray-300">{service.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-vf-black to-gray-900 p-8 rounded-lg border border-vf-orange">
-          <h3 className="text-2xl font-bold mb-6">✅ Você vai ter:</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="backdrop-blur-sm bg-white/5 rounded-3xl p-12">
+          <h3 className="text-3xl font-bold mb-8">✅ Você vai ter:</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start gap-3 mb-4">
+              <div 
+                key={index} 
+                className="flex items-start gap-4 p-4 backdrop-blur-sm bg-white/5 rounded-2xl transition-all duration-300 hover:bg-white/10"
+              >
                 <CheckCircle className="text-vf-orange mt-1 flex-shrink-0" />
-                <p>{benefit}</p>
+                <p className="text-gray-200">{benefit}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-10 text-center">
-          <blockquote className="quote text-2xl">
+        <div className="mt-12 text-center">
+          <blockquote className="text-2xl font-light italic text-gray-300">
             "Na dúvida, faça mais força!"
           </blockquote>
         </div>
