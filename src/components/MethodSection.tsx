@@ -8,7 +8,18 @@ import {
 
 const MethodSection: React.FC = () => {
   return (
-    <section id="metodo" className="py-20 bg-gradient-to-r from-black via-black/95 to-vf-orange/20 relative overflow-hidden">
+    <section id="metodo" className="py-20 relative overflow-hidden">
+      {/* Dark Textured Background with Carbon Fiber-like Pattern */}
+      <div className="absolute inset-0 bg-black opacity-80" 
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23232323' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '12px 12px',
+        }}
+      ></div>
+      
+      {/* Gradient Overlay at Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-vf-orange/20 to-transparent"></div>
+      
       {/* Background Orange Glow */}
       <div className="absolute -bottom-1/2 right-0 w-[500px] h-[500px] bg-vf-orange opacity-10 blur-3xl rounded-full"></div>
       

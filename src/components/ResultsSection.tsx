@@ -19,7 +19,17 @@ const ResultsSection: React.FC = () => {
   };
 
   return (
-    <section id="resultados" className="py-20 bg-gradient-to-br from-black via-black to-vf-orange/20 relative">
+    <section id="resultados" className="py-20 relative">
+      {/* Inverted Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-[#3d1500] z-0"></div>
+      
+      {/* Subtle Vertical Lines */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="absolute left-1/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/5 to-transparent"></div>
+        <div className="absolute left-2/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/5 to-transparent"></div>
+        <div className="absolute left-3/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/5 to-transparent"></div>
+      </div>
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="section-title mx-auto">
@@ -36,7 +46,7 @@ const ResultsSection: React.FC = () => {
               {transformations.map((item, index) => (
                 <CarouselItem key={index} className="md:basis-1/2">
                   <div className="p-1">
-                    <div className="rounded-xl overflow-hidden border border-vf-orange/20 shadow-lg shadow-vf-orange/5 transition-all duration-300 hover:scale-105">
+                    <div className="rounded-xl overflow-hidden border border-vf-orange/20 shadow-lg shadow-vf-orange/10 transition-all duration-300 hover:scale-105">
                       <div className="relative">
                         <div className="flex">
                           <div className="w-1/2 relative">
