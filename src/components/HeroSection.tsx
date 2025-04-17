@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowDown, ArrowRight, Calendar, Users, Globe } from 'lucide-react';
 import { Button } from './ui/button';
+import { useCountAnimation } from '../hooks/useCountAnimation';
 
 const HeroSection: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -10,6 +11,11 @@ const HeroSection: React.FC = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Set up animated counters
+  const experienceCounter = useCountAnimation({ end: 6 });
+  const transformationsCounter = useCountAnimation({ end: 100 });
+  const countriesCounter = useCountAnimation({ end: 5 });
 
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden">
@@ -56,29 +62,38 @@ const HeroSection: React.FC = () => {
         {/* Authority Cards with Icons - Updated Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 mb-16">
           {/* Card 1 */}
-          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '800ms', animationFillMode: 'forwards' }}>
+          <div ref={experienceCounter.elementRef} className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '800ms', animationFillMode: 'forwards' }}>
             <div className="text-vf-orange mb-6">
               <Calendar size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h3 className="text-6xl font-bold text-vf-orange mb-4 transition-colors">+6</h3>
+            <h3 className="text-6xl font-bold text-vf-orange mb-4 transition-colors">
+              <span className="inline-block">+</span>
+              <span className="inline-block">{experienceCounter.count}</span>
+            </h3>
             <p className="text-gray-300 text-sm uppercase tracking-wider font-light text-center">Anos de Experiência</p>
           </div>
           
           {/* Card 2 */}
-          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '1000ms', animationFillMode: 'forwards' }}>
+          <div ref={transformationsCounter.elementRef} className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '1000ms', animationFillMode: 'forwards' }}>
             <div className="text-vf-orange mb-6">
               <Users size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h3 className="text-6xl font-bold text-vf-orange mb-4 transition-colors">+100</h3>
+            <h3 className="text-6xl font-bold text-vf-orange mb-4 transition-colors">
+              <span className="inline-block">+</span>
+              <span className="inline-block">{transformationsCounter.count}</span>
+            </h3>
             <p className="text-gray-300 text-sm uppercase tracking-wider font-light text-center">Transformações</p>
           </div>
           
           {/* Card 3 */}
-          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '1200ms', animationFillMode: 'forwards' }}>
+          <div ref={countriesCounter.elementRef} className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '1200ms', animationFillMode: 'forwards' }}>
             <div className="text-vf-orange mb-6">
               <Globe size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h3 className="text-6xl font-bold text-vf-orange mb-4 transition-colors">+5</h3>
+            <h3 className="text-6xl font-bold text-vf-orange mb-4 transition-colors">
+              <span className="inline-block">+</span>
+              <span className="inline-block">{countriesCounter.count}</span>
+            </h3>
             <p className="text-gray-300 text-sm uppercase tracking-wider font-light text-center">Países com Atendimento</p>
           </div>
         </div>
