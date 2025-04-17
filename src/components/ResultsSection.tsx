@@ -20,8 +20,8 @@ const ResultsSection: React.FC = () => {
 
   return (
     <section id="resultados" className="py-20 relative">
-      {/* Inverted Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-[#3d1500] z-0"></div>
+      {/* Neutral Dark Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#121212] to-[#1e1e1e] z-0"></div>
       
       {/* Subtle Vertical Lines */}
       <div className="absolute inset-0 overflow-hidden z-0">
