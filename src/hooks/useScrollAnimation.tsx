@@ -8,7 +8,7 @@ export const useScrollAnimation = <T extends HTMLElement>(animationClass: string
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !isVisible) {
           setIsVisible(true);
         }
       },
@@ -25,10 +25,10 @@ export const useScrollAnimation = <T extends HTMLElement>(animationClass: string
         observer.unobserve(currentRef);
       }
     };
-  }, [threshold]);
+  }, [threshold, isVisible]);
 
   return { 
     ref, 
-    className: isVisible ? animationClass : 'opacity-0'
+    className: isVisible ? animationClass : ''
   };
 };
