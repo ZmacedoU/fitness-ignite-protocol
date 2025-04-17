@@ -7,55 +7,23 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-black py-12 border-t border-vf-orange/20">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-10">
-          <div className="mb-8 md:mb-0">
+        <div className="flex flex-col items-center">
+          <div className="mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
             <img 
               src="/lovable-uploads/988273f0-e092-4366-bf1a-b33a782abf43.png" 
               alt="Vinicius Di Fiore" 
               className="h-14 mb-4" 
             />
-            <p className="text-gray-400 max-w-md">
+            <p className="text-gray-400 max-w-md text-center">
               Transformando corpos, construindo mentes.
             </p>
           </div>
           
-          <div>
-            <div className="flex flex-col items-center md:items-end">
-              <a href="mailto:contato@viniciusdifiore.com" className="text-gray-400 hover:text-vf-orange mb-2 transition-colors">
-                contato@viniciusdifiore.com
-              </a>
+          <div className="border-t border-vf-orange/10 pt-6 w-full opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
+            <div className="flex justify-center">
               <p className="text-gray-500 text-sm">
                 &copy; {currentYear} Vinicius Di Fiore. Todos os direitos reservados.
               </p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="border-t border-vf-orange/10 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <nav className="mb-4 md:mb-0">
-              <ul className="flex flex-wrap gap-6">
-                <NavLink href="#metodo">O Método</NavLink>
-                <NavLink href="#resultados">Resultados</NavLink>
-                <NavLink href="#sobre">Sobre</NavLink>
-                <NavLink href="#planos">Planos</NavLink>
-                <NavLink href="#contato">Contato</NavLink>
-              </ul>
-            </nav>
-            <div>
-              <a 
-                href="#" 
-                className="text-sm text-gray-500 hover:text-gray-400 transition-colors"
-              >
-                Termos de Uso
-              </a>
-              <span className="mx-2 text-gray-600">|</span>
-              <a 
-                href="#" 
-                className="text-sm text-gray-500 hover:text-gray-400 transition-colors"
-              >
-                Política de Privacidade
-              </a>
             </div>
           </div>
         </div>
@@ -63,21 +31,5 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
-type NavLinkProps = {
-  href: string;
-  children: React.ReactNode;
-};
-
-const NavLink = ({ href, children }: NavLinkProps) => (
-  <li>
-    <a 
-      href={href} 
-      className="text-gray-400 hover:text-vf-orange transition-colors animated-underline"
-    >
-      {children}
-    </a>
-  </li>
-);
 
 export default Footer;

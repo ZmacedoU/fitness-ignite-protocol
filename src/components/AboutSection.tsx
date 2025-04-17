@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Award, Globe, GraduationCap } from 'lucide-react';
 
@@ -9,7 +10,7 @@ const AboutSection: React.FC = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-2/5">
+          <div className="md:w-2/5 opacity-0 transform -translate-x-8 animate-fade-in" style={{ animationDuration: '800ms', animationFillMode: 'forwards' }}>
             <div className="relative">
               <img 
                 src="/lovable-uploads/ae4d02a8-2331-4e52-b495-c3dbb118f8ad.png" 
@@ -19,29 +20,29 @@ const AboutSection: React.FC = () => {
             </div>
           </div>
           
-          <div className="md:w-3/5">
+          <div className="md:w-3/5 opacity-0 transform translate-x-8 animate-fade-in" style={{ animationDelay: '200ms', animationDuration: '800ms', animationFillMode: 'forwards' }}>
             <h2 className="text-4xl md:text-5xl font-bold mb-2 tracking-tight uppercase">
               Quem é <span className="text-vf-orange">Vinicius Di Fiore</span>?
             </h2>
             
             <div className="space-y-6 mb-8">
-              <p className="text-lg">
+              <p className="text-lg opacity-0 animate-fade-in" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
                 Sou treinador especializado em transformação física real, com mais de 6 anos de experiência ajudando pessoas comuns a alcançarem resultados extraordinários.
               </p>
               
-              <p className="text-lg">
+              <p className="text-lg opacity-0 animate-fade-in" style={{ animationDelay: '500ms', animationFillMode: 'forwards' }}>
                 Minha missão é levar você ao próximo nível, com um método baseado em ciência, prática e acompanhamento verdadeiro — sem fórmulas genéricas, sem promessas vazias.
               </p>
               
-              <p className="text-xl font-bold text-vf-orange">
+              <p className="text-xl font-bold text-vf-orange opacity-0 animate-fade-in" style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}>
                 "Acredita, vamo!" 💥
               </p>
               
-              <p className="text-lg">
+              <p className="text-lg opacity-0 animate-fade-in" style={{ animationDelay: '700ms', animationFillMode: 'forwards' }}>
                 Desenvolvi o Protocolo de Treinamento Di Fiore, um método autoral baseado em resultados reais de alunos e nas estratégias mais atuais do mundo fitness.
               </p>
               
-              <p className="text-lg">
+              <p className="text-lg opacity-0 animate-fade-in" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
                 Se você está cansado de não ver resultados, chegou a hora de virar o jogo.
               </p>
             </div>
@@ -50,7 +51,8 @@ const AboutSection: React.FC = () => {
               {certifications.map((item, index) => (
                 <div 
                   key={index} 
-                  className="flex flex-col items-center gap-4 p-6 backdrop-blur-sm bg-white/5 rounded-2xl border border-vf-orange/20 hover:bg-white/10 transition-colors"
+                  className="flex flex-col items-center gap-4 p-6 backdrop-blur-sm bg-white/5 rounded-2xl border border-vf-orange/20 hover:bg-white/10 transition-all duration-300 hover:scale-[1.05] hover:shadow-lg opacity-0 animate-scale-in"
+                  style={{ animationDelay: `${900 + index * 150}ms`, animationFillMode: 'forwards' }}
                 >
                   <item.icon className="text-vf-orange" size={32} />
                   <div className="text-center">

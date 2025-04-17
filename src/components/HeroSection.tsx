@@ -26,19 +26,19 @@ const HeroSection: React.FC = () => {
       
       <div className="container mx-auto px-6 py-20 z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-3/5 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight uppercase">
+          <div className="lg:w-3/5">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight uppercase opacity-0 transform translate-y-4 animate-fade-in" style={{ animationDelay: '300ms', animationDuration: '600ms', animationFillMode: 'forwards' }}>
               Protocolo de <br />
               <span className="text-vf-orange">Treinamento</span>
             </h1>
-            <h2 className="text-3xl md:text-5xl mb-12 font-light tracking-wide">
+            <h2 className="text-3xl md:text-5xl mb-12 font-light tracking-wide opacity-0 transform translate-y-4 animate-fade-in" style={{ animationDelay: '500ms', animationDuration: '600ms', animationFillMode: 'forwards' }}>
               Torne sua <span className="text-vf-orange">melhor</span> versão
             </h2>
           </div>
           
-          <div className="lg:w-2/5 relative animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="lg:w-2/5 relative opacity-0 animate-fade-in" style={{ animationDelay: '700ms', animationDuration: '800ms', animationFillMode: 'forwards' }}>
             {/* Video Space with Enhanced Styling */}
-            <div className="backdrop-blur-sm bg-white/5 rounded-3xl p-6 shadow-lg shadow-vf-orange/10 border border-vf-orange/20 relative overflow-hidden transition-all duration-300 hover:shadow-vf-orange/20">
+            <div className="backdrop-blur-sm bg-white/5 rounded-3xl p-6 shadow-lg shadow-vf-orange/10 border border-vf-orange/20 relative overflow-hidden transition-all duration-300 hover:shadow-vf-orange/20 hover:scale-[1.02]">
               <div className="absolute inset-0 bg-gradient-to-br from-transparent to-vf-orange/5 z-0"></div>
               <div className="relative z-10 aspect-video flex items-center justify-center">
                 <div className="absolute inset-0 bg-black/40 rounded-xl"></div>
@@ -56,7 +56,7 @@ const HeroSection: React.FC = () => {
         {/* Authority Cards with Icons - Updated Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 mb-16">
           {/* Card 1 */}
-          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 group animate-fade-in" style={{ minHeight: '280px' }}>
+          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '800ms', animationFillMode: 'forwards' }}>
             <div className="text-vf-orange mb-6">
               <Calendar size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -65,7 +65,7 @@ const HeroSection: React.FC = () => {
           </div>
           
           {/* Card 2 */}
-          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 group animate-fade-in" style={{ minHeight: '280px', animationDelay: '0.2s' }}>
+          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '1000ms', animationFillMode: 'forwards' }}>
             <div className="text-vf-orange mb-6">
               <Users size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -74,7 +74,7 @@ const HeroSection: React.FC = () => {
           </div>
           
           {/* Card 3 */}
-          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 group animate-fade-in" style={{ minHeight: '280px', animationDelay: '0.4s' }}>
+          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '1200ms', animationFillMode: 'forwards' }}>
             <div className="text-vf-orange mb-6">
               <Globe size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -87,7 +87,8 @@ const HeroSection: React.FC = () => {
         <div className="flex justify-center">
           <Button 
             onClick={() => scrollToSection('planos')}
-            className="btn-primary orange-glow text-xl px-8 py-6 h-auto font-bold flex items-center gap-2 transition-all duration-300 hover:scale-105"
+            className="btn-primary orange-glow text-xl px-8 py-6 h-auto font-bold flex items-center gap-2 transition-all duration-300 hover:scale-105 opacity-0 animate-fade-in"
+            style={{ animationDelay: '1400ms', animationFillMode: 'forwards' }}
           >
             QUERO TRANSFORMAR MEU CORPO AGORA
             <ArrowRight className="ml-2" />

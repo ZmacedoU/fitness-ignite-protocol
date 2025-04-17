@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CheckCircle, Flame, Diamond, ArrowRight, DollarSign } from 'lucide-react';
 import { Button } from './ui/button';
@@ -9,26 +8,17 @@ const PlansSection: React.FC = () => {
       {/* Pure Black Background */}
       <div className="absolute inset-0 bg-black z-0"></div>
       
-      {/* Subtle Orange Gradient at the Edges */}
+      {/* Top edge gradient only */}
       <div className="absolute inset-0 z-0">
-        {/* Left edge gradient */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-vf-orange/20 to-transparent"></div>
-        
-        {/* Right edge gradient */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-vf-orange/20 to-transparent"></div>
-        
         {/* Top edge gradient */}
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-vf-orange/20 to-transparent"></div>
-        
-        {/* Bottom edge gradient */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-vf-orange/20 to-transparent"></div>
       </div>
       
       {/* Radial Glow Effect (reduced opacity) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-vf-orange opacity-[0.03] blur-3xl rounded-full"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 opacity-0 animate-fade-in" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
           <h2 className="section-title mx-auto">
             Escolha o plano <span className="text-vf-orange">ideal</span> para sua jornada
           </h2>
@@ -41,7 +31,7 @@ const PlansSection: React.FC = () => {
           {plans.map((plan, index) => (
             <div 
               key={index} 
-              className={`rounded-2xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 ${
+              className={`rounded-2xl overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.03] hover:shadow-lg ${
                 index === 0 
                   ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/10 border-2 border-[#B0B0B0] shadow-lg hover:shadow-[#B0B0B0]/20' 
                   : index === 1
@@ -49,23 +39,24 @@ const PlansSection: React.FC = () => {
                     : index === 2
                       ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/20 border-2 border-[#E1E1E1] shadow-lg hover:shadow-[#E1E1E1]/40'
                       : 'bg-white/5 backdrop-blur-sm border border-vf-orange/20'
-              }`}
+              } opacity-0 animate-fade-in`}
+              style={{ animationDelay: `${300 + index * 200}ms`, animationFillMode: 'forwards' }}
             >
               <div className="p-6 bg-black/50 backdrop-blur-sm relative">
                 {index === 0 && (
-                  <div className="absolute top-0 right-0 bg-white/10 text-white px-3 py-1 rounded-bl-lg flex items-center">
+                  <div className="absolute top-0 right-0 bg-white/10 text-white px-3 py-1 rounded-bl-lg flex items-center opacity-0 animate-scale-in" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
                     <DollarSign className="mr-1" size={16} />
                     <span className="text-xs font-bold">MELHOR CUSTO-BENEFÍCIO</span>
                   </div>
                 )}
                 {index === 1 && (
-                  <div className="absolute top-0 right-0 bg-vf-orange text-white px-3 py-1 rounded-bl-lg flex items-center">
+                  <div className="absolute top-0 right-0 bg-vf-orange text-white px-3 py-1 rounded-bl-lg flex items-center opacity-0 animate-scale-in" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
                     <Flame className="mr-1" size={16} />
                     <span className="text-xs font-bold">MAIS ESCOLHIDO</span>
                   </div>
                 )}
                 {index === 2 && (
-                  <div className="absolute top-0 right-0 bg-gradient-to-r from-white/80 to-white/30 text-black px-3 py-1 rounded-bl-lg flex items-center">
+                  <div className="absolute top-0 right-0 bg-gradient-to-r from-white/80 to-white/30 text-black px-3 py-1 rounded-bl-lg flex items-center opacity-0 animate-scale-in" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
                     <Diamond className="mr-1" size={16} />
                     <span className="text-xs font-bold">PREMIUM</span>
                   </div>

@@ -32,10 +32,10 @@ const ResultsSection: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="section-title mx-auto">
+          <h2 className="section-title mx-auto opacity-0 animate-scale-in" style={{ animationDuration: '700ms', animationFillMode: 'forwards' }}>
             Resultados <span className="text-vf-orange">Reais</span>
           </h2>
-          <p className="text-xl max-w-3xl mx-auto text-gray-300">
+          <p className="text-xl max-w-3xl mx-auto text-gray-300 opacity-0 animate-fade-in" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
             Transformações que falam por si
           </p>
         </div>
@@ -46,7 +46,12 @@ const ResultsSection: React.FC = () => {
               {transformations.map((item, index) => (
                 <CarouselItem key={index} className="md:basis-1/2">
                   <div className="p-1">
-                    <div className="rounded-xl overflow-hidden border border-vf-orange/20 shadow-lg shadow-vf-orange/10 transition-all duration-300 hover:scale-105">
+                    <div className="rounded-xl overflow-hidden border border-vf-orange/20 shadow-lg shadow-vf-orange/10 transition-all duration-300 hover:scale-105 opacity-0 animate-fade-in" 
+                      style={{ 
+                        animationDelay: `${400 + index * 150}ms`, 
+                        animationFillMode: 'forwards',
+                        transform: index % 2 === 0 ? 'translateX(-20px)' : 'translateX(20px)'
+                      }}>
                       <div className="relative">
                         <div className="flex">
                           <div className="w-1/2 relative">
@@ -72,7 +77,8 @@ const ResultsSection: React.FC = () => {
         <div className="flex justify-center">
           <Button 
             onClick={() => scrollToSection('planos')}
-            className="btn-primary orange-glow text-xl px-8 py-6 h-auto font-bold flex items-center gap-2"
+            className="btn-primary orange-glow text-xl px-8 py-6 h-auto font-bold flex items-center gap-2 animate-pulse-subtle opacity-0 animate-fade-in hover:scale-105 transition-transform"
+            style={{ animationDelay: '800ms', animationFillMode: 'forwards', animationDuration: '0.3s' }}
           >
             Quero começar minha transformação
             <ArrowRight className="ml-2" />
