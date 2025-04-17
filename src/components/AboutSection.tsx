@@ -4,8 +4,8 @@ import { Award, Globe, GraduationCap } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const AboutSection: React.FC = () => {
-  const photoAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-x-0 transition-all duration-1000');
-  const textAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-x-0 transition-all duration-1000');
+  const photoAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 transform translate-x-0 transition-all duration-1000');
+  const textAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 transform translate-x-0 transition-all duration-1000');
   
   return (
     <section id="sobre" className="py-20 bg-gradient-to-b from-white/10 to-black relative">
@@ -36,36 +36,62 @@ const AboutSection: React.FC = () => {
             </h2>
             
             <div className="space-y-6 mb-8">
-              <p className="text-lg opacity-0 transform translate-x-4 transition-all duration-700 delay-[200ms]" style={{ animationFillMode: 'forwards' }} ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0').ref}>
+              <p 
+                className="text-lg opacity-0 transform translate-x-4 transition-all duration-700" 
+                style={{ transitionDelay: '200ms', animationFillMode: 'forwards' }} 
+                ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 200 }).ref}
+              >
                 Sou treinador especializado em transformação física real, com mais de 6 anos de experiência ajudando pessoas comuns a alcançarem resultados extraordinários.
               </p>
               
-              <p className="text-lg opacity-0 transform translate-x-4 transition-all duration-700 delay-[300ms]" style={{ animationFillMode: 'forwards' }} ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0').ref}>
+              <p 
+                className="text-lg opacity-0 transform translate-x-4 transition-all duration-700" 
+                style={{ transitionDelay: '300ms', animationFillMode: 'forwards' }}
+                ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 300 }).ref}
+              >
                 Minha missão é levar você ao próximo nível, com um método baseado em ciência, prática e acompanhamento verdadeiro — sem fórmulas genéricas, sem promessas vazias.
               </p>
               
-              <p className="text-xl font-bold text-vf-orange opacity-0 transform translate-x-4 transition-all duration-700 delay-[400ms]" style={{ animationFillMode: 'forwards' }} ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0').ref}>
+              <p 
+                className="text-xl font-bold text-vf-orange opacity-0 transform translate-x-4 transition-all duration-700" 
+                style={{ transitionDelay: '400ms', animationFillMode: 'forwards' }}
+                ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 400 }).ref}
+              >
                 "Acredita, vamo!" 💥
               </p>
               
-              <p className="text-lg opacity-0 transform translate-x-4 transition-all duration-700 delay-[500ms]" style={{ animationFillMode: 'forwards' }} ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0').ref}>
+              <p 
+                className="text-lg opacity-0 transform translate-x-4 transition-all duration-700" 
+                style={{ transitionDelay: '500ms', animationFillMode: 'forwards' }}
+                ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 500 }).ref}
+              >
                 Desenvolvi o Protocolo de Treinamento Di Fiore, um método autoral baseado em resultados reais de alunos e nas estratégias mais atuais do mundo fitness.
               </p>
               
-              <p className="text-lg opacity-0 transform translate-x-4 transition-all duration-700 delay-[600ms]" style={{ animationFillMode: 'forwards' }} ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0').ref}>
+              <p 
+                className="text-lg opacity-0 transform translate-x-4 transition-all duration-700" 
+                style={{ transitionDelay: '600ms', animationFillMode: 'forwards' }}
+                ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 600 }).ref}
+              >
                 Se você está cansado de não ver resultados, chegou a hora de virar o jogo.
               </p>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               {certifications.map((item, index) => {
-                const cardAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 scale-100 transition-all duration-500');
+                const delay = 700 + index * 150;
+                const cardAnimation = useScrollAnimation<HTMLDivElement>(
+                  'opacity-100 scale-100 transition-all duration-500',
+                  0.1,
+                  { delay }
+                );
+                
                 return (
                   <div 
                     key={index} 
                     ref={cardAnimation.ref}
                     className={`flex flex-col items-center gap-4 p-6 backdrop-blur-sm bg-white/5 rounded-2xl border border-vf-orange/20 hover:bg-white/10 transition-all duration-300 hover:scale-[1.05] hover:shadow-lg opacity-0 scale-90 ${cardAnimation.className}`}
-                    style={{ transitionDelay: `${700 + index * 150}ms` }}
+                    style={cardAnimation.style}
                   >
                     <item.icon className="text-vf-orange" size={32} />
                     <div className="text-center">

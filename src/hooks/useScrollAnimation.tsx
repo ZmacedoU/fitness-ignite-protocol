@@ -1,15 +1,21 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export const useScrollAnimation = <T extends HTMLElement>(animationClass: string, threshold = 0.1) => {
+export const useScrollAnimation = <T extends HTMLElement>(
+  animationClass: string, 
+  threshold = 0.1, 
+  options: { delay?: number; noInitialHidden?: boolean } = {}
+) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<T>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
+        if (entry.isIntersecting && !hasAnimated) {
           setIsVisible(true);
+          setHasAnimated(true);
         }
       },
       { threshold }
@@ -25,10 +31,13 @@ export const useScrollAnimation = <T extends HTMLElement>(animationClass: string
         observer.unobserve(currentRef);
       }
     };
-  }, [threshold, isVisible]);
+  }, [threshold, hasAnimated]);
+
+  const style = options.delay ? { transitionDelay: `${options.delay}ms` } : {};
 
   return { 
     ref, 
-    className: isVisible ? animationClass : ''
+    className: isVisible ? animationClass : options.noInitialHidden ? '' : 'opacity-0',
+    style
   };
 };

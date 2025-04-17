@@ -19,10 +19,29 @@ const ResultsSection: React.FC = () => {
     }
   };
 
-  const titleAnimation = useScrollAnimation<HTMLHeadingElement>('animate-fade-in delay-200');
-  const subtitleAnimation = useScrollAnimation<HTMLParagraphElement>('animate-fade-in delay-300');
-  const carouselAnimation = useScrollAnimation<HTMLDivElement>('animate-fade-in delay-400');
-  const ctaButtonAnimation = useScrollAnimation<HTMLDivElement>('animate-fade-in');
+  const titleAnimation = useScrollAnimation<HTMLHeadingElement>(
+    'animate-fade-in',
+    0.1, 
+    { delay: 200, noInitialHidden: true }
+  );
+  
+  const subtitleAnimation = useScrollAnimation<HTMLParagraphElement>(
+    'animate-fade-in', 
+    0.1, 
+    { delay: 300, noInitialHidden: true }
+  );
+  
+  const carouselAnimation = useScrollAnimation<HTMLDivElement>(
+    'animate-fade-in',
+    0.1, 
+    { delay: 400, noInitialHidden: true }
+  );
+  
+  const ctaButtonAnimation = useScrollAnimation<HTMLDivElement>(
+    'animate-fade-in',
+    0.1, 
+    { noInitialHidden: true }
+  );
 
   return (
     <section id="resultados" className="py-20 relative">
@@ -33,12 +52,14 @@ const ResultsSection: React.FC = () => {
           <h2 
             ref={titleAnimation.ref} 
             className={`section-title mx-auto ${titleAnimation.className}`}
+            style={titleAnimation.style}
           >
             Resultados <span className="text-vf-orange">Reais</span>
           </h2>
           <p 
             ref={subtitleAnimation.ref}
             className={`text-xl max-w-3xl mx-auto text-gray-300 ${subtitleAnimation.className}`}
+            style={subtitleAnimation.style}
           >
             Transformações que falam por si
           </p>
@@ -47,36 +68,46 @@ const ResultsSection: React.FC = () => {
         <div 
           ref={carouselAnimation.ref}
           className={`mb-16 ${carouselAnimation.className}`}
+          style={carouselAnimation.style}
         >
           <Carousel className="w-full max-w-5xl mx-auto">
             <CarouselContent>
-              {transformations.map((item, index) => (
-                <CarouselItem key={index} className="md:basis-1/2">
-                  <div className="p-1">
-                    <div 
-                      className="rounded-xl overflow-hidden border border-vf-orange/20 shadow-lg shadow-vf-orange/10 transition-all duration-300 hover:scale-105 opacity-0 animate-fade-in" 
-                      style={{ 
-                        animationDelay: `${400 + index * 150}ms`, 
-                        animationFillMode: 'forwards',
-                        transform: index % 2 === 0 ? 'translateX(-20px)' : 'translateX(20px)'
-                      }}
-                    >
-                      <div className="relative">
-                        <div className="flex">
-                          <div className="w-1/2 relative">
-                            <span className="absolute top-2 left-2 bg-black/70 text-white px-2 py-1 text-xs rounded">ANTES</span>
-                            <div className="aspect-square bg-gray-900"></div>
-                          </div>
-                          <div className="w-1/2 relative">
-                            <span className="absolute top-2 right-2 bg-vf-orange/70 text-white px-2 py-1 text-xs rounded">DEPOIS</span>
-                            <div className="aspect-square bg-gray-800"></div>
+              {transformations.map((item, index) => {
+                const delay = 400 + index * 150;
+                const itemAnimation = useScrollAnimation<HTMLDivElement>(
+                  'opacity-100 transform-none',
+                  0.1,
+                  { delay, noInitialHidden: true }
+                );
+                
+                return (
+                  <CarouselItem key={index} className="md:basis-1/2">
+                    <div className="p-1">
+                      <div 
+                        ref={itemAnimation.ref}
+                        className={`rounded-xl overflow-hidden border border-vf-orange/20 shadow-lg shadow-vf-orange/10 transition-all duration-300 hover:scale-105 ${itemAnimation.className}`} 
+                        style={{
+                          ...itemAnimation.style,
+                          transform: isNaN(index % 2) ? 'none' : index % 2 === 0 ? 'translateX(-20px)' : 'translateX(20px)'
+                        }}
+                      >
+                        <div className="relative">
+                          <div className="flex">
+                            <div className="w-1/2 relative">
+                              <span className="absolute top-2 left-2 bg-black/70 text-white px-2 py-1 text-xs rounded">ANTES</span>
+                              <div className="aspect-square bg-gray-900"></div>
+                            </div>
+                            <div className="w-1/2 relative">
+                              <span className="absolute top-2 right-2 bg-vf-orange/70 text-white px-2 py-1 text-xs rounded">DEPOIS</span>
+                              <div className="aspect-square bg-gray-800"></div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </CarouselItem>
-              ))}
+                  </CarouselItem>
+                );
+              })}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
@@ -84,7 +115,11 @@ const ResultsSection: React.FC = () => {
         </div>
 
         <div className="flex justify-center">
-          <div ref={ctaButtonAnimation.ref} className={ctaButtonAnimation.className}>
+          <div 
+            ref={ctaButtonAnimation.ref} 
+            className={ctaButtonAnimation.className}
+            style={ctaButtonAnimation.style}
+          >
             <Button 
               onClick={() => scrollToSection('planos')}
               className="btn-primary orange-glow text-xl px-8 py-6 h-auto font-bold flex items-center gap-2 hover:scale-105 transition-transform"
