@@ -1,124 +1,40 @@
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const ServicesSection: React.FC = () => {
-  // Section heading animation
-  const titleAnimation = useScrollAnimation<HTMLHeadingElement>(
-    'animate-fade-in',
-    0.1, 
-    { delay: 200, noInitialHidden: true }
-  );
-  
-  // Service cards with staggered animations
-  const serviceAnimations = services.map((_, index) => {
-    return useScrollAnimation<HTMLDivElement>(
-      'animate-fade-in',
-      0.1,
-      { 
-        staggerIndex: index, 
-        staggerDelay: 100, 
-        delay: 300, 
-        duration: 600,
-        noInitialHidden: true 
-      }
-    );
-  });
-  
-  // Benefits section animations
-  const benefitsContainerAnimation = useScrollAnimation<HTMLDivElement>(
-    'animate-fade-in',
-    0.1, 
-    { delay: 500, noInitialHidden: true }
-  );
-  
-  // Benefit items with staggered animations
-  const benefitAnimations = benefits.map((_, index) => {
-    return useScrollAnimation<HTMLDivElement>(
-      'animate-fade-in',
-      0.1,
-      { 
-        staggerIndex: index, 
-        staggerDelay: 80, 
-        delay: 600, 
-        duration: 500,
-        noInitialHidden: true 
-      }
-    );
-  });
-  
-  // Quote animation
-  const quoteAnimation = useScrollAnimation<HTMLBlockquoteElement>(
-    'animate-fade-in',
-    0.1, 
-    { delay: 1200, noInitialHidden: true }
-  );
-
   return (
     <section className="py-20 bg-gradient-to-r from-black via-black/95 to-vf-orange/40">
       <div className="container mx-auto px-6">
-        <h2 
-          ref={titleAnimation.ref} 
-          className={`section-title mx-auto text-center mb-12 ${titleAnimation.className}`}
-          style={titleAnimation.style}
-        >
-          Nossos <span className="text-vf-orange">Serviços</span>
-        </h2>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => {
-            const animation = serviceAnimations[index];
-            return (
-              <div 
-                key={index} 
-                ref={animation.ref}
-                className={`backdrop-blur-sm bg-white/5 rounded-3xl p-8 transition-all duration-300 hover:bg-white/10 transform-gpu ${animation.className}`}
-                style={{
-                  ...animation.style,
-                  animationTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)', 
-                }}
-              >
-                <div className="text-vf-orange mb-6 text-4xl">{service.icon}</div>
-                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-gray-300">{service.description}</p>
-              </div>
-            );
-          })}
+          {services.map((service, index) => (
+            <div 
+              key={index} 
+              className="backdrop-blur-sm bg-white/5 rounded-3xl p-8 transition-all duration-300 hover:bg-white/10"
+            >
+              <div className="text-vf-orange mb-6 text-4xl">{service.icon}</div>
+              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+              <p className="text-gray-300">{service.description}</p>
+            </div>
+          ))}
         </div>
 
-        <div 
-          ref={benefitsContainerAnimation.ref}
-          className={`backdrop-blur-sm bg-white/5 rounded-3xl p-12 ${benefitsContainerAnimation.className}`}
-          style={benefitsContainerAnimation.style}
-        >
+        <div className="backdrop-blur-sm bg-white/5 rounded-3xl p-12">
           <h3 className="text-3xl font-bold mb-8">✅ Você vai ter:</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {benefits.map((benefit, index) => {
-              const animation = benefitAnimations[index];
-              return (
-                <div 
-                  key={index} 
-                  ref={animation.ref}
-                  className={`flex items-start gap-4 p-4 backdrop-blur-sm bg-white/5 rounded-2xl transition-all duration-300 hover:bg-white/10 transform-gpu ${animation.className}`}
-                  style={{
-                    ...animation.style,
-                    animationTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
-                  }}
-                >
-                  <CheckCircle className="text-vf-orange mt-1 flex-shrink-0" />
-                  <p className="text-gray-200">{benefit}</p>
-                </div>
-              );
-            })}
+            {benefits.map((benefit, index) => (
+              <div 
+                key={index} 
+                className="flex items-start gap-4 p-4 backdrop-blur-sm bg-white/5 rounded-2xl transition-all duration-300 hover:bg-white/10"
+              >
+                <CheckCircle className="text-vf-orange mt-1 flex-shrink-0" />
+                <p className="text-gray-200">{benefit}</p>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="mt-12 text-center">
-          <blockquote 
-            ref={quoteAnimation.ref}
-            className={`text-2xl font-light italic text-gray-300 ${quoteAnimation.className}`}
-            style={quoteAnimation.style}
-          >
+          <blockquote className="text-2xl font-light italic text-gray-300">
             "Na dúvida, faça mais força!"
           </blockquote>
         </div>
