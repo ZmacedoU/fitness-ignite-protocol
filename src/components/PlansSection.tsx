@@ -41,14 +41,14 @@ const PlansSection: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {plans.map((plan, index) => {
-            const delay = 300 + index * 200;
+            const delay = 100 + index * 100; // Reduced delay between cards
             const cardAnimation = useScrollAnimation<HTMLDivElement>(
               'opacity-100 transform-none',
               0.1,
               { delay }
             );
             
-            const labelDelay = 800 + index * 50;
+            const labelDelay = 300 + index * 50; // Reduced label delay
             const labelAnimation = useScrollAnimation<HTMLDivElement>(
               'opacity-100 scale-100',
               0.1,
@@ -59,7 +59,7 @@ const PlansSection: React.FC = () => {
               <div 
                 key={index} 
                 ref={cardAnimation.ref}
-                className={`rounded-2xl overflow-hidden transition-all duration-500 hover:transform hover:scale-[1.03] hover:shadow-lg ${
+                className={`rounded-2xl overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.03] hover:shadow-lg ${
                   index === 0 
                     ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/10 border-2 border-[#B0B0B0] shadow-lg hover:shadow-[#B0B0B0]/20' 
                     : index === 1
@@ -74,7 +74,7 @@ const PlansSection: React.FC = () => {
                   {index === 0 && (
                     <div 
                       ref={labelAnimation.ref}
-                      className={`absolute top-0 right-0 bg-white/10 text-white px-3 py-1 rounded-bl-lg flex items-center opacity-0 scale-90 transition-all duration-300 ${labelAnimation.className}`}
+                      className={`absolute top-0 right-0 bg-white/10 text-white px-3 py-1 rounded-bl-lg flex items-center opacity-0 scale-90 transition-all duration-200 ${labelAnimation.className}`}
                       style={labelAnimation.style}
                     >
                       <DollarSign className="mr-1" size={16} />
@@ -84,7 +84,7 @@ const PlansSection: React.FC = () => {
                   {index === 1 && (
                     <div 
                       ref={labelAnimation.ref}
-                      className={`absolute top-0 right-0 bg-vf-orange text-white px-3 py-1 rounded-bl-lg flex items-center opacity-0 scale-90 transition-all duration-300 ${labelAnimation.className}`}
+                      className={`absolute top-0 right-0 bg-vf-orange text-white px-3 py-1 rounded-bl-lg flex items-center opacity-0 scale-90 transition-all duration-200 ${labelAnimation.className}`}
                       style={labelAnimation.style}
                     >
                       <Flame className="mr-1" size={16} />
@@ -94,7 +94,7 @@ const PlansSection: React.FC = () => {
                   {index === 2 && (
                     <div 
                       ref={labelAnimation.ref}
-                      className={`absolute top-0 right-0 bg-gradient-to-r from-white/80 to-white/30 text-black px-3 py-1 rounded-bl-lg flex items-center opacity-0 scale-90 transition-all duration-300 ${labelAnimation.className}`}
+                      className={`absolute top-0 right-0 bg-gradient-to-r from-white/80 to-white/30 text-black px-3 py-1 rounded-bl-lg flex items-center opacity-0 scale-90 transition-all duration-200 ${labelAnimation.className}`}
                       style={labelAnimation.style}
                     >
                       <Diamond className="mr-1" size={16} />
