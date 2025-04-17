@@ -5,7 +5,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const AboutSection: React.FC = () => {
   const photoAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 transform translate-x-0 transition-all duration-1000');
-  const textAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 transform translate-x-0 transition-all duration-1000');
+  const titleAnimation = useScrollAnimation<HTMLHeadingElement>('opacity-100 transform translate-x-0 transition-all duration-1000');
   
   return (
     <section id="sobre" className="py-20 bg-gradient-to-b from-white/10 to-black relative">
@@ -28,8 +28,8 @@ const AboutSection: React.FC = () => {
           </div>
           
           <div 
-            ref={textAnimation.ref} 
-            className={`md:w-3/5 opacity-0 transform translate-x-8 ${textAnimation.className}`}
+            ref={titleAnimation.ref} 
+            className={`md:w-3/5 opacity-0 transform translate-x-8 ${titleAnimation.className}`}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-2 tracking-tight uppercase">
               Quem é <span className="text-vf-orange">Vinicius Di Fiore</span>?
@@ -37,9 +37,11 @@ const AboutSection: React.FC = () => {
             
             <div className="space-y-6 mb-8">
               <p 
-                className="text-lg opacity-0 transform translate-x-4 transition-all duration-700" 
-                style={{ transitionDelay: '200ms', animationFillMode: 'forwards' }} 
-                ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 200 }).ref}
+                className="text-lg animate-fade-in-custom" 
+                style={{ 
+                  animationDelay: '200ms', 
+                  animationFillMode: 'forwards' 
+                }}
               >
                 Sou treinador especializado em transformação física real, com mais de 6 anos de experiência ajudando pessoas comuns a alcançarem resultados extraordinários.
               </p>
