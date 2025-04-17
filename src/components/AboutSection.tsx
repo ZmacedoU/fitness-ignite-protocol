@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Award, Globe, GraduationCap } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -39,35 +40,19 @@ const AboutSection: React.FC = () => {
                 Sou treinador especializado em transformação física real, com mais de 6 anos de experiência ajudando pessoas comuns a alcançarem resultados extraordinários.
               </p>
               
-              <p 
-                className="text-lg opacity-0 transform translate-x-4 transition-all duration-700" 
-                style={{ transitionDelay: '300ms', animationFillMode: 'forwards' }}
-                ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 300 }).ref}
-              >
+              <p className="text-lg">
                 Minha missão é levar você ao próximo nível, com um método baseado em ciência, prática e acompanhamento verdadeiro — sem fórmulas genéricas, sem promessas vazias.
               </p>
               
-              <p 
-                className="text-xl font-bold text-vf-orange opacity-0 transform translate-x-4 transition-all duration-700" 
-                style={{ transitionDelay: '400ms', animationFillMode: 'forwards' }}
-                ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 400 }).ref}
-              >
+              <p className="text-xl font-bold text-vf-orange">
                 "Acredita, vamo!" 💥
               </p>
               
-              <p 
-                className="text-lg opacity-0 transform translate-x-4 transition-all duration-700" 
-                style={{ transitionDelay: '500ms', animationFillMode: 'forwards' }}
-                ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 500 }).ref}
-              >
+              <p className="text-lg">
                 Desenvolvi o Protocolo de Treinamento Di Fiore, um método autoral baseado em resultados reais de alunos e nas estratégias mais atuais do mundo fitness.
               </p>
               
-              <p 
-                className="text-lg opacity-0 transform translate-x-4 transition-all duration-700" 
-                style={{ transitionDelay: '600ms', animationFillMode: 'forwards' }}
-                ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 600 }).ref}
-              >
+              <p className="text-lg">
                 Se você está cansado de não ver resultados, chegou a hora de virar o jogo.
               </p>
             </div>
