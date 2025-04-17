@@ -3,6 +3,7 @@ import React from 'react';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import MethodSection from '../components/MethodSection';
+import ServicesSection from '../components/ServicesSection';
 import ResultsSection from '../components/ResultsSection';
 import PlansSection from '../components/PlansSection';
 import Footer from '../components/Footer';
@@ -43,11 +44,14 @@ const Index: React.FC = () => {
 
         {/* Method Section - Section 3: Protocolo */}
         <MethodSection />
+        
+        {/* Services Section - Section 4: Serviços */}
+        <ServicesSection />
 
-        {/* Results Section - Section 4 */}
+        {/* Results Section - Section 5 */}
         <ResultsSection />
 
-        {/* Plans Section - Section 5 */}
+        {/* Plans Section - Section 6 */}
         <PlansSection />
 
         <Footer />

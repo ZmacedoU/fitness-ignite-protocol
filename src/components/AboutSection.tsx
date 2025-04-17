@@ -45,7 +45,7 @@ const AboutSection: React.FC = () => {
               </p>
               
               <p 
-                className="text-lg opacity-0 transform translate-x-8 transition-all duration-700" 
+                className="text-lg opacity-0 transform translate-x-4 transition-all duration-700" 
                 style={{ transitionDelay: '300ms', animationFillMode: 'forwards' }}
                 ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 300 }).ref}
               >
@@ -53,7 +53,7 @@ const AboutSection: React.FC = () => {
               </p>
               
               <p 
-                className="text-xl font-bold text-vf-orange opacity-0 transform translate-x-12 transition-all duration-700" 
+                className="text-xl font-bold text-vf-orange opacity-0 transform translate-x-4 transition-all duration-700" 
                 style={{ transitionDelay: '400ms', animationFillMode: 'forwards' }}
                 ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 400 }).ref}
               >
@@ -61,7 +61,7 @@ const AboutSection: React.FC = () => {
               </p>
               
               <p 
-                className="text-lg opacity-0 transform translate-x-16 transition-all duration-700" 
+                className="text-lg opacity-0 transform translate-x-4 transition-all duration-700" 
                 style={{ transitionDelay: '500ms', animationFillMode: 'forwards' }}
                 ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 500 }).ref}
               >
@@ -69,7 +69,7 @@ const AboutSection: React.FC = () => {
               </p>
               
               <p 
-                className="text-lg opacity-0 transform translate-x-20 transition-all duration-700" 
+                className="text-lg opacity-0 transform translate-x-4 transition-all duration-700" 
                 style={{ transitionDelay: '600ms', animationFillMode: 'forwards' }}
                 ref={useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-x-0', 0.1, { delay: 600 }).ref}
               >
