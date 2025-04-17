@@ -15,10 +15,10 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber }) => {
       href={`https://wa.me/${formattedNumber}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 bg-[#111111] text-white w-12 h-12 rounded-full flex items-center justify-center opacity-80 z-50 hover:opacity-100 transition-opacity duration-300"
+      className="fixed bottom-6 right-6 bg-[#111111] text-white w-16 h-16 rounded-full flex items-center justify-center opacity-80 z-50 hover:opacity-100 transition-opacity duration-300"
       aria-label="Contato via WhatsApp"
     >
-      <MessageCircle size={24} />
+      <MessageCircle size={30} />
     </a>
   );
 };
