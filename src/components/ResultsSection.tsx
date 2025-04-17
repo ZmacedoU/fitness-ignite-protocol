@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -18,10 +19,10 @@ const ResultsSection: React.FC = () => {
     }
   };
 
-  const titleAnimation = useScrollAnimation('animate-fade-in delay-200');
-  const subtitleAnimation = useScrollAnimation('animate-fade-in delay-300');
-  const carouselAnimation = useScrollAnimation('animate-fade-in delay-400');
-  const ctaButtonAnimation = useScrollAnimation('animate-fade-in');
+  const titleAnimation = useScrollAnimation<HTMLHeadingElement>('animate-fade-in delay-200');
+  const subtitleAnimation = useScrollAnimation<HTMLParagraphElement>('animate-fade-in delay-300');
+  const carouselAnimation = useScrollAnimation<HTMLDivElement>('animate-fade-in delay-400');
+  const ctaButtonAnimation = useScrollAnimation<HTMLDivElement>('animate-fade-in');
 
   return (
     <section id="resultados" className="py-20 relative">
@@ -30,13 +31,13 @@ const ResultsSection: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 
-            {...titleAnimation} 
+            ref={titleAnimation.ref} 
             className={`section-title mx-auto ${titleAnimation.className}`}
           >
             Resultados <span className="text-vf-orange">Reais</span>
           </h2>
           <p 
-            {...subtitleAnimation}
+            ref={subtitleAnimation.ref}
             className={`text-xl max-w-3xl mx-auto text-gray-300 ${subtitleAnimation.className}`}
           >
             Transformações que falam por si
@@ -44,7 +45,7 @@ const ResultsSection: React.FC = () => {
         </div>
 
         <div 
-          {...carouselAnimation}
+          ref={carouselAnimation.ref}
           className={`mb-16 ${carouselAnimation.className}`}
         >
           <Carousel className="w-full max-w-5xl mx-auto">
@@ -83,14 +84,15 @@ const ResultsSection: React.FC = () => {
         </div>
 
         <div className="flex justify-center">
-          <Button 
-            {...ctaButtonAnimation}
-            onClick={() => scrollToSection('planos')}
-            className={`btn-primary orange-glow text-xl px-8 py-6 h-auto font-bold flex items-center gap-2 hover:scale-105 transition-transform ${ctaButtonAnimation.className}`}
-          >
-            Quero começar minha transformação
-            <ArrowRight className="ml-2" />
-          </Button>
+          <div ref={ctaButtonAnimation.ref} className={ctaButtonAnimation.className}>
+            <Button 
+              onClick={() => scrollToSection('planos')}
+              className="btn-primary orange-glow text-xl px-8 py-6 h-auto font-bold flex items-center gap-2 hover:scale-105 transition-transform"
+            >
+              Quero começar minha transformação
+              <ArrowRight className="ml-2" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>
