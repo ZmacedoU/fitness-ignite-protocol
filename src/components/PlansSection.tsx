@@ -89,12 +89,6 @@ const PlansSection: React.FC = () => {
                   ))}
                 </ul>
                 
-                {plan.testimonial && (
-                  <div className="mb-6 p-3 bg-black/30 rounded-lg italic text-sm">
-                    "{plan.testimonial}"
-                  </div>
-                )}
-                
                 <a 
                   href={plan.link}
                   target="_blank"
@@ -132,8 +126,7 @@ const plans = [
       "Conteúdo entregue automaticamente após pagamento",
       "Plano pronto, sem personalização",
       "Sem acompanhamento individual"
-    ],
-    testimonial: "Perfeito para iniciar minha transformação. - João P."
+    ]
   },
   {
     title: "Protocolo de Treinamento",
@@ -149,8 +142,7 @@ const plans = [
       "Acesso direto ao treinador",
       "Ajustes conforme evolução",
       "Suporte contínuo via WhatsApp"
-    ],
-    testimonial: "Meus resultados aceleraram muito! - Maria C."
+    ]
   },
   {
     title: "Protocolo Black",
@@ -166,8 +158,7 @@ const plans = [
       "Supervisão direta de treino + dieta",
       "Suporte completo",
       "Resultados integrados com foco em alta performance"
-    ],
-    testimonial: "Melhor investimento que já fiz! - Carlos M."
+    ]
   }
 ];
 

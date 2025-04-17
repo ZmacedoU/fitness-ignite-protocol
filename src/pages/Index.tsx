@@ -5,7 +5,6 @@ import AboutSection from '../components/AboutSection';
 import MethodSection from '../components/MethodSection';
 import ResultsSection from '../components/ResultsSection';
 import PlansSection from '../components/PlansSection';
-import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
 
 const Index: React.FC = () => {
@@ -49,9 +48,6 @@ const Index: React.FC = () => {
 
         {/* Plans Section - Section 5 */}
         <PlansSection />
-
-        {/* CTA Section - Final Section */}
-        <CTASection />
 
         <Footer />
       </div>
