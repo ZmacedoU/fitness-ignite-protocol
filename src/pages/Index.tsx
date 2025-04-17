@@ -6,6 +6,7 @@ import MethodSection from '../components/MethodSection';
 import ResultsSection from '../components/ResultsSection';
 import PlansSection from '../components/PlansSection';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 const Index: React.FC = () => {
   return (
@@ -50,6 +51,9 @@ const Index: React.FC = () => {
         <PlansSection />
 
         <Footer />
+        
+        {/* WhatsApp Floating Button - visible across all sections */}
+        <WhatsAppButton phoneNumber="5511999999999" />
       </div>
     </div>
   );

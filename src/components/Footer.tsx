@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Instagram, Facebook, Youtube, MessageCircle } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -21,12 +20,6 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <div className="flex space-x-6 mb-6">
-              <SocialLink href="https://instagram.com" icon={Instagram} />
-              <SocialLink href="https://wa.me/5500000000000" icon={MessageCircle} />
-              <SocialLink href="https://youtube.com" icon={Youtube} />
-            </div>
-            
             <div className="flex flex-col items-center md:items-end">
               <a href="mailto:contato@viniciusdifiore.com" className="text-gray-400 hover:text-vf-orange mb-2 transition-colors">
                 contato@viniciusdifiore.com
@@ -70,22 +63,6 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
-type SocialLinkProps = {
-  href: string;
-  icon: React.ElementType;
-};
-
-const SocialLink = ({ href, icon: Icon }: SocialLinkProps) => (
-  <a 
-    href={href} 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-vf-orange hover:text-white transition-all duration-200"
-  >
-    <Icon size={20} />
-  </a>
-);
 
 type NavLinkProps = {
   href: string;
