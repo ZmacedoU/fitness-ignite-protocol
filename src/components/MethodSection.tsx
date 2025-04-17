@@ -5,54 +5,8 @@ import {
   Settings, TrendingUp, FlaskRound, Trophy, 
   Brain, Activity, ScrollText, Medal
 } from 'lucide-react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const MethodSection: React.FC = () => {
-  // Section heading animation
-  const sectionHeadingAnimation = useScrollAnimation<HTMLDivElement>(
-    'animate-fade-in',
-    0.1,
-    { delay: 200, noInitialHidden: true }
-  );
-
-  // Pillar animations with staggered delay
-  const pillarAnimations = pillars.map((_, index) => {
-    return useScrollAnimation<HTMLDivElement>(
-      'animate-fade-in',
-      0.1,
-      { staggerIndex: index, staggerDelay: 150, delay: 200, noInitialHidden: true }
-    );
-  });
-
-  // Benefits heading animation
-  const benefitsHeadingAnimation = useScrollAnimation<HTMLDivElement>(
-    'animate-fade-in',
-    0.1,
-    { delay: 800, noInitialHidden: true }
-  );
-
-  // Create staggered animations for benefit cards
-  const benefitAnimations = benefits.map((_, index) => {
-    return useScrollAnimation<HTMLDivElement>(
-      'animate-fade-in',
-      0.1,
-      { 
-        staggerIndex: index, 
-        staggerDelay: 100, 
-        delay: 900, 
-        duration: 600,
-        noInitialHidden: true 
-      }
-    );
-  });
-
-  // Quote animation
-  const quoteAnimation = useScrollAnimation<HTMLDivElement>(
-    'animate-fade-in',
-    0.1,
-    { delay: 1500, noInitialHidden: true }
-  );
-
   return (
     <section id="metodo" className="py-20 relative overflow-hidden">
       {/* Dark Textured Background with Carbon Fiber-like Pattern */}
@@ -70,11 +24,7 @@ const MethodSection: React.FC = () => {
       <div className="absolute -bottom-1/2 right-0 w-[500px] h-[500px] bg-vf-orange opacity-10 blur-3xl rounded-full"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div 
-          ref={sectionHeadingAnimation.ref}
-          className={sectionHeadingAnimation.className}
-          style={sectionHeadingAnimation.style}
-        >
+        <div className="text-center mb-16 opacity-0 animate-fade-in" style={{ animationDuration: '600ms', animationFillMode: 'forwards' }}>
           <h2 className="section-title mx-auto">
             Protocolo de Treinamento <span className="text-vf-orange">Exclusivo</span>
           </h2>
@@ -85,69 +35,49 @@ const MethodSection: React.FC = () => {
         
         {/* Method Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {pillars.map((pillar, index) => {
-            const animation = pillarAnimations[index];
-            return (
-              <div 
-                key={index} 
-                ref={animation.ref}
-                className={`backdrop-blur-sm bg-white/5 rounded-3xl p-8 transition-all duration-300 hover:bg-white/10 hover:scale-[1.03] hover:shadow-lg border border-vf-orange/20 shadow-lg shadow-vf-orange/5 ${animation.className}`}
-                style={animation.style}
-              >
-                <div className="text-vf-orange mb-6 text-4xl flex justify-center items-center h-16">
-                  <pillar.icon size={50} className="opacity-90" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-center">{pillar.title}</h3>
-                <p className="text-gray-300 text-center">{pillar.description}</p>
+          {pillars.map((pillar, index) => (
+            <div 
+              key={index} 
+              className="backdrop-blur-sm bg-white/5 rounded-3xl p-8 transition-all duration-300 hover:bg-white/10 hover:scale-[1.03] hover:shadow-lg border border-vf-orange/20 shadow-lg shadow-vf-orange/5 opacity-0 transform translate-y-8 animate-fade-in"
+              style={{ animationDelay: `${200 + index * 150}ms`, animationDuration: '600ms', animationFillMode: 'forwards' }}
+            >
+              <div className="text-vf-orange mb-6 text-4xl flex justify-center items-center h-16">
+                <pillar.icon size={50} className="opacity-90" />
               </div>
-            );
-          })}
+              <h3 className="text-2xl font-bold mb-4 text-center">{pillar.title}</h3>
+              <p className="text-gray-300 text-center">{pillar.description}</p>
+            </div>
+          ))}
         </div>
 
         {/* Benefits Section */}
-        <div 
-          ref={benefitsHeadingAnimation.ref}
-          className={`text-center mb-12 ${benefitsHeadingAnimation.className}`}
-          style={benefitsHeadingAnimation.style}
-        >
+        <div className="text-center mb-12 opacity-0 animate-fade-in" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
           <h3 className="text-3xl font-bold mb-8">
             Tudo o que você recebe com minha consultoria
           </h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {benefits.map((benefit, index) => {
-            const animation = benefitAnimations[index];
-            
-            return (
-              <div 
-                key={index}
-                ref={animation.ref}
-                className={`group backdrop-blur-sm bg-white/5 rounded-2xl p-6 transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 border border-vf-orange/20 ${animation.className} transform-gpu`}
-                style={{
-                  ...animation.style,
-                  animationTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)', // custom easing for a nice bouncy feel
-                }}
-              >
-                <div className="flex items-start gap-6">
-                  <div className="text-vf-orange transition-colors group-hover:text-vf-orange/80">
-                    <benefit.icon size={40} className="flex-shrink-0" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">{benefit.title}</h4>
-                    <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
-                  </div>
+          {benefits.map((benefit, index) => (
+            <div 
+              key={index}
+              className="group backdrop-blur-sm bg-white/5 rounded-2xl p-6 transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 border border-vf-orange/20 opacity-0 animate-fade-in"
+              style={{ animationDelay: `${900 + index * 120}ms`, animationFillMode: 'forwards' }}
+            >
+              <div className="flex items-start gap-6">
+                <div className="text-vf-orange transition-colors group-hover:text-vf-orange/80">
+                  <benefit.icon size={40} className="flex-shrink-0" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold mb-2">{benefit.title}</h4>
+                  <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
-        <div 
-          ref={quoteAnimation.ref}
-          className={`mt-12 text-center ${quoteAnimation.className}`}
-          style={quoteAnimation.style}
-        >
+        <div className="mt-12 text-center opacity-0 animate-fade-in" style={{ animationDelay: '1500ms', animationFillMode: 'forwards' }}>
           <blockquote className="text-2xl font-light italic text-gray-300">
             "Na dúvida, faça mais força!"
           </blockquote>
