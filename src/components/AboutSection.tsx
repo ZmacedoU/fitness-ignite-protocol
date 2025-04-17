@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Award, Globe, GraduationCap } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -36,13 +35,7 @@ const AboutSection: React.FC = () => {
             </h2>
             
             <div className="space-y-6 mb-8">
-              <p 
-                className="text-lg animate-fade-in-custom" 
-                style={{ 
-                  animationDelay: '200ms', 
-                  animationFillMode: 'forwards' 
-                }}
-              >
+              <p className="text-lg">
                 Sou treinador especializado em transformação física real, com mais de 6 anos de experiência ajudando pessoas comuns a alcançarem resultados extraordinários.
               </p>
               
