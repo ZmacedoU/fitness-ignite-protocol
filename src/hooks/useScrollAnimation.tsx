@@ -4,7 +4,13 @@ import { useEffect, useRef, useState } from 'react';
 export const useScrollAnimation = <T extends HTMLElement>(
   animationClass: string, 
   threshold = 0.1, 
-  options: { delay?: number; noInitialHidden?: boolean } = {}
+  options: { 
+    delay?: number; 
+    noInitialHidden?: boolean;
+    duration?: number;
+    staggerIndex?: number;
+    staggerDelay?: number;
+  } = {}
 ) => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -32,8 +38,22 @@ export const useScrollAnimation = <T extends HTMLElement>(
       }
     };
   }, [threshold, hasAnimated]);
-
-  const style = options.delay ? { transitionDelay: `${options.delay}ms` } : {};
+  
+  // Calculate the final delay including staggering effect if applicable
+  const finalDelay = options.staggerIndex !== undefined && options.staggerDelay 
+    ? options.delay || 0 + (options.staggerIndex * options.staggerDelay)
+    : options.delay || 0;
+  
+  // Build style object
+  const style: React.CSSProperties = {};
+  
+  if (finalDelay) {
+    style.transitionDelay = `${finalDelay}ms`;
+  }
+  
+  if (options.duration) {
+    style.animationDuration = `${options.duration}ms`;
+  }
 
   return { 
     ref, 
