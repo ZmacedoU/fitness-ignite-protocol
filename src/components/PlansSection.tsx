@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { CheckCircle, Flame, Diamond, ArrowRight, DollarSign } from 'lucide-react';
 import { Button } from './ui/button';
@@ -23,11 +24,11 @@ const PlansSection: React.FC = () => {
               key={index} 
               className={`rounded-2xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 ${
                 index === 0 
-                  ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/10 border-2 border-vf-orange/70 shadow-lg shadow-vf-orange/20' 
+                  ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/10 border-2 border-[#B0B0B0] shadow-lg hover:shadow-[#B0B0B0]/20' 
                   : index === 1
-                    ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/30 border-2 border-vf-orange/70 shadow-lg shadow-vf-orange/20'
+                    ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/30 border-2 border-[#FF6600] shadow-lg hover:shadow-[#FF6600]/30'
                     : index === 2
-                      ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/20 border border-vf-orange/40 shadow-lg shadow-vf-orange/10'
+                      ? 'bg-gradient-to-br from-black via-black/95 to-vf-orange/20 border-2 border-[#E1E1E1] shadow-lg hover:shadow-[#E1E1E1]/40'
                       : 'bg-white/5 backdrop-blur-sm border border-vf-orange/20'
               }`}
             >
