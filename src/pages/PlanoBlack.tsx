@@ -10,6 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Link } from 'react-router-dom';
 import PuzzlePieces from '@/components/PuzzlePieces';
+import PlanCard from '@/components/PlanCard';
 
 const PlanoBlack: React.FC = () => {
   const heroTitleAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { noInitialHidden: true });
@@ -221,23 +222,74 @@ const PlanoBlack: React.FC = () => {
             })}
           </div>
         </section>
-        
-        {/* SEÇÃO 6: CALL TO ACTION FORTE */}
-        <section className="mb-24 text-center bg-gradient-to-r from-black to-gray-900 py-16 rounded-xl border border-vf-orange/10">
-          <div className="max-w-2xl mx-auto px-4">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Chegou a hora de mudar. O que te impede?</h2>
-            <p className="text-xl mb-8 text-gray-300">Você já tentou sozinho. Agora você tem suporte de verdade.<br />"Acredita, vamos juntos!"</p>
-            
-            <Button 
-              size="lg" 
-              className="bg-vf-orange hover:bg-vf-orange/90 hover:scale-105 transition-all duration-300 text-white font-bold py-6 px-8 rounded-lg text-lg uppercase mt-4 animate-pulse"
-            >
-              QUERO COMEÇAR MEU PLANO AGORA
-              <ArrowRight className="ml-2" />
-            </Button>
-          </div>
-        </section>
-        
+
+  {/* Replace SECTION 6: CALL TO ACTION FORTE with new PLANS SECTION */}
+  <section className="mb-24">
+    <div className="text-center mb-10">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">Escolha o plano ideal para sua jornada</h2>
+      <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
+      <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+        Invista em você e transforme sua vida
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto px-4">
+      <PlanCard
+        title="Protocolo Bimestral"
+        subtitle="Acompanhamento por 60 dias"
+        price="R$ 639,80 à vista"
+        benefits={[
+          "Protocolo de treinamento & dietético",
+          "Acompanhamento por 60 dias",
+          "App exclusivo com vídeos",
+          "Suporte com contato para dúvidas"
+        ]}
+        ctaText="Quero esse plano"
+        badge={{
+          text: "MELHOR CUSTO-BENEFÍCIO",
+          type: "economic"
+        }}
+      />
+
+      <PlanCard
+        title="Protocolo Semestral"
+        subtitle="Acompanhamento por 180 dias"
+        price="R$ 1.596,00 à vista"
+        installments="6x R$ 305,90 no cartão"
+        benefits={[
+          "3 protocolos de treinamento & dietético completos",
+          "Acompanhamento total por 180 dias",
+          "App exclusivo com vídeos",
+          "Suporte com contato para dúvidas"
+        ]}
+        ctaText="Começar agora"
+        badge={{
+          text: "MAIS ESCOLHIDO",
+          type: "popular"
+        }}
+        isPopular={true}
+      />
+
+      <PlanCard
+        title="Protocolo Anual"
+        subtitle="Acompanhamento por 365 dias"
+        price="R$ 2.876,00 à vista"
+        installments="12x R$ 287,60 no cartão"
+        benefits={[
+          "6 protocolos de treinamento & dietético completos",
+          "Acompanhamento total por 365 dias",
+          "App exclusivo com vídeos",
+          "Suporte com contato para dúvidas"
+        ]}
+        ctaText="Garantir minha vaga"
+        badge={{
+          text: "ACESSO MAIS COMPLETO",
+          type: "premium"
+        }}
+      />
+    </div>
+  </section>
+
         {/* SEÇÃO 7: FAQ (PERGUNTAS FREQUENTES) */}
         <section className="mb-24">
           <div className="text-center mb-10">
