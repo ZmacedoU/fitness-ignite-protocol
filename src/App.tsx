@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Linktree from "./pages/Linktree";
+import PlanoBlack from "./pages/PlanoBlack";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Linktree />} />
           <Route path="/site" element={<Index />} />
+          <Route path="/plano-black" element={<PlanoBlack />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -28,4 +30,3 @@ const App = () => (
 );
 
 export default App;
-
