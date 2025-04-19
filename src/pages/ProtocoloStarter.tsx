@@ -8,17 +8,17 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 const ProtocoloStarter: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   
-  // Animations for different sections
-  const heroTitleAnimation = useScrollAnimation('animate-fade-in', 0.1, { noInitialHidden: false });
-  const heroSubtitleAnimation = useScrollAnimation('animate-fade-in', 0.1, { delay: 300, noInitialHidden: false });
-  const heroButtonAnimation = useScrollAnimation('animate-fade-in', 0.1, { delay: 600, noInitialHidden: false });
+  // Animations for different sections with proper element types
+  const heroTitleAnimation = useScrollAnimation<HTMLDivElement>('animate-fade-in', 0.1, { noInitialHidden: false });
+  const heroSubtitleAnimation = useScrollAnimation<HTMLParagraphElement>('animate-fade-in', 0.1, { delay: 300, noInitialHidden: false });
+  const heroButtonAnimation = useScrollAnimation<HTMLDivElement>('animate-fade-in', 0.1, { delay: 600, noInitialHidden: false });
   
-  const benefitsAnimation = useScrollAnimation('animate-slide-in-bottom', 0.1);
-  const featureAnimation1 = useScrollAnimation('animate-fade-in', 0.1, { delay: 100 });
-  const featureAnimation2 = useScrollAnimation('animate-fade-in', 0.1, { delay: 200 });
-  const featureAnimation3 = useScrollAnimation('animate-fade-in', 0.1, { delay: 300 });
+  const benefitsAnimation = useScrollAnimation<HTMLDivElement>('animate-slide-in-bottom', 0.1);
+  const featureAnimation1 = useScrollAnimation<HTMLDivElement>('animate-fade-in', 0.1, { delay: 100 });
+  const featureAnimation2 = useScrollAnimation<HTMLDivElement>('animate-fade-in', 0.1, { delay: 200 });
+  const featureAnimation3 = useScrollAnimation<HTMLDivElement>('animate-fade-in', 0.1, { delay: 300 });
   
-  const ctaAnimation = useScrollAnimation('animate-scale-in', 0.1);
+  const ctaAnimation = useScrollAnimation<HTMLDivElement>('animate-scale-in', 0.1);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,7 +90,6 @@ const ProtocoloStarter: React.FC = () => {
             <div className="max-w-4xl mx-auto text-center">
               <div 
                 {...heroTitleAnimation}
-                className="mb-6"
               >
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white tracking-tighter">
                   PROTOCOLO <span className="text-vf-orange">STARTER</span>
