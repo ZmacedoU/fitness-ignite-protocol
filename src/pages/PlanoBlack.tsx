@@ -51,11 +51,21 @@ const PlanoBlack: React.FC = () => {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white tracking-tighter">
               PLANO <span className="text-vf-orange">BLACK</span>
             </h1>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+              Protocolo de Treinamento + Protocolo Dietético. <span className="text-vf-orange">Tudo em 1!</span>
+            </h2>
           </div>
+          
+          <p 
+            ref={heroSubtitleAnimation.ref}
+            className={`opacity-0 translate-y-8 transition-all duration-700 text-xl text-gray-300 max-w-3xl mb-10 ${heroSubtitleAnimation.className}`}
+          >
+            A fusão perfeita entre treino, dieta e <span className="text-vf-orange">resultado real</span>.
+          </p>
           
           <div 
             ref={heroButtonAnimation.ref}
-            className={`opacity-0 translate-y-8 transition-all duration-500 mt-8 ${heroButtonAnimation.className}`}
+            className={`opacity-0 translate-y-8 transition-all duration-500 ${heroButtonAnimation.className}`}
           >
             <Button 
               onClick={scrollToPlans}
