@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ArrowRight, Brain, Utensils, Heart, BatteryFull, Check, UserCheck, Activity, Video, MessageCircle, FileText, Trophy, Sparkles } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -17,23 +17,6 @@ const PlanoBlack: React.FC = () => {
   const heroSubtitleAnimation = useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-y-0', 0.1, { delay: 200 });
   const heroButtonAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 400 });
 
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   const scrollToPlans = () => {
     const plansSection = document.getElementById('choose-plan-section');
     if (plansSection) {
@@ -50,23 +33,15 @@ const PlanoBlack: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 py-12 relative z-10">
-        <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-black py-3 shadow-lg' : 'bg-transparent py-6'
-        }`}>
-          <div className="container mx-auto flex justify-center">
-            <Link to="/">
-              <img 
-                src="/lovable-uploads/97ffeed7-84d0-4c6d-a30f-64d8608cc402.png" 
-                alt="Fiore Gotsfridt" 
-                className={`transition-all duration-300 ${
-                  scrolled ? 'h-12' : 'h-20'
-                }`}
-              />
-            </Link>
-          </div>
+        <div className="flex justify-center mb-12">
+          <Link to="/">
+            <img 
+              src="/lovable-uploads/6e7054a9-a7ed-4faa-a805-1c5579945f56.png" 
+              alt="Vinicius Di Fiore" 
+              className="h-20" 
+            />
+          </Link>
         </div>
-
-        <div className="h-32"></div>
 
         <section className="min-h-[60vh] flex flex-col justify-center items-center text-center mb-20 mt-8">
           <div 
@@ -76,21 +51,11 @@ const PlanoBlack: React.FC = () => {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white tracking-tighter">
               PLANO <span className="text-vf-orange">BLACK</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6">
-              Protocolo de Treinamento + Protocolo Dietético. <span className="text-vf-orange">Tudo em 1!</span>
-            </h2>
           </div>
-          
-          <p 
-            ref={heroSubtitleAnimation.ref}
-            className={`opacity-0 translate-y-8 transition-all duration-700 text-xl text-gray-300 max-w-3xl mb-10 ${heroSubtitleAnimation.className}`}
-          >
-            A fusão perfeita entre treino, dieta e <span className="text-vf-orange">resultado real</span>.
-          </p>
           
           <div 
             ref={heroButtonAnimation.ref}
-            className={`opacity-0 translate-y-8 transition-all duration-500 ${heroButtonAnimation.className}`}
+            className={`opacity-0 translate-y-8 transition-all duration-500 mt-8 ${heroButtonAnimation.className}`}
           >
             <Button 
               onClick={scrollToPlans}
