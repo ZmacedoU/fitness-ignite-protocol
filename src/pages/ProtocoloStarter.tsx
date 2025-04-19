@@ -12,7 +12,6 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 const ProtocoloStarter: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   
-  // Animations for different sections
   const heroTitleAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { noInitialHidden: true });
   const heroSubtitleAnimation = useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-y-0', 0.1, { delay: 200 });
   const heroButtonAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 400 });
@@ -54,7 +53,6 @@ const ProtocoloStarter: React.FC = () => {
         <PuzzlePieces />
       </div>
 
-      {/* Fixed Header */}
       <header 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled ? 'py-2 bg-black/90 backdrop-blur-md shadow-md' : 'py-6 bg-transparent'
@@ -74,7 +72,6 @@ const ProtocoloStarter: React.FC = () => {
       </header>
 
       <div className="relative z-10 pt-28">
-        {/* Hero Section */}
         <section className="min-h-[60vh] flex flex-col justify-center items-center text-center mb-20 mt-8">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
@@ -112,7 +109,6 @@ const ProtocoloStarter: React.FC = () => {
           </div>
         </section>
 
-        {/* Benefits Section */}
         <section className="py-20 bg-black/50">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
@@ -135,50 +131,10 @@ const ProtocoloStarter: React.FC = () => {
                   </p>
                 </div>
               </div>
-              
-              <h3 className="text-2xl font-bold text-center mb-10">
-                Uma introdução à <span className="text-vf-orange">vida fitness</span>
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div 
-                  {...featureAnimation1}
-                  className="bg-black/40 backdrop-blur-sm border border-vf-orange/20 rounded-xl p-6 text-center transition-all hover:shadow-lg hover:shadow-vf-orange/20"
-                >
-                  <div className="text-vf-orange mb-4 flex justify-center">
-                    <Dumbbell size={48} strokeWidth={1.5} />
-                  </div>
-                  <h4 className="text-xl font-bold mb-2">Protocolo de Treinamento</h4>
-                  <p className="text-gray-300">Exercícios simples e eficazes para iniciantes, apenas 35 minutos por dia.</p>
-                </div>
-                
-                <div 
-                  {...featureAnimation2}
-                  className="bg-black/40 backdrop-blur-sm border border-vf-orange/20 rounded-xl p-6 text-center transition-all hover:shadow-lg hover:shadow-vf-orange/20"
-                >
-                  <div className="text-vf-orange mb-4 flex justify-center">
-                    <Heart size={48} strokeWidth={1.5} />
-                  </div>
-                  <h4 className="text-xl font-bold mb-2">Reeducação Alimentar</h4>
-                  <p className="text-gray-300">Aprenda a se alimentar melhor sem dietas restritivas ou complicadas.</p>
-                </div>
-                
-                <div 
-                  {...featureAnimation3}
-                  className="bg-black/40 backdrop-blur-sm border border-vf-orange/20 rounded-xl p-6 text-center transition-all hover:shadow-lg hover:shadow-vf-orange/20"
-                >
-                  <div className="text-vf-orange mb-4 flex justify-center">
-                    <Book size={48} strokeWidth={1.5} />
-                  </div>
-                  <h4 className="text-xl font-bold mb-2">eBook Exclusivo</h4>
-                  <p className="text-gray-300">Material completo de introdução ao treinamento e alimentação saudável.</p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* Features Grid */}
         <section className="py-20">
           <div className="container mx-auto px-6">
             <div className="text-center mb-10">
@@ -198,7 +154,7 @@ const ProtocoloStarter: React.FC = () => {
                 { 
                   icon: <Heart size={32} className="text-vf-orange" />, 
                   title: "Reeducação alimentar", 
-                  description: "Aprenda a se alimentar melhor sem restrições extremas." 
+                  description: "Aprenda a se alimentar melhor sem dietas restritivas ou complicadas." 
                 },
                 { 
                   icon: <Book size={32} className="text-vf-orange" />, 
@@ -227,7 +183,6 @@ const ProtocoloStarter: React.FC = () => {
           </div>
         </section>
 
-        {/* Results Section */}
         <section className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -270,7 +225,6 @@ const ProtocoloStarter: React.FC = () => {
           </Carousel>
         </section>
 
-        {/* FAQ Section */}
         <section className="py-20 bg-black/50">
           <div className="container mx-auto px-6">
             <div className="text-center mb-10">
@@ -330,7 +284,6 @@ const ProtocoloStarter: React.FC = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
         <section id="cta-section" className="py-20 bg-gradient-to-b from-black/90 via-black to-vf-orange/10">
           <div className="container mx-auto px-6">
             <div 
