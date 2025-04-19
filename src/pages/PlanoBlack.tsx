@@ -18,7 +18,7 @@ const PlanoBlack: React.FC = () => {
   const heroButtonAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 400 });
 
   const scrollToPlans = () => {
-    const plansSection = document.getElementById('plans-section');
+    const plansSection = document.getElementById('choose-plan-section');
     if (plansSection) {
       plansSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -232,19 +232,19 @@ const PlanoBlack: React.FC = () => {
                 description: "Metodologia comprovada por resultados e embasamento científico." 
               }
             ].map((item, index) => {
-              const differentialAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-x-0', 0.1, { delay: 150 * index });
+              const differentialAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 150 * index });
               
               return (
                 <div 
                   key={index}
                   ref={differentialAnimation.ref}
-                  className={`flex flex-col items-start p-8 backdrop-blur-sm bg-black/40 border border-vf-orange/10 rounded-2xl transition-all duration-300 hover:bg-black/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 group opacity-0 translate-x-10 ${differentialAnimation.className}`}
+                  className={`group p-8 bg-black/40 backdrop-blur-sm border border-vf-orange/10 rounded-2xl transition-all duration-300 hover:bg-black/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 opacity-0 translate-y-6 ${differentialAnimation.className}`}
                   style={differentialAnimation.style}
                 >
-                  <div className="mb-6 p-4 bg-black/30 rounded-xl group-hover:scale-110 transition-all duration-300">
+                  <div className="mb-6 p-4 rounded-xl bg-black/30 inline-block group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-vf-orange transition-colors">{item.title}</h3>
                   <p className="text-gray-300 leading-relaxed">{item.description}</p>
                 </div>
               );
@@ -252,7 +252,7 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
 
-        <section className="mb-24">
+        <section id="choose-plan-section" className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Escolha o plano ideal para sua jornada</h2>
             <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
@@ -361,9 +361,12 @@ const PlanoBlack: React.FC = () => {
                     className={`opacity-0 translate-y-6 ${faqAnimation.className}`}
                     style={faqAnimation.style}
                   >
-                    <AccordionItem value={`item-${index}`} className="border border-vf-orange/20 rounded-lg overflow-hidden bg-black/30">
-                      <AccordionTrigger className="px-6 py-4 hover:bg-black/50 hover:no-underline">
-                        {item.question}
+                    <AccordionItem 
+                      value={`item-${index}`} 
+                      className="group border border-vf-orange/20 rounded-lg overflow-hidden bg-black/30 backdrop-blur-sm transition-all duration-300 hover:bg-black/40"
+                    >
+                      <AccordionTrigger className="px-6 py-4 hover:no-underline group-hover:text-vf-orange transition-colors">
+                        <span className="text-left">{item.question}</span>
                       </AccordionTrigger>
                       <AccordionContent className="px-6 py-4 text-gray-300">
                         {item.answer}
