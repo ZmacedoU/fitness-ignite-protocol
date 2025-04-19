@@ -16,7 +16,14 @@ const PlanoBlack: React.FC = () => {
   const heroTitleAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { noInitialHidden: true });
   const heroSubtitleAnimation = useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-y-0', 0.1, { delay: 200 });
   const heroButtonAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 400 });
-  
+
+  const scrollToPlans = () => {
+    const plansSection = document.getElementById('plans-section');
+    if (plansSection) {
+      plansSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-black to-[#1a1a1a] text-white overflow-x-hidden">
       <div className="absolute inset-0 z-0">
@@ -47,9 +54,6 @@ const PlanoBlack: React.FC = () => {
             <h2 className="text-2xl md:text-3xl font-semibold mb-6">
               Protocolo de Treinamento + Protocolo Dietético. <span className="text-vf-orange">Tudo em 1!</span>
             </h2>
-            <p className="text-lg italic text-vf-orange font-medium mb-6">
-              "Acredita, vamos juntos!"
-            </p>
           </div>
           
           <p 
@@ -64,6 +68,7 @@ const PlanoBlack: React.FC = () => {
             className={`opacity-0 translate-y-8 transition-all duration-500 ${heroButtonAnimation.className}`}
           >
             <Button 
+              onClick={scrollToPlans}
               size="lg" 
               className="bg-vf-orange hover:bg-vf-orange/90 hover:scale-105 transition-all duration-300 text-white font-bold py-6 px-8 rounded-lg text-lg uppercase"
             >
@@ -73,15 +78,14 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
 
-        <section className="mb-24">
-          <div className="text-center mb-10">
+        <section id="plans-section" className="mb-24">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Tudo o que você precisa em um <span className="text-vf-orange">único plano</span>.
             </h2>
             <p className="text-lg italic text-vf-orange font-medium mt-4">
               "A hora do pesadelo é agora e sorriso depois"
             </p>
-            <div className="h-1 w-20 bg-vf-orange mx-auto"></div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -147,7 +151,7 @@ const PlanoBlack: React.FC = () => {
             })}
           </div>
         </section>
-
+        
         <section className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -195,16 +199,38 @@ const PlanoBlack: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Por que o Plano Black é <span className="text-vf-orange">diferente</span> de tudo que você já tentou?
             </h2>
-            <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+              Descubra como nossa abordagem única pode transformar seus resultados
+            </p>
           </div>
           
-          <div className="space-y-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
             {[
-              { icon: <Trophy size={24} className="text-vf-orange" />, title: "Tudo em 1: treino + dieta", description: "Unificamos treino e alimentação em um único protocolo coordenado." },
-              { icon: <UserCheck size={24} className="text-vf-orange" />, title: "Personalização extrema", description: "Seu plano é 100% adaptado às suas características e objetivos." },
-              { icon: <MessageCircle size={24} className="text-vf-orange" />, title: "Suporte real com treinador e nutri", description: "Acompanhamento direto com profissionais especializados." },
-              { icon: <Sparkles size={24} className="text-vf-orange" />, title: "Liberdade sem terrorismo nutricional", description: "Dieta flexível que se adapta ao seu estilo de vida." },
-              { icon: <FileText size={24} className="text-vf-orange" />, title: "Estratégia baseada em ciência e prática", description: "Metodologia comprovada por resultados e embasamento científico." }
+              { 
+                icon: <Trophy size={32} className="text-vf-orange" />, 
+                title: "Tudo em 1: treino + dieta", 
+                description: "Unificamos treino e alimentação em um único protocolo coordenado." 
+              },
+              { 
+                icon: <UserCheck size={32} className="text-vf-orange" />, 
+                title: "Personalização extrema", 
+                description: "Seu plano é 100% adaptado às suas características e objetivos." 
+              },
+              { 
+                icon: <MessageCircle size={32} className="text-vf-orange" />, 
+                title: "Suporte real com treinador e nutri", 
+                description: "Acompanhamento direto com profissionais especializados." 
+              },
+              { 
+                icon: <Sparkles size={32} className="text-vf-orange" />, 
+                title: "Liberdade sem terrorismo nutricional", 
+                description: "Dieta flexível que se adapta ao seu estilo de vida." 
+              },
+              { 
+                icon: <FileText size={32} className="text-vf-orange" />, 
+                title: "Estratégia baseada em ciência e prática", 
+                description: "Metodologia comprovada por resultados e embasamento científico." 
+              }
             ].map((item, index) => {
               const differentialAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-x-0', 0.1, { delay: 150 * index });
               
@@ -212,16 +238,14 @@ const PlanoBlack: React.FC = () => {
                 <div 
                   key={index}
                   ref={differentialAnimation.ref}
-                  className={`flex items-center space-x-4 bg-black/30 border border-vf-orange/20 p-5 rounded-lg opacity-0 translate-x-10 ${differentialAnimation.className}`}
+                  className={`flex flex-col items-start p-8 backdrop-blur-sm bg-black/40 border border-vf-orange/10 rounded-2xl transition-all duration-300 hover:bg-black/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 group opacity-0 translate-x-10 ${differentialAnimation.className}`}
                   style={differentialAnimation.style}
                 >
-                  <div className="flex-shrink-0">
+                  <div className="mb-6 p-4 bg-black/30 rounded-xl group-hover:scale-110 transition-all duration-300">
                     {item.icon}
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-xl mb-1">{item.title}</h3>
-                    <p className="text-gray-300">{item.description}</p>
-                  </div>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-gray-300 leading-relaxed">{item.description}</p>
                 </div>
               );
             })}
