@@ -6,11 +6,13 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import { Link } from 'react-router-dom';
 import PuzzlePieces from '@/components/PuzzlePieces';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Card } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const ProtocoloStarter: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   
-  // Animations for different sections with proper element types
+  // Animations for different sections
   const heroTitleAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { noInitialHidden: true });
   const heroSubtitleAnimation = useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-y-0', 0.1, { delay: 200 });
   const heroButtonAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 400 });
@@ -67,12 +69,6 @@ const ProtocoloStarter: React.FC = () => {
                 className={`transition-all duration-300 ${scrolled ? 'h-10' : 'h-14'}`}
               />
             </Link>
-            <Button 
-              onClick={scrollToPlans}
-              className="bg-vf-orange hover:bg-vf-orange/90 text-white font-bold"
-            >
-              COMEÇAR AGORA
-            </Button>
           </div>
         </div>
       </header>
@@ -100,19 +96,9 @@ const ProtocoloStarter: React.FC = () => {
                 "Conquiste uma mudança brutal com um protocolo de treinamento de 35 minutos por dia e realizando uma reeducação alimentar"
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                <div className="bg-black/40 backdrop-blur-sm border border-vf-orange/20 rounded-xl p-6 transform transition-all hover:scale-105">
-                  <h3 className="text-xl font-bold text-vf-orange mb-2">Saia do zero</h3>
-                  <p className="text-gray-300">Sua jornada fitness começa aqui, com passos simples e eficazes.</p>
-                </div>
-                <div className="bg-black/40 backdrop-blur-sm border border-vf-orange/20 rounded-xl p-6 transform transition-all hover:scale-105">
-                  <h3 className="text-xl font-bold text-vf-orange mb-2">Ganhe da Netflix e do iFood</h3>
-                  <p className="text-gray-300">Substitua hábitos sedentários por uma rotina que transforma seu corpo e mente.</p>
-                </div>
-              </div>
-              
               <div 
                 {...heroButtonAnimation}
+                className="flex justify-center"
               >
                 <Button 
                   onClick={scrollToPlans}
@@ -239,6 +225,49 @@ const ProtocoloStarter: React.FC = () => {
               })}
             </div>
           </div>
+        </section>
+
+        {/* Results Section */}
+        <section className="mb-24">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Resultados <span className="text-vf-orange">reais</span> de quem seguiu o plano.
+            </h2>
+            <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
+          </div>
+          
+          <Carousel className="w-full max-w-4xl mx-auto">
+            <CarouselContent>
+              {[...Array(3)].map((_, index) => (
+                <CarouselItem key={index}>
+                  <div className="p-2">
+                    <Card className="bg-black/40 border border-vf-orange/20 rounded-xl overflow-hidden">
+                      <div className="h-[500px] w-full flex flex-col lg:flex-row">
+                        <div className="flex-1 bg-gray-800 flex items-center justify-center p-4">
+                          <div className="text-center">
+                            <h3 className="text-xl mb-2">Antes</h3>
+                            <div className="border-2 border-vf-orange/30 w-full h-[300px] flex items-center justify-center text-gray-500">
+                              Foto "Antes"
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex-1 bg-black flex items-center justify-center p-4">
+                          <div className="text-center">
+                            <h3 className="text-xl mb-2">Depois</h3>
+                            <div className="border-2 border-vf-orange/30 w-full h-[300px] flex items-center justify-center text-gray-500">
+                              Foto "Depois"
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-0 lg:-left-12 bg-black border-vf-orange/20 hover:bg-vf-orange/20" />
+            <CarouselNext className="right-0 lg:-right-12 bg-black border-vf-orange/20 hover:bg-vf-orange/20" />
+          </Carousel>
         </section>
 
         {/* FAQ Section */}
