@@ -1,10 +1,10 @@
+
 import React, { useEffect, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Clock, Dumbbell, Heart, Target, Award, Book, Brain, Utensils, BatteryFull, Check } from 'lucide-react';
+import { ArrowRight, MessageCircle, Award, Dumbbell, Heart, Book } from 'lucide-react';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Link } from 'react-router-dom';
-import PuzzlePieces from '@/components/PuzzlePieces';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -51,7 +51,14 @@ const ProtocoloStarter: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-vf-orange/5 via-transparent to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-transparent to-vf-orange/3"></div>
-        <PuzzlePieces />
+        {/* Runner Icon Background */}
+        <div className="absolute bottom-0 right-0 w-1/3 pointer-events-none opacity-[0.06] z-0">
+          <img 
+            src="/lovable-uploads/5985b592-6447-4b8e-9bed-60a897b12f65.png" 
+            alt="" 
+            className="w-full"
+          />
+        </div>
       </div>
 
       <header 
@@ -73,7 +80,7 @@ const ProtocoloStarter: React.FC = () => {
       </header>
 
       <div className="relative z-10 pt-28">
-        <section className="min-h-[60vh] flex flex-col justify-center items-center text-center mb-20 mt-8">
+        <section className="min-h-[70vh] flex flex-col justify-center items-center text-center mb-20 mt-8">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
               <div 
@@ -89,7 +96,7 @@ const ProtocoloStarter: React.FC = () => {
               
               <p 
                 {...heroSubtitleAnimation}
-                className="text-xl md:text-2xl text-vf-orange font-bold max-w-3xl mx-auto mb-8"
+                className="text-xl md:text-2xl text-vf-orange font-bold max-w-3xl mx-auto mb-12"
               >
                 "Conquiste uma mudança brutal com um protocolo de treinamento de 35 minutos por dia e realizando uma reeducação alimentar"
               </p>
@@ -100,7 +107,7 @@ const ProtocoloStarter: React.FC = () => {
               >
                 <Button 
                   onClick={scrollToPlans}
-                  className="btn-primary orange-glow text-xl px-8 py-6 h-auto font-bold flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                  className="btn-primary orange-glow text-xl px-8 py-7 h-auto font-bold flex items-center gap-2 transition-all duration-300 hover:scale-105"
                 >
                   QUERO COMEÇAR MINHA TRANSFORMAÇÃO
                   <ArrowRight className="ml-2" />
@@ -161,6 +168,16 @@ const ProtocoloStarter: React.FC = () => {
                   icon: <Book size={32} className="text-vf-orange" />, 
                   title: "eBook exclusivo", 
                   description: "Material completo de introdução ao treinamento." 
+                },
+                { 
+                  icon: <MessageCircle size={32} className="text-vf-orange" />, 
+                  title: "Suporte direto no WhatsApp", 
+                  description: "Tire dúvidas diretamente com nossa equipe via WhatsApp, com atenção e agilidade." 
+                },
+                { 
+                  icon: <Award size={32} className="text-vf-orange" />, 
+                  title: "Desenvolva sua autonomia", 
+                  description: "Aprenda a treinar e se alimentar com independência, sem precisar de academia ou consultorias caras." 
                 }
               ].map((item, index) => {
                 const featureAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 150 * index });
@@ -197,7 +214,7 @@ const ProtocoloStarter: React.FC = () => {
               {[...Array(3)].map((_, index) => (
                 <CarouselItem key={index}>
                   <div className="p-2">
-                    <Card className="bg-black/40 border border-vf-orange/20 rounded-xl overflow-hidden">
+                    <Card className="bg-black/40 border border-vf-orange/20 rounded-xl overflow-hidden shadow-lg shadow-vf-orange/10">
                       <div className="h-[500px] w-full flex flex-col lg:flex-row">
                         <div className="flex-1 bg-gray-800 flex items-center justify-center p-4">
                           <div className="text-center">
@@ -221,27 +238,31 @@ const ProtocoloStarter: React.FC = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-0 lg:-left-12 bg-black border-vf-orange/20 hover:bg-vf-orange/20" />
-            <CarouselNext className="right-0 lg:-right-12 bg-black border-vf-orange/20 hover:bg-vf-orange/20" />
+            <CarouselPrevious className="left-0 lg:-left-12 bg-black border-vf-orange/40 hover:bg-vf-orange/20" />
+            <CarouselNext className="right-0 lg:-right-12 bg-black border-vf-orange/40 hover:bg-vf-orange/20" />
           </Carousel>
+          
+          <p className="text-center text-gray-400 mt-6 italic max-w-3xl mx-auto">
+            Essas transformações são de pessoas como você, que começaram com o protocolo Starter.
+          </p>
         </section>
 
         <section id="cta-section" className="py-20 bg-gradient-to-b from-black/90 via-black to-vf-orange/10">
           <div className="container mx-auto px-6">
             <div 
               {...ctaAnimation}
-              className="max-w-3xl mx-auto text-center bg-black/60 backdrop-blur-sm border border-vf-orange/30 rounded-2xl p-8 md:p-12"
+              className="max-w-3xl mx-auto text-center bg-black/60 backdrop-blur-sm border border-vf-orange/30 rounded-2xl p-8 md:p-12 shadow-lg shadow-vf-orange/10"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Saia do <span className="text-vf-orange">0</span>!
               </h2>
               
-              <p className="text-xl mb-8">
+              <p className="text-xl mb-10">
                 Receba seu treinamento para iniciar nosso protocolo start com o eBook exclusivo de introdução ao treinamento e reeducação alimentar.
               </p>
               
-              <div className="mb-8">
-                <div className="bg-vf-orange/10 rounded-lg p-4 mb-4">
+              <div className="mb-10">
+                <div className="bg-vf-orange/10 rounded-lg p-6 mb-4">
                   <p className="text-2xl md:text-3xl font-bold">
                     <span className="text-vf-orange">R$ 97,00</span> à vista
                   </p>
@@ -253,14 +274,14 @@ const ProtocoloStarter: React.FC = () => {
                 href="https://wa.me/5511999999999?text=Olá,%20tenho%20interesse%20no%20Protocolo%20Starter"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary text-xl px-8 py-6 w-full md:w-auto inline-flex items-center justify-center gap-2"
+                className="btn-primary text-xl px-10 py-6 w-full md:w-auto inline-flex items-center justify-center gap-2 shadow-lg shadow-vf-orange/20 hover:scale-105 transition-all duration-300"
               >
                 <span>VAMOS JUNTOS!</span>
                 <ArrowRight />
               </a>
               
               <p className="mt-6 text-sm text-gray-400">
-                Ao clicar, você será redirecionado para o WhatsApp para finalizar sua compra.
+                Você será redirecionado ao WhatsApp para concluir sua inscrição.
               </p>
             </div>
           </div>
@@ -291,6 +312,10 @@ const ProtocoloStarter: React.FC = () => {
                   { 
                     question: "Preciso ir à academia?", 
                     answer: "O protocolo pode ser adaptado para treinos em casa com equipamentos básicos, mas recomendamos academia para melhores resultados." 
+                  },
+                  { 
+                    question: "O protocolo é só para quem quer emagrecer?", 
+                    answer: "Não! Ele também serve como base para quem deseja ganhar condicionamento, melhorar saúde e iniciar uma nova rotina." 
                   },
                   { 
                     question: "Como faço para começar?", 
