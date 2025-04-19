@@ -19,16 +19,13 @@ const PlanoBlack: React.FC = () => {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-black to-[#1a1a1a] text-white overflow-x-hidden">
-      {/* Enhanced background with subtle orange gradient overlay and puzzle pieces */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-vf-orange/5 via-transparent to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-transparent to-vf-orange/3"></div>
         <PuzzlePieces />
       </div>
 
-      {/* Content wrapper */}
       <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* Logo in header */}
         <div className="flex justify-center mb-12">
           <Link to="/">
             <img 
@@ -39,7 +36,6 @@ const PlanoBlack: React.FC = () => {
           </Link>
         </div>
 
-        {/* SEÇÃO 1: HERO */}
         <section className="min-h-[60vh] flex flex-col justify-center items-center text-center mb-20 mt-8">
           <div 
             ref={heroTitleAnimation.ref}
@@ -51,13 +47,16 @@ const PlanoBlack: React.FC = () => {
             <h2 className="text-2xl md:text-3xl font-semibold mb-6">
               Protocolo de Treinamento + Protocolo Dietético. <span className="text-vf-orange">Tudo em 1!</span>
             </h2>
+            <p className="text-lg italic text-vf-orange font-medium mb-6">
+              "Acredita, vamos juntos!"
+            </p>
           </div>
           
           <p 
             ref={heroSubtitleAnimation.ref}
             className={`opacity-0 translate-y-8 transition-all duration-700 text-xl text-gray-300 max-w-3xl mb-10 ${heroSubtitleAnimation.className}`}
           >
-            A fusão perfeita entre treino, dieta e resultado real.
+            A fusão perfeita entre treino, dieta e <span className="text-vf-orange">resultado real</span>.
           </p>
           
           <div 
@@ -74,10 +73,14 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
 
-        {/* SEÇÃO 2: O QUE É O PLANO BLACK? */}
         <section className="mb-24">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Tudo o que você precisa em um único plano.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Tudo o que você precisa em um <span className="text-vf-orange">único plano</span>.
+            </h2>
+            <p className="text-lg italic text-vf-orange font-medium mt-4">
+              "A hora do pesadelo é agora e sorriso depois"
+            </p>
             <div className="h-1 w-20 bg-vf-orange mx-auto"></div>
           </div>
           
@@ -107,10 +110,11 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
         
-        {/* SEÇÃO 3: BENEFÍCIOS COMPLETOS */}
         <section className="mb-24 bg-black/30 py-16 rounded-xl border border-vf-orange/10">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Você recebe um plano completo e personalizado.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Você recebe um plano <span className="text-vf-orange">completo</span> e <span className="text-vf-orange">personalizado</span>.
+            </h2>
             <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
           </div>
           
@@ -145,10 +149,11 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
 
-        {/* SEÇÃO 4: RESULTADOS REAIS */}
         <section className="mb-24">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Resultados reais de quem seguiu o plano.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Resultados <span className="text-vf-orange">reais</span> de quem seguiu o plano.
+            </h2>
             <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
           </div>
           
@@ -186,10 +191,11 @@ const PlanoBlack: React.FC = () => {
           </Carousel>
         </section>
         
-        {/* SEÇÃO 5: DIFERENCIAIS DO PLANO BLACK */}
         <section className="mb-24">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Por que o Plano Black é diferente de tudo que você já tentou?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Por que o Plano Black é <span className="text-vf-orange">diferente</span> de tudo que você já tentou?
+            </h2>
             <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
           </div>
           
@@ -223,74 +229,72 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
 
-  {/* Replace SECTION 6: CALL TO ACTION FORTE with new PLANS SECTION */}
-  <section className="mb-24">
-    <div className="text-center mb-10">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Escolha o plano ideal para sua jornada</h2>
-      <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
-      <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-        Invista em você e transforme sua vida
-      </p>
-    </div>
+        <section className="mb-24">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Escolha o plano ideal para sua jornada</h2>
+            <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Invista em você e transforme sua vida
+            </p>
+          </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto px-4">
-      <PlanCard
-        title="Protocolo Bimestral"
-        subtitle="Acompanhamento por 60 dias"
-        price="R$ 639,80 à vista"
-        benefits={[
-          "Protocolo de treinamento & dietético",
-          "Acompanhamento por 60 dias",
-          "App exclusivo com vídeos",
-          "Suporte com contato para dúvidas"
-        ]}
-        ctaText="Quero esse plano"
-        badge={{
-          text: "MELHOR CUSTO-BENEFÍCIO",
-          type: "economic"
-        }}
-      />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto px-4">
+            <PlanCard
+              title="Protocolo Bimestral"
+              subtitle="Acompanhamento por 60 dias"
+              price="R$ 639,80 à vista"
+              benefits={[
+                "Protocolo de treinamento & dietético",
+                "Acompanhamento por 60 dias",
+                "App exclusivo com vídeos",
+                "Suporte com contato para dúvidas"
+              ]}
+              ctaText="Quero esse plano"
+              badge={{
+                text: "MELHOR CUSTO-BENEFÍCIO",
+                type: "economic"
+              }}
+            />
 
-      <PlanCard
-        title="Protocolo Semestral"
-        subtitle="Acompanhamento por 180 dias"
-        price="R$ 1.596,00 à vista"
-        installments="6x R$ 305,90 no cartão"
-        benefits={[
-          "3 protocolos de treinamento & dietético completos",
-          "Acompanhamento total por 180 dias",
-          "App exclusivo com vídeos",
-          "Suporte com contato para dúvidas"
-        ]}
-        ctaText="Começar agora"
-        badge={{
-          text: "MAIS ESCOLHIDO",
-          type: "popular"
-        }}
-        isPopular={true}
-      />
+            <PlanCard
+              title="Protocolo Semestral"
+              subtitle="Acompanhamento por 180 dias"
+              price="R$ 1.596,00 à vista"
+              installments="6x R$ 305,90 no cartão"
+              benefits={[
+                "3 protocolos de treinamento & dietético completos",
+                "Acompanhamento total por 180 dias",
+                "App exclusivo com vídeos",
+                "Suporte com contato para dúvidas"
+              ]}
+              ctaText="Começar agora"
+              badge={{
+                text: "MAIS ESCOLHIDO",
+                type: "popular"
+              }}
+              isPopular={true}
+            />
 
-      <PlanCard
-        title="Protocolo Anual"
-        subtitle="Acompanhamento por 365 dias"
-        price="R$ 2.876,00 à vista"
-        installments="12x R$ 287,60 no cartão"
-        benefits={[
-          "6 protocolos de treinamento & dietético completos",
-          "Acompanhamento total por 365 dias",
-          "App exclusivo com vídeos",
-          "Suporte com contato para dúvidas"
-        ]}
-        ctaText="Garantir minha vaga"
-        badge={{
-          text: "ACESSO MAIS COMPLETO",
-          type: "premium"
-        }}
-      />
-    </div>
-  </section>
+            <PlanCard
+              title="Protocolo Anual"
+              subtitle="Acompanhamento por 365 dias"
+              price="R$ 2.876,00 à vista"
+              installments="12x R$ 287,60 no cartão"
+              benefits={[
+                "6 protocolos de treinamento & dietético completos",
+                "Acompanhamento total por 365 dias",
+                "App exclusivo com vídeos",
+                "Suporte com contato para dúvidas"
+              ]}
+              ctaText="Garantir minha vaga"
+              badge={{
+                text: "ACESSO MAIS COMPLETO",
+                type: "premium"
+              }}
+            />
+          </div>
+        </section>
 
-        {/* SEÇÃO 7: FAQ (PERGUNTAS FREQUENTES) */}
         <section className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Perguntas Frequentes</h2>
@@ -349,10 +353,8 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
         
-        {/* SEÇÃO 8: FOOTER */}
         <Footer />
         
-        {/* WhatsApp Floating Button */}
         <WhatsAppButton phoneNumber="5511999999999" />
       </div>
     </div>
