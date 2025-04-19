@@ -8,6 +8,7 @@ import PuzzlePieces from '@/components/PuzzlePieces';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Footer from '@/components/Footer';
 
 const ProtocoloStarter: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -323,6 +324,8 @@ const ProtocoloStarter: React.FC = () => {
             </div>
           </div>
         </section>
+
+        <Footer />
         
         <WhatsAppButton phoneNumber="5511999999999" />
       </div>
