@@ -7,6 +7,7 @@ import ResultsSection from '../components/ResultsSection';
 import PlansSection from '../components/PlansSection';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
+import Navbar from '../components/Navbar';
 
 const Index: React.FC = () => {
   return (
@@ -24,16 +25,8 @@ const Index: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10">
-        {/* Logo */}
-        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/90 to-transparent backdrop-blur-sm py-4">
-          <div className="container mx-auto px-6">
-            <img 
-              src="/lovable-uploads/988273f0-e092-4366-bf1a-b33a782abf43.png" 
-              alt="Vinicius Di Fiore" 
-              className="h-12" 
-            />
-          </div>
-        </div>
+        {/* Navigation */}
+        <Navbar />
 
         {/* Hero Section - Section 1 */}
         <HeroSection />
