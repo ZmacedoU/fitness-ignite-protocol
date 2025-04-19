@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Button } from '@/components/ui/button';
@@ -51,8 +50,7 @@ const ProtocoloStarter: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-vf-orange/5 via-transparent to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-transparent to-vf-orange/3"></div>
-        {/* Runner Icon Background */}
-        <div className="absolute bottom-0 right-0 w-1/3 pointer-events-none opacity-[0.06] z-0">
+        <div className="absolute bottom-0 right-0 w-1/3 pointer-events-none opacity-[0.15] z-0">
           <img 
             src="/lovable-uploads/5985b592-6447-4b8e-9bed-60a897b12f65.png" 
             alt="" 
@@ -251,22 +249,23 @@ const ProtocoloStarter: React.FC = () => {
           <div className="container mx-auto px-6">
             <div 
               {...ctaAnimation}
-              className="max-w-3xl mx-auto text-center bg-black/60 backdrop-blur-sm border border-vf-orange/30 rounded-2xl p-8 md:p-12 shadow-lg shadow-vf-orange/10"
+              className="max-w-3xl mx-auto text-center bg-black/60 backdrop-blur-sm border border-vf-orange/20 rounded-2xl p-8 md:p-12 shadow-lg shadow-vf-orange/10 hover:shadow-vf-orange/20 transition-all duration-300"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Saia do <span className="text-vf-orange">0</span>!
               </h2>
               
-              <p className="text-xl mb-10">
+              <p className="text-xl mb-10 text-gray-200">
                 Receba seu treinamento para iniciar nosso protocolo start com o eBook exclusivo de introdução ao treinamento e reeducação alimentar.
               </p>
               
               <div className="mb-10">
-                <div className="bg-vf-orange/10 rounded-lg p-6 mb-4">
-                  <p className="text-2xl md:text-3xl font-bold">
-                    <span className="text-vf-orange">R$ 97,00</span> à vista
+                <div className="bg-black/40 backdrop-blur-sm border border-vf-orange/20 rounded-xl p-8 mb-4 transform transition-all duration-300 hover:scale-[1.02]">
+                  <p className="text-3xl md:text-4xl font-bold mb-2">
+                    <span className="text-vf-orange">R$ 97,00</span>
+                    <span className="text-xl text-gray-300"> à vista</span>
                   </p>
-                  <p className="text-gray-300">ou 12x de R$ 9,90</p>
+                  <p className="text-gray-400 text-lg">ou 12x de R$ 9,90</p>
                 </div>
               </div>
               
@@ -274,10 +273,10 @@ const ProtocoloStarter: React.FC = () => {
                 href="https://wa.me/5511999999999?text=Olá,%20tenho%20interesse%20no%20Protocolo%20Starter"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary text-xl px-10 py-6 w-full md:w-auto inline-flex items-center justify-center gap-2 shadow-lg shadow-vf-orange/20 hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center justify-center w-full md:w-auto bg-vf-orange text-white px-8 py-4 rounded-xl font-bold text-xl gap-2 shadow-lg shadow-vf-orange/20 hover:bg-vf-orange/90 hover:scale-105 transition-all duration-300"
               >
-                <span>VAMOS JUNTOS!</span>
-                <ArrowRight />
+                VAMOS JUNTOS!
+                <ArrowRight className="w-6 h-6" />
               </a>
               
               <p className="mt-6 text-sm text-gray-400">
