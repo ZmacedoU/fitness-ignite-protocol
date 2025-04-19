@@ -226,6 +226,46 @@ const ProtocoloStarter: React.FC = () => {
           </Carousel>
         </section>
 
+        <section id="cta-section" className="py-20 bg-gradient-to-b from-black/90 via-black to-vf-orange/10">
+          <div className="container mx-auto px-6">
+            <div 
+              {...ctaAnimation}
+              className="max-w-3xl mx-auto text-center bg-black/60 backdrop-blur-sm border border-vf-orange/30 rounded-2xl p-8 md:p-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Saia do <span className="text-vf-orange">0</span>!
+              </h2>
+              
+              <p className="text-xl mb-8">
+                Receba seu treinamento para iniciar nosso protocolo start com o eBook exclusivo de introdução ao treinamento e reeducação alimentar.
+              </p>
+              
+              <div className="mb-8">
+                <div className="bg-vf-orange/10 rounded-lg p-4 mb-4">
+                  <p className="text-2xl md:text-3xl font-bold">
+                    <span className="text-vf-orange">R$ 97,00</span> à vista
+                  </p>
+                  <p className="text-gray-300">ou 12x de R$ 9,90</p>
+                </div>
+              </div>
+              
+              <a 
+                href="https://wa.me/5511999999999?text=Olá,%20tenho%20interesse%20no%20Protocolo%20Starter"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-xl px-8 py-6 w-full md:w-auto inline-flex items-center justify-center gap-2"
+              >
+                <span>VAMOS JUNTOS!</span>
+                <ArrowRight />
+              </a>
+              
+              <p className="mt-6 text-sm text-gray-400">
+                Ao clicar, você será redirecionado para o WhatsApp para finalizar sua compra.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section className="py-20 bg-black/50">
           <div className="container mx-auto px-6">
             <div className="text-center mb-10">
@@ -281,46 +321,6 @@ const ProtocoloStarter: React.FC = () => {
                   );
                 })}
               </Accordion>
-            </div>
-          </div>
-        </section>
-
-        <section id="cta-section" className="py-20 bg-gradient-to-b from-black/90 via-black to-vf-orange/10">
-          <div className="container mx-auto px-6">
-            <div 
-              {...ctaAnimation}
-              className="max-w-3xl mx-auto text-center bg-black/60 backdrop-blur-sm border border-vf-orange/30 rounded-2xl p-8 md:p-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Saia do <span className="text-vf-orange">0</span>!
-              </h2>
-              
-              <p className="text-xl mb-8">
-                Receba seu treinamento para iniciar nosso protocolo start com o eBook exclusivo de introdução ao treinamento e reeducação alimentar.
-              </p>
-              
-              <div className="mb-8">
-                <div className="bg-vf-orange/10 rounded-lg p-4 mb-4">
-                  <p className="text-2xl md:text-3xl font-bold">
-                    <span className="text-vf-orange">R$ 97,00</span> à vista
-                  </p>
-                  <p className="text-gray-300">ou 12x de R$ 9,90</p>
-                </div>
-              </div>
-              
-              <a 
-                href="https://wa.me/5511999999999?text=Olá,%20tenho%20interesse%20no%20Protocolo%20Starter"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-xl px-8 py-6 w-full md:w-auto inline-flex items-center justify-center gap-2"
-              >
-                <span>VAMOS JUNTOS!</span>
-                <ArrowRight />
-              </a>
-              
-              <p className="mt-6 text-sm text-gray-400">
-                Ao clicar, você será redirecionado para o WhatsApp para finalizar sua compra.
-              </p>
             </div>
           </div>
         </section>
