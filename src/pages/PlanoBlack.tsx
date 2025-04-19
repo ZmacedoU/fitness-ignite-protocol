@@ -121,7 +121,6 @@ const PlanoBlack: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
               "Suporte exclusivo via app e WhatsApp",
-              "Suporte para dúvidas sobre dieta",
               "Análise física e postural personalizada",
               "Protocolo dietético sem terrorismo nutricional",
               "Protocolo de treino estratégico baseado em ciência",
@@ -136,13 +135,13 @@ const PlanoBlack: React.FC = () => {
                 <div 
                   key={index}
                   ref={bulletAnimation.ref}
-                  className={`group backdrop-blur-sm bg-white/5 rounded-2xl p-6 transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 border border-vf-orange/20 opacity-0 translate-y-6 ${bulletAnimation.className} flex items-start gap-4`}
+                  className={`group backdrop-blur-sm bg-black/40 rounded-2xl p-6 transition-all duration-300 hover:bg-black/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 border border-vf-orange/10 opacity-0 translate-y-6 ${bulletAnimation.className} flex items-start gap-4`}
                   style={bulletAnimation.style}
                 >
-                  <div className="text-vf-orange transition-colors group-hover:text-vf-orange/80">
+                  <div className="text-vf-orange transition-colors group-hover:text-vf-orange">
                     <Check size={24} className="flex-shrink-0" />
                   </div>
-                  <p className="text-gray-300 leading-relaxed">{benefit}</p>
+                  <p className="text-white text-lg font-medium leading-relaxed tracking-wide">{benefit}</p>
                 </div>
               );
             })}
