@@ -1,24 +1,26 @@
-
 import React, { useEffect, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Clock, Dumbbell, Heart, Target, Award, Book } from 'lucide-react';
+import { ArrowRight, Clock, Dumbbell, Heart, Target, Award, Book, Brain, Utensils, BatteryFull, Check } from 'lucide-react';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import { Link } from 'react-router-dom';
+import PuzzlePieces from '@/components/PuzzlePieces';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const ProtocoloStarter: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   
   // Animations for different sections with proper element types
-  const heroTitleAnimation = useScrollAnimation<HTMLDivElement>('animate-fade-in', 0.1, { noInitialHidden: false });
-  const heroSubtitleAnimation = useScrollAnimation<HTMLParagraphElement>('animate-fade-in', 0.1, { delay: 300, noInitialHidden: false });
-  const heroButtonAnimation = useScrollAnimation<HTMLDivElement>('animate-fade-in', 0.1, { delay: 600, noInitialHidden: false });
+  const heroTitleAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { noInitialHidden: true });
+  const heroSubtitleAnimation = useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-y-0', 0.1, { delay: 200 });
+  const heroButtonAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 400 });
   
-  const benefitsAnimation = useScrollAnimation<HTMLDivElement>('animate-slide-in-bottom', 0.1);
-  const featureAnimation1 = useScrollAnimation<HTMLDivElement>('animate-fade-in', 0.1, { delay: 100 });
-  const featureAnimation2 = useScrollAnimation<HTMLDivElement>('animate-fade-in', 0.1, { delay: 200 });
-  const featureAnimation3 = useScrollAnimation<HTMLDivElement>('animate-fade-in', 0.1, { delay: 300 });
+  const benefitsAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1);
+  const featureAnimation1 = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 100 });
+  const featureAnimation2 = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 200 });
+  const featureAnimation3 = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 300 });
   
-  const ctaAnimation = useScrollAnimation<HTMLDivElement>('animate-scale-in', 0.1);
+  const ctaAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,35 +45,28 @@ const ProtocoloStarter: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-black to-black/90">
-      {/* Background Image with Blur */}
-      <div 
-        className="fixed inset-0 z-0 opacity-20"
-        style={{
-          backgroundImage: "url('/lovable-uploads/feafe30c-8486-41d5-a0bc-ce63abb5c6d8.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          filter: "blur(8px)",
-        }}
-      />
+    <div className="min-h-screen bg-gradient-to-br from-black via-black to-[#1a1a1a] text-white overflow-x-hidden">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-tr from-vf-orange/5 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-transparent to-vf-orange/3"></div>
+        <PuzzlePieces />
+      </div>
 
       {/* Fixed Header */}
       <header 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled 
-            ? 'py-2 bg-black/90 backdrop-blur-md shadow-md' 
-            : 'py-6 bg-transparent'
+          scrolled ? 'py-2 bg-black/90 backdrop-blur-md shadow-md' : 'py-6 bg-transparent'
         }`}
       >
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between">
-            <a href="/" className="block">
+          <div className="flex justify-between items-center">
+            <Link to="/">
               <img 
                 src="/lovable-uploads/988273f0-e092-4366-bf1a-b33a782abf43.png" 
                 alt="Vinicius Di Fiore" 
                 className={`transition-all duration-300 ${scrolled ? 'h-10' : 'h-14'}`}
               />
-            </a>
+            </Link>
             <Button 
               onClick={scrollToPlans}
               className="bg-vf-orange hover:bg-vf-orange/90 text-white font-bold"
@@ -82,17 +77,16 @@ const ProtocoloStarter: React.FC = () => {
         </div>
       </header>
 
-      {/* Content */}
       <div className="relative z-10 pt-28">
         {/* Hero Section */}
-        <section className="py-20 md:py-32">
+        <section className="min-h-[60vh] flex flex-col justify-center items-center text-center mb-20 mt-8">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
               <div 
                 {...heroTitleAnimation}
               >
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white tracking-tighter">
-                  PROTOCOLO <span className="text-vf-orange">STARTER</span>
+                  PROTOCOLO <span className="text-vf-orange">START</span>
                 </h1>
                 <h2 className="text-2xl md:text-3xl font-semibold">
                   Combo emagrecimento do <span className="text-vf-orange">0 a 100%</span>
@@ -197,50 +191,116 @@ const ProtocoloStarter: React.FC = () => {
             </div>
           </div>
         </section>
-        
-        {/* What You'll Get Section */}
+
+        {/* Features Grid */}
         <section className="py-20">
           <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                O Que Você Vai <span className="text-vf-orange">Receber</span>
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Protocolo <span className="text-vf-orange">Start</span> é a sua porta de entrada
               </h2>
-              
-              <div className="space-y-6 mb-12">
-                <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-black to-black/80 border border-vf-orange/10 rounded-lg transition-all hover:border-vf-orange/30">
-                  <div className="text-vf-orange mt-1">
-                    <Clock size={24} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold mb-1">Protocolo de Treinamento Starter</h4>
-                    <p className="text-gray-300">Treinos de 35 minutos que podem ser feitos em casa ou na academia, projetados para iniciantes.</p>
-                  </div>
-                </div>
+              <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {[
+                { 
+                  icon: <Dumbbell size={32} className="text-vf-orange" />, 
+                  title: "Treinos simples e eficazes", 
+                  description: "Apenas 35 minutos por dia para transformar seu corpo." 
+                },
+                { 
+                  icon: <Heart size={32} className="text-vf-orange" />, 
+                  title: "Reeducação alimentar", 
+                  description: "Aprenda a se alimentar melhor sem restrições extremas." 
+                },
+                { 
+                  icon: <Book size={32} className="text-vf-orange" />, 
+                  title: "eBook exclusivo", 
+                  description: "Material completo de introdução ao treinamento." 
+                }
+              ].map((item, index) => {
+                const featureAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 150 * index });
                 
-                <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-black to-black/80 border border-vf-orange/10 rounded-lg transition-all hover:border-vf-orange/30">
-                  <div className="text-vf-orange mt-1">
-                    <Target size={24} />
+                return (
+                  <div 
+                    key={index}
+                    ref={featureAnimation.ref}
+                    className={`group p-8 bg-black/40 backdrop-blur-sm border border-vf-orange/10 rounded-2xl transition-all duration-300 hover:bg-black/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 opacity-0 translate-y-6 ${featureAnimation.className}`}
+                    style={featureAnimation.style}
+                  >
+                    <div className="mb-6 p-4 rounded-xl bg-black/30 inline-block group-hover:scale-110 transition-transform duration-300">
+                      {item.icon}
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-vf-orange transition-colors">{item.title}</h3>
+                    <p className="text-gray-300 leading-relaxed">{item.description}</p>
                   </div>
-                  <div>
-                    <h4 className="text-lg font-bold mb-1">Guia de Reeducação Alimentar</h4>
-                    <p className="text-gray-300">Aprenda a se alimentar melhor sem complicações, com dicas práticas para o dia a dia.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-black to-black/80 border border-vf-orange/10 rounded-lg transition-all hover:border-vf-orange/30">
-                  <div className="text-vf-orange mt-1">
-                    <Award size={24} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold mb-1">eBook: Do Zero ao Fitness</h4>
-                    <p className="text-gray-300">Material exclusivo com conceitos fundamentais, dicas motivacionais e plano de ação.</p>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </section>
-        
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-black/50">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Perguntas Frequentes</h2>
+              <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
+            </div>
+            
+            <div className="max-w-3xl mx-auto">
+              <Accordion type="single" collapsible className="w-full space-y-4">
+                {[
+                  { 
+                    question: "Quanto tempo levo para ver resultados?", 
+                    answer: "Com dedicação ao protocolo, você já começa a notar mudanças nas primeiras semanas. Resultados mais expressivos são visíveis a partir de 4-6 semanas seguindo o programa corretamente." 
+                  },
+                  { 
+                    question: "Preciso ter experiência prévia?", 
+                    answer: "Não! O Protocolo Starter foi desenvolvido especialmente para iniciantes. Todos os exercícios são explicados em detalhes e você terá suporte completo." 
+                  },
+                  { 
+                    question: "Como funciona a reeducação alimentar?", 
+                    answer: "Trabalhamos com um protocolo simples e flexível, sem dietas restritivas. Você aprenderá a fazer melhores escolhas alimentares mantendo o prazer de comer." 
+                  },
+                  { 
+                    question: "Preciso ir à academia?", 
+                    answer: "O protocolo pode ser adaptado para treinos em casa com equipamentos básicos, mas recomendamos academia para melhores resultados." 
+                  },
+                  { 
+                    question: "Como faço para começar?", 
+                    answer: "Após a compra, você receberá acesso imediato a todo o material digital, incluindo o eBook e orientações iniciais. Nosso suporte entrará em contato para as próximas etapas." 
+                  }
+                ].map((item, index) => {
+                  const faqAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 100 * index });
+                  
+                  return (
+                    <div 
+                      key={index}
+                      ref={faqAnimation.ref}
+                      className={`opacity-0 translate-y-6 ${faqAnimation.className}`}
+                      style={faqAnimation.style}
+                    >
+                      <AccordionItem 
+                        value={`item-${index}`} 
+                        className="group border border-vf-orange/20 rounded-lg overflow-hidden bg-black/30 backdrop-blur-sm transition-all duration-300 hover:bg-black/40"
+                      >
+                        <AccordionTrigger className="px-6 py-4 hover:no-underline group-hover:text-vf-orange transition-colors">
+                          <span className="text-left">{item.question}</span>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-6 py-4 text-gray-300">
+                          {item.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    </div>
+                  );
+                })}
+              </Accordion>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section id="cta-section" className="py-20 bg-gradient-to-b from-black/90 via-black to-vf-orange/10">
           <div className="container mx-auto px-6">
@@ -253,7 +313,7 @@ const ProtocoloStarter: React.FC = () => {
               </h2>
               
               <p className="text-xl mb-8">
-                Receba seu treinamento para iniciar nosso protocolo start com o ebook exclusivo de introdução ao treinamento e reeducação alimentar.
+                Receba seu treinamento para iniciar nosso protocolo start com o eBook exclusivo de introdução ao treinamento e reeducação alimentar.
               </p>
               
               <div className="mb-8">
