@@ -1,6 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +44,6 @@ const Navbar: React.FC = () => {
           />
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <button 
             onClick={() => scrollToSection('home')}
@@ -64,15 +63,14 @@ const Navbar: React.FC = () => {
           >
             Serviços
           </button>
-          <button 
-            onClick={() => scrollToSection('contato')}
+          <Link 
+            to="/protocolo-starter"
             className="btn-primary"
           >
             Ver Planos
-          </button>
+          </Link>
         </div>
 
-        {/* Mobile menu button */}
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -84,7 +82,6 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden fixed inset-0 top-[72px] bg-black/95 z-50 flex flex-col items-center pt-10 space-y-8 animate-fade-in">
           <button 
@@ -105,12 +102,12 @@ const Navbar: React.FC = () => {
           >
             Serviços
           </button>
-          <button 
-            onClick={() => scrollToSection('contato')}
+          <Link 
+            to="/protocolo-starter"
             className="btn-primary"
           >
             Ver Planos
-          </button>
+          </Link>
         </div>
       )}
     </nav>

@@ -1,18 +1,18 @@
 import React from 'react';
-import { ArrowRight, Brain, Utensils, Heart, BatteryFull, Check, UserCheck, Activity, Video, MessageCircle, FileText, Trophy, Sparkles } from 'lucide-react';
+import { ArrowRight, Brain, Activity, CheckCircle, Zap, UserCheck, Video, MessageCircle, FileText, Award, Check, Puzzle, Medal, Target } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { useCountAnimation } from '@/hooks/useCountAnimation';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Link } from 'react-router-dom';
 import PuzzlePieces from '@/components/PuzzlePieces';
 import PlanCard from '@/components/PlanCard';
+import BenefitsGrid from '@/components/BenefitsGrid';
 
-const PlanoBlack: React.FC = () => {
+const ProtocoloTreinamento: React.FC = () => {
   const heroTitleAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { noInitialHidden: true });
   const heroSubtitleAnimation = useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-y-0', 0.1, { delay: 200 });
   const heroButtonAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 400 });
@@ -43,24 +43,25 @@ const PlanoBlack: React.FC = () => {
           </Link>
         </div>
 
+        {/* Hero Section */}
         <section className="min-h-[60vh] flex flex-col justify-center items-center text-center mb-20 mt-8">
           <div 
             ref={heroTitleAnimation.ref}
             className={`opacity-0 translate-y-8 transition-all duration-1000 ${heroTitleAnimation.className}`}
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white tracking-tighter">
-              PLANO <span className="text-vf-orange">BLACK</span>
+              PROTOCOLO DE <span className="text-vf-orange">TREINAMENTO EXCLUSIVO</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold mb-6">
-              Protocolo de Treinamento + Protocolo Dietético. <span className="text-vf-orange">Tudo em 1!</span>
+              Transforme seu físico com o <span className="text-vf-orange">acompanhamento pessoal</span> do treinador
             </h2>
           </div>
           
           <p 
             ref={heroSubtitleAnimation.ref}
-            className={`opacity-0 translate-y-8 transition-all duration-700 text-xl text-gray-300 max-w-3xl mb-10 ${heroSubtitleAnimation.className}`}
+            className={`opacity-0 translate-y-8 transition-all duration-700 text-xl text-gray-300 max-w-3xl mb-6 ${heroSubtitleAnimation.className}`}
           >
-            A fusão perfeita entre treino, dieta e <span className="text-vf-orange">resultado real</span>.
+            <span className="text-vf-orange italic font-medium">"A hora do pesadelo é agora e sorriso depois"</span>
           </p>
           
           <div 
@@ -72,28 +73,27 @@ const PlanoBlack: React.FC = () => {
               size="lg" 
               className="bg-vf-orange hover:bg-vf-orange/90 hover:scale-105 transition-all duration-300 text-white font-bold py-6 px-8 rounded-lg text-lg uppercase"
             >
-              QUERO TRANSFORMAR MEU FÍSICO AGORA
+              QUERO EVOLUIR AGORA
               <ArrowRight className="ml-2" />
             </Button>
           </div>
         </section>
 
-        <section id="plans-section" className="mb-24">
+        {/* Seção 1 - Você precisa disso se... */}
+        <section className="mb-24">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Tudo o que você precisa em um <span className="text-vf-orange">único plano</span>.
+              Você <span className="text-vf-orange">precisa</span> disso se...
             </h2>
-            <p className="text-lg italic text-vf-orange font-medium mt-4">
-              "A hora do pesadelo é agora e sorriso depois"
-            </p>
+            <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: <Brain size={48} className="text-vf-orange" />, title: "Protocolo de treinamento estratégico" },
-              { icon: <Utensils size={48} className="text-vf-orange" />, title: "Protocolo dietético exclusivo" },
-              { icon: <Heart size={48} className="text-vf-orange" />, title: "Rotina cardiovascular" },
-              { icon: <BatteryFull size={48} className="text-vf-orange" />, title: "Descanso inteligente" }
+              { icon: <Activity size={48} className="text-vf-orange" />, title: "Está estagnado nos treinos há meses" },
+              { icon: <Brain size={48} className="text-vf-orange" />, title: "Não consegue construir um físico proporcional" },
+              { icon: <CheckCircle size={48} className="text-vf-orange" />, title: "Sente dores ou sobrecarga ao treinar" },
+              { icon: <Zap size={48} className="text-vf-orange" />, title: "Sabe que pode mais, mas falta direção" }
             ].map((item, index) => {
               const cardAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 200 * index });
               
@@ -114,48 +114,14 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
         
-        <section className="mb-24">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Você recebe um plano <span className="text-vf-orange">completo</span> e <span className="text-vf-orange">personalizado</span>.
-            </h2>
-            <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {[
-              "Suporte exclusivo via app e WhatsApp",
-              "Análise física e postural personalizada",
-              "Protocolo dietético sem terrorismo nutricional",
-              "Protocolo de treino estratégico baseado em ciência",
-              "Vídeos reais no app com Vinicius e alunos",
-              "Feedbacks e ajustes com acompanhamento periódico",
-              "Dieta personalizada com acesso no app",
-              "Suporte real do treinador e da nutricionista"
-            ].map((benefit, index) => {
-              const bulletAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.05, { delay: 100 * index });
-              
-              return (
-                <div 
-                  key={index}
-                  ref={bulletAnimation.ref}
-                  className={`group backdrop-blur-sm bg-black/40 rounded-2xl p-6 transition-all duration-300 hover:bg-black/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 border border-vf-orange/10 opacity-0 translate-y-6 ${bulletAnimation.className} flex items-start gap-4`}
-                  style={bulletAnimation.style}
-                >
-                  <div className="text-vf-orange transition-colors group-hover:text-vf-orange">
-                    <Check size={24} className="flex-shrink-0" />
-                  </div>
-                  <p className="text-white text-lg font-medium leading-relaxed tracking-wide">{benefit}</p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        {/* Seção 2 - O que você vai receber */}
+        <BenefitsGrid />
         
+        {/* Seção 3 - Resultados Reais */}
         <section className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Resultados <span className="text-vf-orange">reais</span> de quem seguiu o plano.
+              Resultados <span className="text-vf-orange">reais</span> de quem seguiu o protocolo
             </h2>
             <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
           </div>
@@ -194,42 +160,49 @@ const PlanoBlack: React.FC = () => {
           </Carousel>
         </section>
         
+        {/* Seção 4 - Por que é diferente de tudo */}
         <section className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Por que o Plano Black é <span className="text-vf-orange">diferente</span> de tudo que você já tentou?
+              Por que é <span className="text-vf-orange relative inline-block">
+                diferente
+                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-vf-orange"></div>
+              </span> de tudo
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-              Descubra como nossa abordagem única pode transformar seus resultados
-            </p>
+            <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+          <div className="max-w-4xl mx-auto space-y-6 px-4">
             {[
               { 
-                icon: <Trophy size={32} className="text-vf-orange" />, 
-                title: "Tudo em 1: treino + dieta", 
-                description: "Unificamos treino e alimentação em um único protocolo coordenado." 
+                icon: <Puzzle size={32} className="text-vf-orange" />, 
+                title: "Nada genérico, tudo personalizado", 
+                description: "Cada detalhe é pensado exclusivamente para o seu biotipo e objetivos" 
               },
               { 
-                icon: <UserCheck size={32} className="text-vf-orange" />, 
-                title: "Personalização extrema", 
-                description: "Seu plano é 100% adaptado às suas características e objetivos." 
+                icon: <Video size={32} className="text-vf-orange" />, 
+                title: "Vídeos de execução perfeitos", 
+                description: "Orientações práticas e detalhadas que mostram exatamente como realizar cada exercício" 
               },
               { 
                 icon: <MessageCircle size={32} className="text-vf-orange" />, 
-                title: "Suporte real com treinador e nutri", 
-                description: "Acompanhamento direto com profissionais especializados." 
-              },
-              { 
-                icon: <Sparkles size={32} className="text-vf-orange" />, 
-                title: "Liberdade sem terrorismo nutricional", 
-                description: "Dieta flexível que se adapta ao seu estilo de vida." 
+                title: "Suporte direto com o treinador", 
+                description: "Tire suas dúvidas e receba feedbacks diretamente com quem criou seu programa" 
               },
               { 
                 icon: <FileText size={32} className="text-vf-orange" />, 
-                title: "Estratégia baseada em ciência e prática", 
-                description: "Metodologia comprovada por resultados e embasamento científico." 
+                title: "Baseado em ciência e experiência", 
+                description: "Métodos testados e aprovados por atletas profissionais de alta performance" 
+              },
+              { 
+                icon: <Medal size={32} className="text-vf-orange" />, 
+                title: "Foco total no seu resultado", 
+                description: "Sistema completo para maximizar seus ganhos e superar seus limites" 
+              },
+              { 
+                icon: <Target size={32} className="text-vf-orange" />, 
+                title: "Método profissional adaptado", 
+                description: "Técnicas do fisiculturismo competitivo ajustadas para o seu nível atual" 
               }
             ].map((item, index) => {
               const differentialAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 150 * index });
@@ -238,26 +211,31 @@ const PlanoBlack: React.FC = () => {
                 <div 
                   key={index}
                   ref={differentialAnimation.ref}
-                  className={`group p-8 bg-black/40 backdrop-blur-sm border border-vf-orange/10 rounded-2xl transition-all duration-300 hover:bg-black/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 opacity-0 translate-y-6 ${differentialAnimation.className}`}
+                  className={`group p-6 bg-black/40 backdrop-blur-sm border border-vf-orange/10 rounded-xl transition-all duration-300 hover:bg-black/60 hover:shadow-lg hover:shadow-vf-orange/10 opacity-0 translate-y-6 ${differentialAnimation.className}`}
                   style={differentialAnimation.style}
                 >
-                  <div className="mb-6 p-4 rounded-xl bg-black/30 inline-block group-hover:scale-110 transition-transform duration-300">
-                    {item.icon}
+                  <div className="flex items-start gap-6">
+                    <div className="p-3 rounded-xl bg-black/30 inline-block group-hover:scale-110 transition-transform duration-300">
+                      {item.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold mb-2 group-hover:text-vf-orange transition-colors">{item.title}</h3>
+                      <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-vf-orange transition-colors">{item.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{item.description}</p>
                 </div>
               );
             })}
           </div>
         </section>
 
+        {/* Seção 5 - Adquira o acesso */}
         <section id="choose-plan-section" className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Escolha o plano ideal para sua jornada</h2>
             <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Invista em você e transforme sua vida
+              Invista em você e transforme seu físico
             </p>
           </div>
 
@@ -265,12 +243,12 @@ const PlanoBlack: React.FC = () => {
             <PlanCard
               title="Protocolo Bimestral"
               subtitle="Acompanhamento por 60 dias"
-              price="R$ 639,80 à vista"
+              price="R$ 319,90 à vista"
               benefits={[
-                "Protocolo de treinamento & dietético",
-                "Acompanhamento por 60 dias",
+                "Protocolo de treinamento completo",
                 "App exclusivo com vídeos",
-                "Suporte com contato para dúvidas"
+                "Suporte com contato para dúvidas",
+                "Acompanhamento por 60 dias"
               ]}
               ctaText="Quero esse plano"
               badge={{
@@ -282,13 +260,13 @@ const PlanoBlack: React.FC = () => {
             <PlanCard
               title="Protocolo Semestral"
               subtitle="Acompanhamento por 180 dias"
-              price="R$ 1.596,00 à vista"
-              installments="6x R$ 305,90 no cartão"
+              price="R$ 798,00 à vista"
+              installments="6x R$ 152,95 no cartão"
               benefits={[
-                "3 protocolos de treinamento & dietético completos",
-                "Acompanhamento total por 180 dias",
+                "3 protocolos de treinamento completos",
                 "App exclusivo com vídeos",
-                "Suporte com contato para dúvidas"
+                "Suporte com contato para dúvidas",
+                "Acompanhamento por 180 dias"
               ]}
               ctaText="Começar agora"
               badge={{
@@ -301,13 +279,13 @@ const PlanoBlack: React.FC = () => {
             <PlanCard
               title="Protocolo Anual"
               subtitle="Acompanhamento por 365 dias"
-              price="R$ 2.876,00 à vista"
-              installments="12x R$ 287,60 no cartão"
+              price="R$ 1.438,00 à vista"
+              installments="12x R$ 137,80 no cartão"
               benefits={[
-                "6 protocolos de treinamento & dietético completos",
-                "Acompanhamento total por 365 dias",
+                "6 protocolos de treinamento completos",
                 "App exclusivo com vídeos",
-                "Suporte com contato para dúvidas"
+                "Suporte com contato para dúvidas",
+                "Acompanhamento por 365 dias"
               ]}
               ctaText="Garantir minha vaga"
               badge={{
@@ -318,6 +296,7 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
 
+        {/* Seção FAQ */}
         <section className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Perguntas Frequentes</h2>
@@ -328,28 +307,24 @@ const PlanoBlack: React.FC = () => {
             <Accordion type="single" collapsible className="w-full space-y-4">
               {[
                 { 
-                  question: "Em quanto tempo vejo resultado?", 
-                  answer: "Os resultados iniciais já podem ser notados nas primeiras 2-3 semanas, com mudanças significativas em 60-90 dias para quem segue o plano corretamente. Cada organismo responde em seu tempo, mas garantimos transformações reais e duradouras." 
+                  question: "Isso serve para quem já treina?", 
+                  answer: "Sim! O protocolo é adaptado para todos os níveis, desde iniciantes até atletas avançados. O treinamento é personalizado para seu nível atual e objetivos específicos." 
                 },
                 { 
-                  question: "A dieta é muito restritiva?", 
-                  answer: "Não. Trabalhamos com um protocolo dietético flexível e sustentável, sem terrorismo nutricional. Nosso objetivo é que você construa uma relação saudável com a comida, sem frustrações e com resultados que duram." 
+                  question: "Preciso ter academia?", 
+                  answer: "Idealmente sim. O protocolo é desenhado para ser executado em academia, mas podemos adaptar para treinos em casa caso você possua alguns equipamentos básicos." 
                 },
                 { 
-                  question: "Posso parcelar o pagamento?", 
-                  answer: "Sim, oferecemos opções de parcelamento em até 12x no cartão de crédito. Também aceitamos PIX para pagamento à vista com desconto especial." 
-                },
-                { 
-                  question: "Como funciona o suporte com a nutricionista?", 
-                  answer: "Você terá acesso a consultas online com nossa nutricionista para tirar dúvidas, receber ajustes no plano alimentar e acompanhamento personalizado conforme sua evolução." 
-                },
-                { 
-                  question: "É necessário academia?", 
-                  answer: "O protocolo é desenhado para ser realizado em academia, mas podemos adaptar para treinos em casa com equipamentos básicos se necessário. O ideal é ter acesso a uma estrutura com pesos para melhores resultados." 
+                  question: "Vou ter acesso direto ao treinador?", 
+                  answer: "Com certeza! Você terá acesso direto ao treinador via app e WhatsApp para dúvidas, ajustes e feedbacks sobre sua evolução." 
                 },
                 { 
                   question: "O app funciona em Android e iOS?", 
-                  answer: "Sim, nosso aplicativo é compatível com ambos os sistemas operacionais, permitindo que você acompanhe seu plano, vídeos e evolução de qualquer smartphone." 
+                  answer: "Sim, nosso aplicativo é compatível com ambos os sistemas operacionais, permitindo que você acompanhe seu plano de qualquer smartphone." 
+                },
+                { 
+                  question: "O plano tem acompanhamento?", 
+                  answer: "Sim, todos os planos incluem acompanhamento personalizado. O tempo de acompanhamento varia conforme o plano escolhido: 60 dias para o Bimestral, 180 dias para o Semestral e 365 dias para o Anual." 
                 }
               ].map((item, index) => {
                 const faqAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 100 * index });
@@ -387,4 +362,4 @@ const PlanoBlack: React.FC = () => {
   );
 };
 
-export default PlanoBlack;
+export default ProtocoloTreinamento;
