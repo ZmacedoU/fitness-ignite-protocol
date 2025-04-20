@@ -19,20 +19,8 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden">
-      {/* Background Gradient with Logo */}
+      {/* Background Gradient with Smoke Effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-vf-orange/30 z-0"></div>
-      
-      {/* Logo Background */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.05]"
-        style={{
-          backgroundImage: "url('/lovable-uploads/7bf753aa-d9dc-48f8-ab5c-788b39c8047e.png')",
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: '70%',
-          filter: 'blur(1px)',
-        }}
-      ></div>
       
       {/* Animated Smoke Effect */}
       <div className="absolute bottom-0 left-0 right-0 h-40 opacity-30 z-0">
@@ -133,4 +121,3 @@ const HeroSection: React.FC = () => {
 };
 
 export default HeroSection;
-
