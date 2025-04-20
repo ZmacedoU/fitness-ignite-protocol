@@ -2,6 +2,7 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
+import MayraSection from '../components/MayraSection';
 import MethodSection from '../components/MethodSection';
 import ResultsSection from '../components/ResultsSection';
 import PlansSection from '../components/PlansSection';
@@ -41,13 +42,16 @@ const Index: React.FC = () => {
         {/* About Section - Section 2: Quem é Vinicius Di Fiore? */}
         <AboutSection />
 
-        {/* Method Section - Section 3: Protocolo */}
+        {/* Mayra Section - Section 3: Quem é Mayra Gotsfridt? */}
+        <MayraSection />
+
+        {/* Method Section - Section 4: Protocolo */}
         <MethodSection />
 
-        {/* Results Section - Section 4 */}
+        {/* Results Section - Section 5 */}
         <ResultsSection />
 
-        {/* Plans Section - Section 5 */}
+        {/* Plans Section - Section 6 */}
         <PlansSection />
 
         <Footer />
