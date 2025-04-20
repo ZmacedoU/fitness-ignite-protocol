@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowDown, ArrowRight, Calendar, Users, Globe } from 'lucide-react';
 import { Button } from './ui/button';
@@ -22,7 +23,7 @@ const HeroSection: React.FC = () => {
       <div 
         className="absolute inset-0 z-0 opacity-[0.05]"
         style={{
-          backgroundImage: "url('/lovable-uploads/fe36d5d4-16a5-4249-b236-2816f3a8a0f5.png')",
+          backgroundImage: "url('/lovable-uploads/bb606ea6-a931-451d-b8ed-dc9abad00faf.png')",
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: '70%',
