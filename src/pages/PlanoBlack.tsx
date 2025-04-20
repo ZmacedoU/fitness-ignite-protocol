@@ -11,6 +11,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Link } from 'react-router-dom';
 import PuzzlePieces from '@/components/PuzzlePieces';
 import PlanCard from '@/components/PlanCard';
+import ProfessionalCard from '@/components/ProfessionalCard';
 
 const PlanoBlack: React.FC = () => {
   const heroTitleAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { noInitialHidden: true });
@@ -249,6 +250,26 @@ const PlanoBlack: React.FC = () => {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        <section className="mb-24">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Conheça os <span className="text-vf-orange">profissionais</span> por trás do seu resultado</h2>
+            <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4">
+            <ProfessionalCard
+              name="VINICIUS DI FIORE"
+              role="Treinador"
+              imageUrl="/lovable-uploads/04c99750-d3c9-44c6-8bf4-7a29294a6828.png"
+            />
+            <ProfessionalCard
+              name="MAYRA GOTSFRIDT"
+              role="Nutricionista"
+              imageUrl="/lovable-uploads/f19178ab-8273-49e9-94ac-dc13c2144471.png"
+            />
           </div>
         </section>
 
