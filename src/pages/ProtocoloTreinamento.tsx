@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Brain, Activity, CheckCircle, Zap, UserCheck, Video, MessageCircle, FileText, Award, Check, Puzzle, Medal, Target } from 'lucide-react';
+import { ArrowRight, Brain, Activity, CheckCircle, Zap, UserCheck, Video, MessageCircle, FileText, Award, Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Footer from '@/components/Footer';
@@ -164,45 +164,37 @@ const ProtocoloTreinamento: React.FC = () => {
         <section className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Por que é <span className="text-vf-orange relative inline-block">
-                diferente
-                <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-vf-orange"></div>
-              </span> de tudo
+              Por que é <span className="text-vf-orange">diferente</span> de tudo
             </h2>
             <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
           </div>
           
-          <div className="max-w-4xl mx-auto space-y-6 px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
             {[
               { 
-                icon: <Puzzle size={32} className="text-vf-orange" />, 
+                icon: <UserCheck size={32} className="text-vf-orange" />, 
                 title: "Nada genérico, tudo personalizado", 
                 description: "Cada detalhe é pensado exclusivamente para o seu biotipo e objetivos" 
               },
               { 
                 icon: <Video size={32} className="text-vf-orange" />, 
                 title: "Vídeos de execução perfeitos", 
-                description: "Orientações práticas e detalhadas que mostram exatamente como realizar cada exercício" 
+                description: "Orientações reais que mostram exatamente como realizar cada exercício" 
               },
               { 
                 icon: <MessageCircle size={32} className="text-vf-orange" />, 
                 title: "Suporte direto com o treinador", 
-                description: "Tire suas dúvidas e receba feedbacks diretamente com quem criou seu programa" 
+                description: "Tire suas dúvidas diretamente com quem criou seu programa" 
               },
               { 
                 icon: <FileText size={32} className="text-vf-orange" />, 
                 title: "Baseado em ciência e experiência", 
-                description: "Métodos testados e aprovados por atletas profissionais de alta performance" 
+                description: "Métodos testados e aprovados por atletas de competição" 
               },
               { 
-                icon: <Medal size={32} className="text-vf-orange" />, 
+                icon: <Award size={32} className="text-vf-orange" />, 
                 title: "Foco total no seu resultado", 
-                description: "Sistema completo para maximizar seus ganhos e superar seus limites" 
-              },
-              { 
-                icon: <Target size={32} className="text-vf-orange" />, 
-                title: "Método profissional adaptado", 
-                description: "Técnicas do fisiculturismo competitivo ajustadas para o seu nível atual" 
+                description: "Sistema completo para maximizar seus ganhos e superar limites" 
               }
             ].map((item, index) => {
               const differentialAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 150 * index });
@@ -211,15 +203,15 @@ const ProtocoloTreinamento: React.FC = () => {
                 <div 
                   key={index}
                   ref={differentialAnimation.ref}
-                  className={`group p-6 bg-black/40 backdrop-blur-sm border border-vf-orange/10 rounded-xl transition-all duration-300 hover:bg-black/60 hover:shadow-lg hover:shadow-vf-orange/10 opacity-0 translate-y-6 ${differentialAnimation.className}`}
+                  className={`group p-8 bg-black/40 backdrop-blur-sm border border-vf-orange/10 rounded-2xl transition-all duration-300 hover:bg-black/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 opacity-0 translate-y-6 ${differentialAnimation.className}`}
                   style={differentialAnimation.style}
                 >
                   <div className="flex items-start gap-6">
-                    <div className="p-3 rounded-xl bg-black/30 inline-block group-hover:scale-110 transition-transform duration-300">
+                    <div className="p-4 rounded-xl bg-black/30 inline-block group-hover:scale-110 transition-transform duration-300">
                       {item.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-vf-orange transition-colors">{item.title}</h3>
+                      <h3 className="text-xl font-bold mb-3 group-hover:text-vf-orange transition-colors">{item.title}</h3>
                       <p className="text-gray-300 leading-relaxed">{item.description}</p>
                     </div>
                   </div>
