@@ -3,6 +3,7 @@ import React from 'react';
 import { CheckCircle, Flame, Diamond, ArrowRight, DollarSign } from 'lucide-react';
 import { Button } from './ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { Link } from 'react-router-dom';
 
 interface PlansSectionProps {
   onPerformanceClick?: () => void;
@@ -151,6 +152,14 @@ const PlansSection: React.FC<PlansSectionProps> = ({ onPerformanceClick }) => {
                       <span>{plan.buttonText}</span>
                       <ArrowRight size={18} />
                     </button>
+                  ) : index === 0 ? (
+                    <Link 
+                      to="/protocolo-treinamento"
+                      className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-bold transition-all duration-200 bg-white/10 text-white hover:bg-white/20"
+                    >
+                      <span>{plan.buttonText}</span>
+                      <ArrowRight size={18} />
+                    </Link>
                   ) : (
                     <a 
                       href={plan.link}

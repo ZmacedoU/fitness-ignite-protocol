@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Linktree from "./pages/Linktree";
 import PlanoBlack from "./pages/PlanoBlack";
 import ProtocoloStarter from "./pages/ProtocoloStarter";
+import ProtocoloTreinamento from "./pages/ProtocoloTreinamento";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/site" element={<Index />} />
           <Route path="/plano-black" element={<PlanoBlack />} />
           <Route path="/protocolo-starter" element={<ProtocoloStarter />} />
+          <Route path="/protocolo-treinamento" element={<ProtocoloTreinamento />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
