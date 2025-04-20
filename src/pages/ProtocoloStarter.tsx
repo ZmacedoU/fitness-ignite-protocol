@@ -8,6 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Card } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Footer from '@/components/Footer';
+import { Check, Flame } from 'lucide-react';
 
 const ProtocoloStarter: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -249,34 +250,42 @@ const ProtocoloStarter: React.FC = () => {
           <div className="container mx-auto px-6">
             <div 
               {...ctaAnimation}
-              className="max-w-3xl mx-auto text-center bg-gradient-to-b from-black via-[#0f0f0f] to-[#1c1c1c]/95 backdrop-blur-sm border border-vf-orange rounded-2xl p-8 md:p-12 shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="max-w-2xl mx-auto text-center bg-gradient-to-b from-[#0f0f0f] to-[#1a1a1a] backdrop-blur-sm border border-vf-orange/40 rounded-[32px] p-8 md:p-12 shadow-2xl hover:shadow-vf-orange/5 transition-all duration-300"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-                Saia do <span className="text-vf-orange">0</span>!
+              <div className="flex justify-center mb-8">
+                <div className="w-16 h-16 rounded-full border-2 border-vf-orange flex items-center justify-center">
+                  <Check className="w-8 h-8 text-vf-orange" />
+                </div>
+              </div>
+
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight leading-tight">
+                COMECE SUA<br />
+                TRANSFORMAÇÃO<br />
+                COM O <span className="text-vf-orange">START!</span>
               </h2>
               
-              <p className="text-lg md:text-xl mb-10 text-gray-100 font-light leading-relaxed max-w-2xl mx-auto">
-                Receba seu treinamento para iniciar o protocolo START, com um eBook exclusivo sobre treino e reeducação alimentar.
+              <p className="text-lg md:text-xl text-gray-300 font-light mb-8">
+                Treinamento + eBook exclusivo<br />
+                por apenas
               </p>
               
-              <div className="mb-10">
-                <div className="bg-[#121212] backdrop-blur-sm border border-vf-orange/10 rounded-xl p-8 mb-4 transform transition-all duration-300 hover:scale-[1.02] max-w-xl mx-auto">
-                  <div className="flex items-baseline justify-center gap-2 mb-2">
-                    <span className="text-4xl md:text-5xl font-bold text-vf-orange">R$ 97,00</span>
-                    <span className="text-xl text-gray-300 font-light">à vista</span>
-                  </div>
-                  <p className="text-gray-400 text-lg font-light">ou 12x de R$ 9,90</p>
+              <div className="space-y-2 mb-8">
+                <div className="flex items-baseline justify-center gap-2">
+                  <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-vf-orange">R$ 97,00</span>
+                  <span className="text-xl text-white">à vista</span>
                 </div>
+                <p className="text-gray-400 text-lg">ou 12x de R$ 9,90</p>
               </div>
               
               <a 
                 href="https://wa.me/5511999999999?text=Olá,%20tenho%20interesse%20no%20Protocolo%20Starter"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full md:w-[80%] bg-vf-orange text-white px-8 py-5 rounded-xl font-bold text-xl gap-2 shadow-lg shadow-vf-orange/20 hover:bg-vf-orange/90 hover:shadow-vf-orange/30 transition-all duration-300 group"
+                className="inline-flex items-center justify-center w-full bg-vf-orange text-white px-8 py-4 rounded-full font-bold text-xl gap-2 shadow-lg shadow-vf-orange/20 hover:bg-vf-orange/90 hover:shadow-vf-orange/30 transition-all duration-300 group"
               >
-                QUERO COMEÇAR AGORA
-                <ArrowRight className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1" />
+                <Flame className="w-6 h-6" />
+                VAMOS COMEÇAR AGORA
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
               
               <p className="mt-6 text-sm text-gray-400 font-light">
