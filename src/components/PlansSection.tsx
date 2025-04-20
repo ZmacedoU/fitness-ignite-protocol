@@ -4,7 +4,11 @@ import { CheckCircle, Flame, Diamond, ArrowRight, DollarSign } from 'lucide-reac
 import { Button } from './ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-const PlansSection: React.FC = () => {
+interface PlansSectionProps {
+  onPerformanceClick?: () => void;
+}
+
+const PlansSection: React.FC<PlansSectionProps> = ({ onPerformanceClick }) => {
   const titleAnimation = useScrollAnimation<HTMLDivElement>(
     'opacity-100',
     0.1,
@@ -139,21 +143,31 @@ const PlansSection: React.FC = () => {
                     ))}
                   </ul>
                   
-                  <a 
-                    href={plan.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-bold transition-all duration-200 ${
-                      index === 1 
-                        ? 'bg-vf-orange text-white hover:bg-vf-orange/90'
-                        : index === 2
-                          ? 'bg-gradient-to-r from-white/90 to-white/70 text-black hover:from-white hover:to-white/80'
-                          : 'bg-white/10 text-white hover:bg-white/20'
-                    }`}
-                  >
-                    <span>{plan.buttonText}</span>
-                    <ArrowRight size={18} />
-                  </a>
+                  {index === 1 && onPerformanceClick ? (
+                    <button 
+                      onClick={onPerformanceClick}
+                      className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-bold transition-all duration-200 bg-vf-orange text-white hover:bg-vf-orange/90"
+                    >
+                      <span>{plan.buttonText}</span>
+                      <ArrowRight size={18} />
+                    </button>
+                  ) : (
+                    <a 
+                      href={plan.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-bold transition-all duration-200 ${
+                        index === 1 
+                          ? 'bg-vf-orange text-white hover:bg-vf-orange/90'
+                          : index === 2
+                            ? 'bg-gradient-to-r from-white/90 to-white/70 text-black hover:from-white hover:to-white/80'
+                            : 'bg-white/10 text-white hover:bg-white/20'
+                      }`}
+                    >
+                      <span>{plan.buttonText}</span>
+                      <ArrowRight size={18} />
+                    </a>
+                  )}
                 </div>
               </div>
             );
