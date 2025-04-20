@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Brain, Activity, CheckCircle, Zap, UserCheck, Video, MessageCircle, FileText, Award, Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -11,6 +10,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Link } from 'react-router-dom';
 import PuzzlePieces from '@/components/PuzzlePieces';
 import PlanCard from '@/components/PlanCard';
+import BenefitsGrid from '@/components/BenefitsGrid';
 
 const ProtocoloTreinamento: React.FC = () => {
   const heroTitleAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { noInitialHidden: true });
@@ -115,43 +115,7 @@ const ProtocoloTreinamento: React.FC = () => {
         </section>
         
         {/* Seção 2 - O que você vai receber */}
-        <section className="mb-24">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              O que você vai <span className="text-vf-orange">receber</span>
-            </h2>
-            <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              { icon: <Video size={32} className="text-vf-orange" />, title: "App exclusivo", description: "Vídeos feitos pelo próprio treinador ou seus alunos (nada copiado, nada genérico)" },
-              { icon: <Brain size={32} className="text-vf-orange" />, title: "Análise física completa", description: "Foco em identificar e corrigir pontos fracos para um físico mais harmônico" },
-              { icon: <Activity size={32} className="text-vf-orange" />, title: "Avaliação postural", description: "Análise detalhada para corrigir desvios e prevenir lesões" },
-              { icon: <CheckCircle size={32} className="text-vf-orange" />, title: "Acompanhamento periódico", description: "Evolução com feedbacks e ajustes estratégicos quando necessário" },
-              { icon: <FileText size={32} className="text-vf-orange" />, title: "Protocolos personalizados", description: "Criados com base na ciência do fitness e nas suas necessidades" },
-              { icon: <Award size={32} className="text-vf-orange" />, title: "Técnicas profissionais", description: "Métodos usados por campeões do fisiculturismo adaptados para você" },
-              { icon: <MessageCircle size={32} className="text-vf-orange" />, title: "Suporte direto", description: "Acesso via app e WhatsApp com o treinador pessoalmente" }
-            ].map((item, index) => {
-              const cardAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 150 * index });
-              
-              return (
-                <div 
-                  key={index}
-                  ref={cardAnimation.ref}
-                  className={`p-8 bg-black/40 backdrop-blur-sm border border-vf-orange/10 rounded-2xl transition-all duration-300 hover:bg-black/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 opacity-0 translate-y-6 ${cardAnimation.className}`}
-                  style={cardAnimation.style}
-                >
-                  <div className="mb-6 p-4 rounded-xl bg-black/30 inline-block">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{item.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        <BenefitsGrid />
         
         {/* Seção 3 - Resultados Reais */}
         <section className="mb-24">
