@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import MethodSection from '../components/MethodSection';
@@ -10,6 +11,12 @@ import WhatsAppButton from '../components/WhatsAppButton';
 import Navbar from '../components/Navbar';
 
 const Index: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handlePerformanceClick = () => {
+    navigate('/protocolo-starter');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-black via-black to-black/90">
       {/* Background Image with Blur */}
@@ -41,7 +48,7 @@ const Index: React.FC = () => {
         <ResultsSection />
 
         {/* Plans Section - Section 5 */}
-        <PlansSection />
+        <PlansSection onPerformanceClick={handlePerformanceClick} />
 
         <Footer />
         
@@ -53,3 +60,4 @@ const Index: React.FC = () => {
 };
 
 export default Index;
+
