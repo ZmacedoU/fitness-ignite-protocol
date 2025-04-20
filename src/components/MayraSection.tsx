@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Award, GraduationCap } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -20,7 +19,7 @@ const MayraSection: React.FC = () => {
           >
             <div className="relative">
               <img 
-                src="/lovable-uploads/6e7054a9-a7ed-4faa-a805-1c5579945f56.png" 
+                src="/lovable-uploads/4701071d-6e71-4a25-9cb0-dc4442536325.png" 
                 alt="Mayra Gotsfridt" 
                 className="rounded-lg shadow-2xl border border-vf-orange/30"
               />
