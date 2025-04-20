@@ -12,25 +12,17 @@ const HeroSection: React.FC = () => {
     }
   };
 
+  // Set up animated counters
   const experienceCounter = useCountAnimation({ end: 6 });
   const transformationsCounter = useCountAnimation({ end: 100 });
   const countriesCounter = useCountAnimation({ end: 5 });
 
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden">
+      {/* Background Gradient with Smoke Effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-vf-orange/30 z-0"></div>
       
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.05]"
-        style={{
-          backgroundImage: "url('/lovable-uploads/bb606ea6-a931-451d-b8ed-dc9abad00faf.png')",
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: '70%',
-          filter: 'blur(1px)',
-        }}
-      ></div>
-      
+      {/* Animated Smoke Effect */}
       <div className="absolute bottom-0 left-0 right-0 h-40 opacity-30 z-0">
         <div className="absolute inset-0 bg-gradient-to-t from-vf-orange/20 to-transparent animate-pulse-subtle"></div>
         <div className="smoke-1 absolute bottom-0 left-1/4 w-1/2 h-24 bg-vf-orange/10 rounded-full filter blur-3xl animate-pulse-subtle" style={{ animationDelay: '0.5s' }}></div>
@@ -51,6 +43,7 @@ const HeroSection: React.FC = () => {
           </div>
           
           <div className="lg:w-2/5 relative opacity-0 animate-fade-in" style={{ animationDelay: '700ms', animationDuration: '800ms', animationFillMode: 'forwards' }}>
+            {/* Video Space with Enhanced Styling */}
             <div className="backdrop-blur-sm bg-white/5 rounded-3xl p-6 shadow-lg shadow-vf-orange/10 border border-vf-orange/20 relative overflow-hidden transition-all duration-300 hover:shadow-vf-orange/20 hover:scale-[1.02]">
               <div className="absolute inset-0 bg-gradient-to-br from-transparent to-vf-orange/5 z-0"></div>
               <div className="relative z-10 aspect-video flex items-center justify-center">
@@ -66,7 +59,9 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
         
+        {/* Authority Cards with Icons - Updated Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 mb-16">
+          {/* Card 1 */}
           <div ref={experienceCounter.elementRef} className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '800ms', animationFillMode: 'forwards' }}>
             <div className="text-vf-orange mb-6">
               <Calendar size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
@@ -78,6 +73,7 @@ const HeroSection: React.FC = () => {
             <p className="text-gray-300 text-sm uppercase tracking-wider font-light text-center">Anos de Experiência</p>
           </div>
           
+          {/* Card 2 */}
           <div ref={transformationsCounter.elementRef} className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '1000ms', animationFillMode: 'forwards' }}>
             <div className="text-vf-orange mb-6">
               <Users size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
@@ -89,6 +85,7 @@ const HeroSection: React.FC = () => {
             <p className="text-gray-300 text-sm uppercase tracking-wider font-light text-center">Transformações</p>
           </div>
           
+          {/* Card 3 */}
           <div ref={countriesCounter.elementRef} className="flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-vf-orange/20 transition-all duration-300 hover:shadow-lg hover:shadow-vf-orange/20 hover:scale-[1.03] group opacity-0 animate-fade-in" style={{ minHeight: '280px', animationDelay: '1200ms', animationFillMode: 'forwards' }}>
             <div className="text-vf-orange mb-6">
               <Globe size={48} strokeWidth={1.5} className="group-hover:scale-110 transition-transform duration-300" />
@@ -101,6 +98,7 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
 
+        {/* CTA Button - Centered */}
         <div className="flex justify-center">
           <Button 
             onClick={() => scrollToSection('planos')}
