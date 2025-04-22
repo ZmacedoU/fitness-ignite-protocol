@@ -10,29 +10,25 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Link } from 'react-router-dom';
 import PuzzlePieces from '@/components/PuzzlePieces';
-import PlanCard from '@/components/PlanCard';
+import PlansSection from '@/components/PlansSection';
 
 const PlanoBlack: React.FC = () => {
   const heroTitleAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { noInitialHidden: true });
   const heroSubtitleAnimation = useScrollAnimation<HTMLParagraphElement>('opacity-100 translate-y-0', 0.1, { delay: 200 });
   const heroButtonAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 400 });
-
-  const scrollToPlans = () => {
-    const plansSection = document.getElementById('choose-plan-section');
-    if (plansSection) {
-      plansSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-black to-[#1a1a1a] text-white overflow-x-hidden">
+      {/* Enhanced background with subtle orange gradient overlay and puzzle pieces */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-tr from-vf-orange/5 via-transparent to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-transparent to-vf-orange/3"></div>
         <PuzzlePieces />
       </div>
 
+      {/* Content wrapper */}
       <div className="container mx-auto px-4 py-12 relative z-10">
+        {/* Logo in header */}
         <div className="flex justify-center mb-12">
           <Link to="/">
             <img 
@@ -43,6 +39,7 @@ const PlanoBlack: React.FC = () => {
           </Link>
         </div>
 
+        {/* SEÇÃO 1: HERO */}
         <section className="min-h-[60vh] flex flex-col justify-center items-center text-center mb-20 mt-8">
           <div 
             ref={heroTitleAnimation.ref}
@@ -60,7 +57,7 @@ const PlanoBlack: React.FC = () => {
             ref={heroSubtitleAnimation.ref}
             className={`opacity-0 translate-y-8 transition-all duration-700 text-xl text-gray-300 max-w-3xl mb-10 ${heroSubtitleAnimation.className}`}
           >
-            A fusão perfeita entre treino, dieta e <span className="text-vf-orange">resultado real</span>.
+            A fusão perfeita entre treino, dieta e resultado real.
           </p>
           
           <div 
@@ -68,7 +65,6 @@ const PlanoBlack: React.FC = () => {
             className={`opacity-0 translate-y-8 transition-all duration-500 ${heroButtonAnimation.className}`}
           >
             <Button 
-              onClick={scrollToPlans}
               size="lg" 
               className="bg-vf-orange hover:bg-vf-orange/90 hover:scale-105 transition-all duration-300 text-white font-bold py-6 px-8 rounded-lg text-lg uppercase"
             >
@@ -78,14 +74,11 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
 
-        <section id="plans-section" className="mb-24">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Tudo o que você precisa em um <span className="text-vf-orange">único plano</span>.
-            </h2>
-            <p className="text-lg italic text-vf-orange font-medium mt-4">
-              "A hora do pesadelo é agora e sorriso depois"
-            </p>
+        {/* SEÇÃO 2: O QUE É O PLANO BLACK? */}
+        <section className="mb-24">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Tudo o que você precisa em um único plano.</h2>
+            <div className="h-1 w-20 bg-vf-orange mx-auto"></div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -114,17 +107,17 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
         
-        <section className="mb-24">
+        {/* SEÇÃO 3: BENEFÍCIOS COMPLETOS */}
+        <section className="mb-24 bg-black/30 py-16 rounded-xl border border-vf-orange/10">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Você recebe um plano <span className="text-vf-orange">completo</span> e <span className="text-vf-orange">personalizado</span>.
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Você recebe um plano completo e personalizado.</h2>
             <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               "Suporte exclusivo via app e WhatsApp",
+              "Suporte para dúvidas sobre dieta",
               "Análise física e postural personalizada",
               "Protocolo dietético sem terrorismo nutricional",
               "Protocolo de treino estratégico baseado em ciência",
@@ -132,31 +125,30 @@ const PlanoBlack: React.FC = () => {
               "Feedbacks e ajustes com acompanhamento periódico",
               "Dieta personalizada com acesso no app",
               "Suporte real do treinador e da nutricionista"
-            ].map((benefit, index) => {
+            ].map((item, index) => {
               const bulletAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.05, { delay: 100 * index });
               
               return (
                 <div 
                   key={index}
                   ref={bulletAnimation.ref}
-                  className={`group backdrop-blur-sm bg-black/40 rounded-2xl p-6 transition-all duration-300 hover:bg-black/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 border border-vf-orange/10 opacity-0 translate-y-6 ${bulletAnimation.className} flex items-start gap-4`}
+                  className={`flex items-start space-x-3 opacity-0 translate-y-6 ${bulletAnimation.className}`}
                   style={bulletAnimation.style}
                 >
-                  <div className="text-vf-orange transition-colors group-hover:text-vf-orange">
-                    <Check size={24} className="flex-shrink-0" />
+                  <div className="flex-shrink-0 mt-1">
+                    <Check className="text-vf-orange" size={20} />
                   </div>
-                  <p className="text-white text-lg font-medium leading-relaxed tracking-wide">{benefit}</p>
+                  <p className="text-white text-lg">{item}</p>
                 </div>
               );
             })}
           </div>
         </section>
-        
+
+        {/* SEÇÃO 4: RESULTADOS REAIS */}
         <section className="mb-24">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Resultados <span className="text-vf-orange">reais</span> de quem seguiu o plano.
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Resultados reais de quem seguiu o plano.</h2>
             <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
           </div>
           
@@ -194,130 +186,47 @@ const PlanoBlack: React.FC = () => {
           </Carousel>
         </section>
         
+        {/* SEÇÃO 5: DIFERENCIAIS DO PLANO BLACK */}
         <section className="mb-24">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Por que o Plano Black é <span className="text-vf-orange">diferente</span> de tudo que você já tentou?
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-              Descubra como nossa abordagem única pode transformar seus resultados
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Por que o Plano Black é diferente de tudo que você já tentou?</h2>
+            <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+          <div className="space-y-6 max-w-3xl mx-auto">
             {[
-              { 
-                icon: <Trophy size={32} className="text-vf-orange" />, 
-                title: "Tudo em 1: treino + dieta", 
-                description: "Unificamos treino e alimentação em um único protocolo coordenado." 
-              },
-              { 
-                icon: <UserCheck size={32} className="text-vf-orange" />, 
-                title: "Personalização extrema", 
-                description: "Seu plano é 100% adaptado às suas características e objetivos." 
-              },
-              { 
-                icon: <MessageCircle size={32} className="text-vf-orange" />, 
-                title: "Suporte real com treinador e nutri", 
-                description: "Acompanhamento direto com profissionais especializados." 
-              },
-              { 
-                icon: <Sparkles size={32} className="text-vf-orange" />, 
-                title: "Liberdade sem terrorismo nutricional", 
-                description: "Dieta flexível que se adapta ao seu estilo de vida." 
-              },
-              { 
-                icon: <FileText size={32} className="text-vf-orange" />, 
-                title: "Estratégia baseada em ciência e prática", 
-                description: "Metodologia comprovada por resultados e embasamento científico." 
-              }
+              { icon: <Trophy size={24} className="text-vf-orange" />, title: "Tudo em 1: treino + dieta", description: "Unificamos treino e alimentação em um único protocolo coordenado." },
+              { icon: <UserCheck size={24} className="text-vf-orange" />, title: "Personalização extrema", description: "Seu plano é 100% adaptado às suas características e objetivos." },
+              { icon: <MessageCircle size={24} className="text-vf-orange" />, title: "Suporte real com treinador e nutri", description: "Acompanhamento direto com profissionais especializados." },
+              { icon: <Sparkles size={24} className="text-vf-orange" />, title: "Liberdade sem terrorismo nutricional", description: "Dieta flexível que se adapta ao seu estilo de vida." },
+              { icon: <FileText size={24} className="text-vf-orange" />, title: "Estratégia baseada em ciência e prática", description: "Metodologia comprovada por resultados e embasamento científico." }
             ].map((item, index) => {
-              const differentialAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-y-0', 0.1, { delay: 150 * index });
+              const differentialAnimation = useScrollAnimation<HTMLDivElement>('opacity-100 translate-x-0', 0.1, { delay: 150 * index });
               
               return (
                 <div 
                   key={index}
                   ref={differentialAnimation.ref}
-                  className={`group p-8 bg-black/40 backdrop-blur-sm border border-vf-orange/10 rounded-2xl transition-all duration-300 hover:bg-black/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-vf-orange/20 opacity-0 translate-y-6 ${differentialAnimation.className}`}
+                  className={`flex items-center space-x-4 bg-black/30 border border-vf-orange/20 p-5 rounded-lg opacity-0 translate-x-10 ${differentialAnimation.className}`}
                   style={differentialAnimation.style}
                 >
-                  <div className="mb-6 p-4 rounded-xl bg-black/30 inline-block group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex-shrink-0">
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-vf-orange transition-colors">{item.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                  <div>
+                    <h3 className="font-semibold text-xl mb-1">{item.title}</h3>
+                    <p className="text-gray-300">{item.description}</p>
+                  </div>
                 </div>
               );
             })}
           </div>
         </section>
 
-        <section id="choose-plan-section" className="mb-24">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Escolha o plano ideal para sua jornada</h2>
-            <div className="h-1 w-20 bg-vf-orange mx-auto mb-6"></div>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Invista em você e transforme sua vida
-            </p>
-          </div>
+        {/* Replace section 6 with new PlansSection */}
+        <PlansSection />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto px-4">
-            <PlanCard
-              title="Protocolo Bimestral"
-              subtitle="Acompanhamento por 60 dias"
-              price="R$ 639,80 à vista"
-              benefits={[
-                "Protocolo de treinamento & dietético",
-                "Acompanhamento por 60 dias",
-                "App exclusivo com vídeos",
-                "Suporte com contato para dúvidas"
-              ]}
-              ctaText="Quero esse plano"
-              badge={{
-                text: "MELHOR CUSTO-BENEFÍCIO",
-                type: "economic"
-              }}
-            />
-
-            <PlanCard
-              title="Protocolo Semestral"
-              subtitle="Acompanhamento por 180 dias"
-              price="R$ 1.596,00 à vista"
-              installments="6x R$ 305,90 no cartão"
-              benefits={[
-                "3 protocolos de treinamento & dietético completos",
-                "Acompanhamento total por 180 dias",
-                "App exclusivo com vídeos",
-                "Suporte com contato para dúvidas"
-              ]}
-              ctaText="Começar agora"
-              badge={{
-                text: "MAIS ESCOLHIDO",
-                type: "popular"
-              }}
-              isPopular={true}
-            />
-
-            <PlanCard
-              title="Protocolo Anual"
-              subtitle="Acompanhamento por 365 dias"
-              price="R$ 2.876,00 à vista"
-              installments="12x R$ 287,60 no cartão"
-              benefits={[
-                "6 protocolos de treinamento & dietético completos",
-                "Acompanhamento total por 365 dias",
-                "App exclusivo com vídeos",
-                "Suporte com contato para dúvidas"
-              ]}
-              ctaText="Garantir minha vaga"
-              badge={{
-                text: "ACESSO MAIS COMPLETO",
-                type: "premium"
-              }}
-            />
-          </div>
-        </section>
-
+        {/* SEÇÃO 7: FAQ (PERGUNTAS FREQUENTES) */}
         <section className="mb-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Perguntas Frequentes</h2>
@@ -361,12 +270,9 @@ const PlanoBlack: React.FC = () => {
                     className={`opacity-0 translate-y-6 ${faqAnimation.className}`}
                     style={faqAnimation.style}
                   >
-                    <AccordionItem 
-                      value={`item-${index}`} 
-                      className="group border border-vf-orange/20 rounded-lg overflow-hidden bg-black/30 backdrop-blur-sm transition-all duration-300 hover:bg-black/40"
-                    >
-                      <AccordionTrigger className="px-6 py-4 hover:no-underline group-hover:text-vf-orange transition-colors">
-                        <span className="text-left">{item.question}</span>
+                    <AccordionItem value={`item-${index}`} className="border border-vf-orange/20 rounded-lg overflow-hidden bg-black/30">
+                      <AccordionTrigger className="px-6 py-4 hover:bg-black/50 hover:no-underline">
+                        {item.question}
                       </AccordionTrigger>
                       <AccordionContent className="px-6 py-4 text-gray-300">
                         {item.answer}
@@ -379,8 +285,10 @@ const PlanoBlack: React.FC = () => {
           </div>
         </section>
         
+        {/* SEÇÃO 8: FOOTER */}
         <Footer />
         
+        {/* WhatsApp Floating Button */}
         <WhatsAppButton phoneNumber="5511999999999" />
       </div>
     </div>

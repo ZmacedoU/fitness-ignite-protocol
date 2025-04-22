@@ -1,22 +1,15 @@
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
+import MayraSection from '../components/MayraSection';
 import MethodSection from '../components/MethodSection';
 import ResultsSection from '../components/ResultsSection';
 import PlansSection from '../components/PlansSection';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
-import Navbar from '../components/Navbar';
 
 const Index: React.FC = () => {
-  const navigate = useNavigate();
-
-  const handlePerformanceClick = () => {
-    navigate('/protocolo-starter');
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-r from-black via-black to-black/90">
       {/* Background Image with Blur */}
@@ -32,8 +25,16 @@ const Index: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10">
-        {/* Navigation */}
-        <Navbar />
+        {/* Logo */}
+        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/90 to-transparent backdrop-blur-sm py-4">
+          <div className="container mx-auto px-6">
+            <img 
+              src="/lovable-uploads/988273f0-e092-4366-bf1a-b33a782abf43.png" 
+              alt="Vinicius Di Fiore" 
+              className="h-12" 
+            />
+          </div>
+        </div>
 
         {/* Hero Section - Section 1 */}
         <HeroSection />
@@ -41,14 +42,17 @@ const Index: React.FC = () => {
         {/* About Section - Section 2: Quem é Vinicius Di Fiore? */}
         <AboutSection />
 
-        {/* Method Section - Section 3: Protocolo */}
+        {/* Mayra Section - Section 3: Quem é Mayra Gotsfridt? */}
+        <MayraSection />
+
+        {/* Method Section - Section 4: Protocolo */}
         <MethodSection />
 
-        {/* Results Section - Section 4 */}
+        {/* Results Section - Section 5 */}
         <ResultsSection />
 
-        {/* Plans Section - Section 5 */}
-        <PlansSection onPerformanceClick={handlePerformanceClick} />
+        {/* Plans Section - Section 6 */}
+        <PlansSection />
 
         <Footer />
         
@@ -60,4 +64,3 @@ const Index: React.FC = () => {
 };
 
 export default Index;
-
