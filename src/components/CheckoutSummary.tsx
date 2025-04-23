@@ -1,6 +1,7 @@
 
 import React from "react";
 import { ShieldCheck } from "lucide-react";
+import PlanSelectPopover from "./PlanSelectPopover";
 
 type Plan = {
   id: string;
@@ -63,44 +64,67 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
 
   return (
     <aside
-      className={`glass animate-fade-slide-left max-w-md w-full min-w-[280px] p-7 mb-10 md:mb-0 md:mr-8
-        ${selectedPlan.highlight ? "neon-outline selected" : "neon-outline"} 
-        shadow-xl border-2`}
+      className={`glass animate-fade-slide-left max-w-md w-full min-w-[280px] p-7 mb-10 md:mb-0 md:mr-8 relative
+        shadow-xl border-2 overflow-hidden
+        ${
+          selectedPlan.highlight
+            ? "neon-outline selected"
+            : "neon-outline"
+        }
+      `}
       style={{
-        transition: 'box-shadow 0.2s, background 0.2s',
-        background: "linear-gradient(120deg,#19130e 67%,#ff5c001a 100%)"
+        transition: "box-shadow 0.4s, background 0.3s",
+        background: "linear-gradient(120deg,#19130e 66%,#ff5c0029 100%)",
+        boxShadow:
+          selectedPlan.highlight
+            ? "0 0 40px 0 #ff5c0034, 0 0 62px 6px #ff5c0144"
+            : "0 0 14px 0 #ff5c0034, 0 0 18px 3px #ff5c0122",
       }}
     >
-      <div className="flex items-center gap-3 mb-2">
-        <img src={selectedPlan.mockupImg} alt="" className="h-16 w-16 rounded-lg object-cover border-2 border-vf-orange/80 bg-black animate-pulse-subtle" />
+      {/* Gradient overlay highlight */}
+      <div
+        className={`pointer-events-none absolute inset-0 rounded-2xl z-0 transition-all duration-500 ${
+          selectedPlan.highlight
+            ? "opacity-40"
+            : "opacity-0"
+        }`}
+        style={{
+          background:
+            "radial-gradient(ellipse at 70% 0%, #ff5c00bb 0%, transparent 75%)",
+        }}
+      />
+      <div className="flex items-center gap-4 mb-2 relative z-10">
+        <img
+          src={selectedPlan.mockupImg}
+          alt=""
+          className="h-16 w-16 rounded-xl object-cover border-2 border-vf-orange/90 bg-black animate-pulse-subtle neon-outline"
+        />
         <div>
-          <div className="font-bold text-2xl text-vf-orange drop-shadow-[0_2px_10px_#ff5c00aa]">{selectedPlan.name}</div>
-          <div className="text-lg font-semibold text-vf-white">{selectedPlan.price}</div>
+          <div className="font-extrabold text-2xl text-vf-orange drop-shadow-[0_2px_10px_#ff5c00bb] animate-fade-in">{selectedPlan.name}</div>
+          <div className="text-lg font-semibold text-vf-white mt-1">{selectedPlan.price}</div>
         </div>
       </div>
-      <ul className="space-y-2 mt-6 mb-5">
+      <ul className="space-y-2 mt-6 mb-5 relative z-10">
         {selectedPlan.description.slice(0, 5).map((item, i) => (
-          <li key={i} className="flex items-center text-vf-white text-base font-medium animate-fade-in">
+          <li key={i} className="flex items-center text-vf-white text-base font-medium animate-fade-in delay-100">
             <ShieldCheck size={17} className="mr-2 text-vf-orange" />
             {item}
           </li>
         ))}
       </ul>
-      <button
-        className="text-vf-orange underline text-base font-semibold hover:text-vf-white transition-all mb-0 mt-2"
-        type="button"
-        onClick={() => {
-          const planId = prompt(
-            `Digite o código do plano para trocar:\n- black\n- starter\n- premium`,
-            selectedPlanId
-          );
-          if (planId && plans.some((p) => p.id === planId)) {
-            onChangePlan(planId);
-          }
-        }}
-      >
-        Trocar plano
-      </button>
+      <div className="flex justify-end z-10">
+        <PlanSelectPopover
+          plans={plans.map(p => ({
+            id: p.id,
+            name: p.name,
+            price: p.price,
+            highlight: p.highlight,
+            mockupImg: p.mockupImg || "",
+          }))}
+          selectedPlanId={selectedPlanId}
+          onChange={onChangePlan}
+        />
+      </div>
     </aside>
   );
 };
