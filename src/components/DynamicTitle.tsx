@@ -5,24 +5,24 @@ interface DynamicTitleProps {
   selectedPlanId: string;
 }
 
+// Removido drop-shadow das palavras laranja (só cor laranja)
 function getHighlightElements(selectedPlanId: string) {
-  // Mantém Montserrat ExtraBold, cor branca, só destacado neon laranja nas palavras-chave
   switch (selectedPlanId) {
     case 'black':
       return (
-        <>Transforme seu corpo com o <span className="text-vf-orange drop-shadow-[0_0_8px_#FF6600]">Protocolo Black</span></>
+        <>Transforme seu corpo com o <span className="text-vf-orange">Protocolo Black</span></>
       );
     case 'starter':
       return (
-        <>Saia do zero com o <span className="text-vf-orange drop-shadow-[0_0_8px_#FF6600]">plano Starter</span></>
+        <>Saia do zero com o <span className="text-vf-orange">plano Starter</span></>
       );
     case 'premium':
       return (
-        <>Eleve seu corpo ao próximo nível com o <span className="text-vf-orange drop-shadow-[0_0_8px_#FF6600]">Protocolo Premium</span></>
+        <>Eleve seu corpo ao próximo nível com o <span className="text-vf-orange">Protocolo Premium</span></>
       );
     default:
       return (
-        <>Transforme seu corpo com o <span className="text-vf-orange drop-shadow-[0_0_8px_#FF6600]">Protocolo Black</span></>
+        <>Transforme seu corpo com o <span className="text-vf-orange">Protocolo Black</span></>
       );
   }
 }
