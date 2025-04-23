@@ -5,7 +5,7 @@ import CheckoutForm from "@/components/CheckoutForm";
 import CheckoutFAQ from "@/components/CheckoutFAQ";
 import SecurityBar from "@/components/SecurityBar";
 import DynamicTitle from "@/components/DynamicTitle";
-import { Clock, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 const CheckoutPage: React.FC = () => {
   const [selectedPlanId, setSelectedPlanId] = useState("black");
@@ -33,14 +33,8 @@ const CheckoutPage: React.FC = () => {
       <main className="flex-1 w-full flex flex-col items-center relative z-10">
         {/* Dynamic Title */}
         <DynamicTitle selectedPlanId={selectedPlanId} />
-        
-        {/* Urgency Counter */}
-        <div className="flex items-center justify-center mb-10 bg-gradient-to-r from-vf-orange/20 to-red-700/20 py-2 px-4 rounded-full shadow-lg animate-pulse-subtle max-w-md mx-auto">
-          <Clock className="text-vf-orange mr-2" size={18} />
-          <span className="text-vf-white/90 text-sm">
-            Vagas limitadas: <span className="font-bold text-vf-orange">apenas 7 disponíveis</span> para acompanhamento VIP
-          </span>
-        </div>
+
+        {/* REMOVIDO: Urgency Counter */}
         
         <div className="w-full max-w-5xl flex flex-col md:flex-row justify-center mt-4 px-3 md:px-0 gap-8">
           <CheckoutSummary
@@ -58,19 +52,22 @@ const CheckoutPage: React.FC = () => {
           <CheckoutFAQ />
         </div>
         
-        <SecurityBar />
-        
-        <footer className="w-full mt-8 pb-6 flex flex-col items-center text-gray-400 text-xs animate-fade-slide-up">
-          <div className="flex items-center gap-2">
-            <ShieldCheck size={14} className="text-vf-orange" />
-            <span>Suporte: <a href="https://wa.me/5500000000000" className="text-vf-orange underline ml-1">Fale com nosso time</a></span>
+        {/* Footer now absorbs security info */}
+        <footer className="w-full mt-10 pb-10 flex flex-col items-center text-gray-400 text-xs animate-fade-slide-up">
+          <div className="flex items-center gap-2 mb-2">
+            <ShieldCheck size={18} className="text-vf-orange" />
+            <span className="text-vf-orange font-bold">Pagamento seguro</span>
+            <span className="mx-2 text-white/70">•</span>
+            <span className="text-vf-orange font-bold">SSL Certificado</span>
+            <span className="mx-2 text-white/70">•</span>
+            <span className="text-vf-orange font-bold">Garantia 7 dias</span>
           </div>
-          <div className="mt-2 flex flex-col items-center">
-            <div>&copy; {new Date().getFullYear()} Vinicius Di Fiore. Todos os direitos reservados.</div>
-            <div className="mt-1 flex space-x-4">
-              <a href="#" className="text-gray-500 hover:text-vf-orange transition-colors">Termos de Uso</a>
-              <a href="#" className="text-gray-500 hover:text-vf-orange transition-colors">Política de Privacidade</a>
-            </div>
+          <div className="flex items-center gap-2 mt-2">
+            <span>Suporte:&nbsp;</span>
+            <a href="https://wa.me/5500000000000" className="text-vf-orange underline">Fale com nosso time</a>
+          </div>
+          <div className="mt-4 text-gray-500 text-xs">
+            &copy; {new Date().getFullYear()} Vinicius Di Fiore. Todos os direitos reservados.
           </div>
         </footer>
       </main>

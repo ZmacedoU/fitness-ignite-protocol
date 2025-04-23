@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -8,8 +7,7 @@ import {
   PiggyBank, 
   Check, 
   X, 
-  ShieldCheck, 
-  Banknote 
+  ShieldCheck
 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
@@ -34,19 +32,14 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
   const [paymentMethod, setPaymentMethod] = useState<"credit"|"boleto"|"pix">("credit");
 
   const formatCPF = (value: string) => {
-    // Remove todos os caracteres não numéricos
     const numbersOnly = value.replace(/\D/g, '');
-    
-    // Verifica se é CPF ou CNPJ pelo tamanho
     if (numbersOnly.length <= 11) {
-      // Formato: 000.000.000-00
       return numbersOnly
         .replace(/(\d{3})(\d)/, '$1.$2')
         .replace(/(\d{3})(\d)/, '$1.$2')
         .replace(/(\d{3})(\d{1,2})/, '$1-$2')
         .replace(/(-\d{2})\d+?$/, '$1');
     } else {
-      // Formato: 00.000.000/0000-00
       return numbersOnly
         .replace(/(\d{2})(\d)/, '$1.$2')
         .replace(/(\d{3})(\d)/, '$1.$2')
@@ -57,10 +50,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
   };
 
   const formatPhone = (value: string) => {
-    // Remove todos os caracteres não numéricos
     const numbersOnly = value.replace(/\D/g, '');
-    
-    // Formata como (00) 00000-0000
     return numbersOnly
       .replace(/(\d{2})(\d)/, '($1) $2')
       .replace(/(\d{5})(\d)/, '$1-$2')
@@ -225,31 +215,6 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
                 </TooltipContent>
               </Tooltip>
             </button>
-            
-            <button
-              type="button"
-              className={`w-full flex items-center justify-between p-4 rounded-lg transition-all ${
-                paymentMethod === 'boleto' 
-                  ? 'bg-gradient-to-r from-vf-orange/20 to-black border-2 border-vf-orange' 
-                  : 'bg-black/20 border border-vf-orange/30 hover:bg-black/40'
-              }`}
-              onClick={() => setPaymentMethod('boleto')}
-            >
-              <div className="flex items-center">
-                <Banknote className="text-vf-orange mr-3" size={22} />
-                <span className="font-semibold text-vf-white">Boleto</span>
-              </div>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <span className="bg-vf-orange/10 px-2 py-1 rounded text-vf-orange text-xs font-bold">
-                    opcional
-                  </span>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="text-xs">Aprovação em 1-3 dias úteis</p>
-                </TooltipContent>
-              </Tooltip>
-            </button>
           </TooltipProvider>
         </div>
       </div>
@@ -257,7 +222,8 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
       <Button
         type="submit"
         disabled={loading}
-        className="w-full sticky bottom-0 left-0 z-30 mt-3 text-vf-white font-bold text-xl py-7 px-8 rounded-lg uppercase tracking-wide shadow-xl bg-gradient-to-r from-vf-orange to-orange-600 hover:from-vf-orange hover:to-orange-700 transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2"
+        className="w-full mx-auto z-30 mt-3 text-vf-white font-bold text-xl py-7 px-8 rounded-lg uppercase tracking-wide shadow-xl bg-gradient-to-r from-vf-orange to-orange-600 hover:from-vf-orange hover:to-orange-700 transform hover:scale-[1.06] transition-all duration-200 flex items-center justify-center gap-2 neon-outline"
+        style={{ fontFamily: "'Montserrat', 'Poppins', sans-serif", fontWeight: 800, letterSpacing: 1 }}
       >
         {loading ? (
           <>

@@ -5,45 +5,60 @@ interface DynamicTitleProps {
   selectedPlanId: string;
 }
 
+function getHighlightParts(selectedPlanId: string) {
+  switch (selectedPlanId) {
+    case 'black':
+      return [
+        'Transforme seu corpo com o',
+        <span key="p1" className="text-vf-orange font-extrabold"> Protocolo Black</span>
+      ];
+    case 'starter':
+      return [
+        'Saia do zero com o',
+        <span key="p2" className="text-vf-orange font-extrabold"> plano Starter</span>
+      ];
+    case 'premium':
+      return [
+        'Eleve seu corpo ao próximo nível com o',
+        <span key="p3" className="text-vf-orange font-extrabold"> Protocolo Premium</span>
+      ];
+    default:
+      return [
+        'Transforme seu corpo com o',
+        <span key="p1" className="text-vf-orange font-extrabold"> Protocolo Black</span>
+      ];
+  }
+}
+
 const DynamicTitle: React.FC<DynamicTitleProps> = ({ selectedPlanId }) => {
-  const [title, setTitle] = useState<string>("");
+  const [titleParts, setTitleParts] = useState<React.ReactNode[]>(getHighlightParts(selectedPlanId));
   const [animateOut, setAnimateOut] = useState<boolean>(false);
-  
+
   useEffect(() => {
-    // Inicia animação de saída
     setAnimateOut(true);
-    
-    // Espera a animação de saída terminar antes de mudar o título
+
     const timeout = setTimeout(() => {
-      switch (selectedPlanId) {
-        case 'black':
-          setTitle("Transforme seu corpo com o Protocolo Black");
-          break;
-        case 'starter':
-          setTitle("Saia do zero com o plano Starter");
-          break;
-        case 'premium':
-          setTitle("Eleve seu corpo ao próximo nível com o Protocolo Premium");
-          break;
-        default:
-          setTitle("Transforme seu corpo com o Protocolo Black");
-      }
-      
-      // Inicia animação de entrada
+      setTitleParts(getHighlightParts(selectedPlanId));
       setAnimateOut(false);
-    }, 300);
-    
+    }, 280);
+
     return () => clearTimeout(timeout);
   }, [selectedPlanId]);
-  
+
   return (
-    <h1 
-      className={`text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 mt-10 font-montserrat
-                 ${animateOut ? 'opacity-0 transform -translate-y-4' : 'opacity-100 transform translate-y-0'}
-                 transition-all duration-500 ease-in-out`}
+    <h1
+      className={
+        `text-center mb-8 mt-10 font-montserrat font-extrabold
+         text-3xl md:text-5xl lg:text-6xl tracking-tight
+         transition-all duration-500 ease-in-out
+         ${animateOut ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`
+      }
+      style={{
+        fontFamily: "'Montserrat', 'Poppins', sans-serif"
+      }}
     >
-      <span className="bg-gradient-to-r from-vf-orange to-orange-400 bg-clip-text text-transparent drop-shadow-md">
-        {title}
+      <span className="bg-gradient-to-r from-white to-white bg-clip-text text-transparent drop-shadow-md">
+        {titleParts[0]}{titleParts[1]}
       </span>
     </h1>
   );
