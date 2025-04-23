@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -56,32 +57,32 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
 
   return (
     <form
-      className="bg-black/10 border border-gray-800 p-7 shadow-xl w-full max-w-xl mx-auto rounded-2xl"
+      className="glass animate-fade-slide-up border-2 border-vf-orange/60 p-7 shadow-2xl w-full max-w-xl mx-auto"
       onSubmit={handleSubmit}
       autoComplete="off"
     >
       <div>
-        <label htmlFor="name" className="block mb-2 text-lg font-semibold text-vf-white">
+        <label htmlFor="name" className="block mb-2 text-lg font-semibold text-vf-white drop-shadow">
           Nome completo <span className="text-vf-orange">*</span>
         </label>
         <Input
           id="name"
           value={customerName}
           onChange={e => setCustomerName(e.target.value)}
-          className="bg-black/20 border-gray-700 text-vf-white transition-all text-base font-medium"
+          className="bg-black/30 border-vf-orange/80 text-vf-white glass transition-all text-base font-medium focus:bg-black/60"
           placeholder="Digite seu nome"
           required
         />
       </div>
       <div>
-        <label htmlFor="email" className="block mb-2 text-lg font-semibold text-vf-white">
+        <label htmlFor="email" className="block mb-2 text-lg font-semibold text-vf-white drop-shadow">
           E-mail <span className="text-vf-orange">*</span>
         </label>
         <Input
           id="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          className="bg-black/20 border-gray-700 text-vf-white transition-all text-base font-medium"
+          className="bg-black/30 border-vf-orange/80 text-vf-white glass transition-all text-base font-medium focus:bg-black/60"
           type="email"
           placeholder="Digite seu melhor e-mail"
           required
@@ -89,14 +90,14 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
       </div>
       <div className="flex gap-3 flex-col md:flex-row">
         <div className="flex-1">
-          <label htmlFor="cpf" className="block mb-2 text-lg font-semibold text-vf-white">
+          <label htmlFor="cpf" className="block mb-2 text-lg font-semibold text-vf-white drop-shadow">
             CPF ou CNPJ <span className="text-vf-orange">*</span>
           </label>
           <Input
             id="cpf"
             value={cpf}
             onChange={e => setCpf(e.target.value)}
-            className="bg-black/20 border-gray-700 text-vf-white transition-all text-base font-medium"
+            className="bg-black/30 border-vf-orange/80 text-vf-white glass transition-all text-base font-medium focus:bg-black/60"
             placeholder="Digite seu CPF ou CNPJ"
             required
             maxLength={18}
@@ -104,14 +105,14 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
           />
         </div>
         <div className="flex-1">
-          <label htmlFor="phone" className="block mb-2 text-lg font-semibold text-vf-white">
+          <label htmlFor="phone" className="block mb-2 text-lg font-semibold text-vf-white drop-shadow">
             Celular (WhatsApp) <span className="text-vf-orange">*</span>
           </label>
           <Input
             id="phone"
             value={phone}
             onChange={e => setPhone(e.target.value)}
-            className="bg-black/20 border-gray-700 text-vf-white transition-all text-base font-medium"
+            className="bg-black/30 border-vf-orange/80 text-vf-white glass transition-all text-base font-medium focus:bg-black/60"
             placeholder="(DDD) 9XXXX-XXXX"
             required
           />
@@ -140,7 +141,10 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
       <Button
         type="submit"
         disabled={loading}
-        className="w-full mt-3 text-white font-semibold text-xl py-4 px-8 rounded-md uppercase tracking-wide"
+        className="btn-animated w-full sticky bottom-0 left-0 z-30 mt-3 text-white font-semibold text-xl py-4 px-8 rounded-md uppercase tracking-wide shadow-xl"
+        style={{
+          position: "sticky",
+        }}
       >
         {loading ? (
           <>
