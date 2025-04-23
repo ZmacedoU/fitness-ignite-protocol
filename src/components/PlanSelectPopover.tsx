@@ -7,8 +7,8 @@ type Plan = {
   id: string;
   name: string;
   price: string;
-  mockupImg: string;
   highlight?: boolean;
+  mockupImg?: string;
 };
 
 interface PlanSelectPopoverProps {
@@ -26,12 +26,11 @@ const PlanSelectPopover: React.FC<PlanSelectPopoverProps> = ({
     <Popover.Root>
       <Popover.Trigger asChild>
         <button
-          className="relative overflow-hidden group flex items-center gap-2 px-5 py-3 rounded-lg bg-gradient-to-r from-vf-orange to-orange-700 text-white font-bold text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+          className="relative overflow-hidden group flex flex-col items-center justify-center w-full px-6 py-4 rounded-xl bg-gradient-to-r from-vf-orange to-orange-700 text-white font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 neon-outline transition-all duration-300 mb-1 transition"
           tabIndex={0}
         >
-          <span>Trocar plano</span>
-          <ChevronDown size={18} className="group-hover:translate-y-0.5 transition-transform" />
-          
+          <span className="tracking-wide">Trocar plano</span>
+          <ChevronDown size={22} className="mt-2 group-hover:translate-y-0.5 transition-transform" />
           {/* Animated background effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine" />
         </button>
@@ -39,9 +38,9 @@ const PlanSelectPopover: React.FC<PlanSelectPopoverProps> = ({
       <Popover.Portal>
         <Popover.Content
           sideOffset={12}
-          className="z-50 rounded-2xl p-4 min-w-[280px] bg-black/90 border border-vf-orange/30 shadow-2xl animate-fade-in backdrop-blur-md"
+          className="z-50 rounded-2xl p-4 min-w-[260px] bg-black/95 border border-vf-orange/40 shadow-2xl animate-fade-in backdrop-blur-md"
         >
-          <div className="mb-3 font-bold text-vf-orange text-lg">Escolha um plano:</div>
+          <div className="mb-3 font-bold text-vf-orange text-lg text-center">Escolha um plano:</div>
           <ul className="space-y-2">
             {plans.map((plan) => (
               <li key={plan.id}>
@@ -53,20 +52,23 @@ const PlanSelectPopover: React.FC<PlanSelectPopoverProps> = ({
                         : "border-transparent bg-white/5 hover:border-vf-orange/60 hover:bg-vf-orange/10"
                     }
                   `}
-                  onClick={() => {
-                    onChange(plan.id);
-                  }}
+                  onClick={() => onChange(plan.id)}
                   tabIndex={0}
                 >
-                  <img
-                    src={plan.mockupImg}
-                    alt={plan.name}
-                    className={`h-12 w-12 rounded-md object-cover border-2 ${
-                      plan.id === selectedPlanId
-                        ? "border-vf-orange animate-pulse-subtle"
-                        : "border-vf-orange/30"
-                    } bg-black`}
-                  />
+                  {/* Avatar pequeno por tipo */}
+                  <span className="flex items-center justify-center h-8 w-8 rounded-full bg-black border-2 border-vf-orange">
+                    {/* Ícones dos planos */}
+                    {plan.id === "black" && (
+                      <svg viewBox="0 0 24 24" className="w-6 h-6 text-vf-orange"><path fill="currentColor" d="M4.491 2.093c.425-.665 1.288-.752 1.774-.173l13.983 16.121c.497.573.247 1.464-.47 1.627l-6.716 1.58a1.13 1.13 0 0 1-.956-.187L2.19 12.96a1.18 1.18 0 0 1 .015-1.913l7.912-5.571-4.66-3.437A1.125 1.125 0 0 1 4.492 2.093z"/></svg>
+                    )}
+                    {plan.id === "premium" && (
+                      <img src="/lovable-uploads/3206fd3b-ea81-4963-ab04-476093f41da7.png" alt=""
+                        className="object-contain w-7 h-7 rounded-full border-2 border-vf-orange" />
+                    )}
+                    {plan.id === "starter" && (
+                      <svg width="32" height="32" viewBox="0 0 32 32" className="w-6 h-6 text-vf-orange"><path fill="currentColor" d="M16 6a4 4 0 1 1 0 8a4 4 0 0 1 0-8zm0 2.5A1.5 1.5 0 1 0 16 11a1.5 1.5 0 0 0 0-3zm1 7a7 7 0 1 1-2 0v5h2v-5zm-2.5 6h3v8h-3v-8z"/></svg>
+                    )}
+                  </span>
                   <div className="flex flex-col items-start text-left">
                     <span
                       className={`text-base font-bold ${
@@ -89,12 +91,11 @@ const PlanSelectPopover: React.FC<PlanSelectPopoverProps> = ({
             ))}
           </ul>
           <Popover.Close
-            className="block mt-4 mx-auto text-sm px-4 py-1.5 rounded bg-vf-orange text-black font-bold shadow hover:bg-vf-orange/90 transition"
+            className="block mt-4 mx-auto text-sm px-5 py-2 rounded bg-vf-orange text-black font-bold shadow hover:bg-vf-orange/90 transition"
             aria-label="Fechar"
           >
             Fechar
           </Popover.Close>
-          
           <Popover.Arrow className="fill-vf-orange" />
         </Popover.Content>
       </Popover.Portal>

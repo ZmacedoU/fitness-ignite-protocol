@@ -5,43 +5,38 @@ interface DynamicTitleProps {
   selectedPlanId: string;
 }
 
-function getHighlightParts(selectedPlanId: string) {
+function getHighlightElements(selectedPlanId: string) {
+  // Mantém Montserrat ExtraBold, cor branca, só destacado neon laranja nas palavras-chave
   switch (selectedPlanId) {
     case 'black':
-      return [
-        'Transforme seu corpo com o',
-        <span key="p1" className="text-vf-orange font-extrabold"> Protocolo Black</span>
-      ];
+      return (
+        <>Transforme seu corpo com o <span className="text-vf-orange drop-shadow-[0_0_8px_#FF6600]">Protocolo Black</span></>
+      );
     case 'starter':
-      return [
-        'Saia do zero com o',
-        <span key="p2" className="text-vf-orange font-extrabold"> plano Starter</span>
-      ];
+      return (
+        <>Saia do zero com o <span className="text-vf-orange drop-shadow-[0_0_8px_#FF6600]">plano Starter</span></>
+      );
     case 'premium':
-      return [
-        'Eleve seu corpo ao próximo nível com o',
-        <span key="p3" className="text-vf-orange font-extrabold"> Protocolo Premium</span>
-      ];
+      return (
+        <>Eleve seu corpo ao próximo nível com o <span className="text-vf-orange drop-shadow-[0_0_8px_#FF6600]">Protocolo Premium</span></>
+      );
     default:
-      return [
-        'Transforme seu corpo com o',
-        <span key="p1" className="text-vf-orange font-extrabold"> Protocolo Black</span>
-      ];
+      return (
+        <>Transforme seu corpo com o <span className="text-vf-orange drop-shadow-[0_0_8px_#FF6600]">Protocolo Black</span></>
+      );
   }
 }
 
 const DynamicTitle: React.FC<DynamicTitleProps> = ({ selectedPlanId }) => {
-  const [titleParts, setTitleParts] = useState<React.ReactNode[]>(getHighlightParts(selectedPlanId));
   const [animateOut, setAnimateOut] = useState<boolean>(false);
+  const [titleElement, setTitleElement] = useState<React.ReactNode>(getHighlightElements(selectedPlanId));
 
   useEffect(() => {
     setAnimateOut(true);
-
     const timeout = setTimeout(() => {
-      setTitleParts(getHighlightParts(selectedPlanId));
+      setTitleElement(getHighlightElements(selectedPlanId));
       setAnimateOut(false);
     }, 280);
-
     return () => clearTimeout(timeout);
   }, [selectedPlanId]);
 
@@ -54,11 +49,13 @@ const DynamicTitle: React.FC<DynamicTitleProps> = ({ selectedPlanId }) => {
          ${animateOut ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`
       }
       style={{
-        fontFamily: "'Montserrat', 'Poppins', sans-serif"
+        fontFamily: "'Montserrat', 'Poppins', sans-serif",
+        color: "#fff",
+        letterSpacing: "-1px"
       }}
     >
-      <span className="bg-gradient-to-r from-white to-white bg-clip-text text-transparent drop-shadow-md">
-        {titleParts[0]}{titleParts[1]}
+      <span className="drop-shadow-xl">
+        {titleElement}
       </span>
     </h1>
   );

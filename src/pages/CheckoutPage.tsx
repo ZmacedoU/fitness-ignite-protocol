@@ -24,18 +24,18 @@ const CheckoutPage: React.FC = () => {
         
       <header className="flex justify-center items-center py-6 bg-black/90 z-40 border-b border-vf-orange/30 backdrop-blur-md animate-fade-slide-up sticky top-0">
         <img
-          src="/lovable-uploads/f80129a3-b2c9-4b04-b670-532897c303e6.png"
-          alt="Fiore Got Fridit"
-          className="h-16 md:h-20 drop-shadow-md"
+          src="/lovable-uploads/6d39ec73-1446-4393-91ca-afc00abe04e4.png"
+          alt="Logo Vinicius Di Fiore"
+          className="h-20 w-auto drop-shadow-[0_0_16px_#FF6600cc]"
+          style={{ maxHeight: 86 }}
         />
       </header>
-      
+
       <main className="flex-1 w-full flex flex-col items-center relative z-10">
         {/* Dynamic Title */}
         <DynamicTitle selectedPlanId={selectedPlanId} />
 
-        {/* REMOVIDO: Urgency Counter */}
-        
+        {/* Estrutura do layout - bloco esquerda (plano), direita (form), FAQ abaixo */}
         <div className="w-full max-w-5xl flex flex-col md:flex-row justify-center mt-4 px-3 md:px-0 gap-8">
           <CheckoutSummary
             selectedPlanId={selectedPlanId}
@@ -45,6 +45,7 @@ const CheckoutPage: React.FC = () => {
             selectedPlanId={selectedPlanId}
             customerName={customerName}
             setCustomerName={setCustomerName}
+            hideBoleto={true}
           />
         </div>
         
@@ -52,15 +53,15 @@ const CheckoutPage: React.FC = () => {
           <CheckoutFAQ />
         </div>
         
-        {/* Footer now absorbs security info */}
-        <footer className="w-full mt-10 pb-10 flex flex-col items-center text-gray-400 text-xs animate-fade-slide-up">
-          <div className="flex items-center gap-2 mb-2">
-            <ShieldCheck size={18} className="text-vf-orange" />
-            <span className="text-vf-orange font-bold">Pagamento seguro</span>
-            <span className="mx-2 text-white/70">•</span>
-            <span className="text-vf-orange font-bold">SSL Certificado</span>
-            <span className="mx-2 text-white/70">•</span>
-            <span className="text-vf-orange font-bold">Garantia 7 dias</span>
+        {/* Footer só com segurança */}
+        <footer className="w-full mt-10 pb-8 flex flex-col items-center text-gray-400 text-xs animate-fade-slide-up">
+          <div className="flex items-center gap-3 mb-2 px-3 py-2 rounded-xl bg-black/70 border border-vf-orange/40 neon-outline shadow-lg">
+            <ShieldCheck size={23} className="text-vf-orange mr-2" />
+            <span className="text-vf-orange font-bold text-base tracking-wide">Pagamento 100% seguro</span>
+            <span className="mx-2 text-white/70 text-lg">•</span>
+            <span className="text-vf-orange font-bold text-base tracking-wide">SSL Certificado</span>
+            <span className="mx-2 text-white/70 text-lg">•</span>
+            <span className="text-vf-orange font-bold text-base tracking-wide">Garantia 7 dias</span>
           </div>
           <div className="flex items-center gap-2 mt-2">
             <span>Suporte:&nbsp;</span>

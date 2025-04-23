@@ -1,7 +1,29 @@
 
 import React, { useState, useEffect } from "react";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, Puzzle, Running } from "lucide-react";
+
 import PlanSelectPopover from "./PlanSelectPopover";
+
+// Imagem circular premium
+const premiumAvatar = "/lovable-uploads/3206fd3b-ea81-4963-ab04-476093f41da7.png";
+// Icônico SVG peça de quebra-cabeça black usando lucide Puzzle
+const BlackIcon = () => (
+  <div className="flex items-center justify-center h-14 w-14 rounded-full bg-black border-2 border-vf-orange shadow-md neon-outline selected">
+    <Puzzle size={38} className="text-vf-orange drop-shadow-[0_0_8px_#FF5C00]" />
+  </div>
+);
+// Starter boneco correndo - SVG (ou imagem se desejado)
+const StarterIcon = () => (
+  <div className="flex items-center justify-center h-14 w-14 rounded-full bg-black border-2 border-vf-orange shadow-md neon-outline">
+    <Running size={38} className="text-vf-orange drop-shadow-[0_0_8px_#FF5C00]" />
+  </div>
+);
+// Premium circular logo
+const PremiumIcon = () => (
+  <div className="flex items-center justify-center h-14 w-14 rounded-full bg-black border-2 border-vf-orange shadow-md neon-outline">
+    <img src={premiumAvatar} alt="" className="w-12 h-12 object-cover rounded-full border-2 border-vf-orange" />
+  </div>
+);
 
 type Plan = {
   id: string;
@@ -9,7 +31,7 @@ type Plan = {
   price: string;
   description: string[];
   highlight?: boolean;
-  mockupImg?: string;
+  avatarType: "icon-black" | "icon-premium" | "icon-starter";
 };
 
 const plans: Plan[] = [
@@ -24,8 +46,8 @@ const plans: Plan[] = [
       "Suporte via WhatsApp",
       "Plano alimentar + treino 100% personalizados",
     ],
-    mockupImg: "/lovable-uploads/4701071d-6e71-4a25-9cb0-dc4442536325.png",
     highlight: true,
+    avatarType: "icon-black",
   },
   {
     id: "starter",
@@ -36,7 +58,7 @@ const plans: Plan[] = [
       "Grupo de dúvidas",
       "Acesso a treinos gravados",
     ],
-    mockupImg: "/lovable-uploads/682ce0d8-b00b-4a89-a96c-a4d1935ae69b.png",
+    avatarType: "icon-starter",
   },
   {
     id: "premium",
@@ -47,7 +69,7 @@ const plans: Plan[] = [
       "Reunião de alinhamento mensal",
       "Acesso antecipado a novidades",
     ],
-    mockupImg: "/lovable-uploads/6e7054a9-a7ed-4faa-a805-1c5579945f56.png",
+    avatarType: "icon-premium",
   },
 ];
 
@@ -55,6 +77,12 @@ interface CheckoutSummaryProps {
   selectedPlanId: string;
   onChangePlan: (planId: string) => void;
 }
+
+const getAvatar = (type: Plan["avatarType"]) => {
+  if (type === "icon-black") return <BlackIcon />;
+  if (type === "icon-premium") return <PremiumIcon />;
+  return <StarterIcon />;
+};
 
 const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
   selectedPlanId,
@@ -74,73 +102,53 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
 
   return (
     <aside
-      className={`glass max-w-sm w-full min-w-[260px] p-5 mb-10 md:mb-0
-        flex flex-col justify-between gap-1 shadow-xl border-2 overflow-hidden transition-all duration-300 rounded-2xl
-        ${isAnimating ? "transform scale-[1.02]" : "transform scale-100"}
-        ${
-          selectedPlan.highlight
-            ? "border-vf-orange/80"
-            : "border-vf-orange/30"
-        }
+      className={`glass min-w-[260px] w-[330px] max-w-xs p-5 mb-10 md:mb-0 flex flex-col justify-start gap-1 shadow-xl border-2 overflow-hidden transition-all duration-300 rounded-2xl text-white relative
+        ${isAnimating ? "transform scale-[1.03]" : "transform scale-100"}
+        ${selectedPlan.highlight ? "border-vf-orange/80" : "border-vf-orange/30"}
       `}
       style={{
-        transition: "transform 0.4s, box-shadow 0.4s, background 0.3s",
-        background: "linear-gradient(120deg,#19130e 75%,#ff5c0020 100%)",
-        boxShadow:
-          selectedPlan.highlight
-            ? "0 0 32px 0 #ff5c0034"
-            : "0 0 14px 0 #ff5c0034",
-        minHeight: 440,
-        maxHeight: 550,
+        minHeight: 380,
+        maxHeight: 520,
+        background: "linear-gradient(125deg,#18130e 80%,#ff5c0025 100%)",
+        boxShadow: selectedPlan.highlight
+          ? "0 0 32px 0 #ff5c0034"
+          : "0 0 14px 0 #ff5c0034",
       }}
     >
-      {/* Gradient overlay highlight */}
-      <div
-        className={`pointer-events-none absolute inset-0 rounded-2xl z-0 transition-all duration-500 ${
-          selectedPlan.highlight ? "opacity-40" : "opacity-0"
-        }`}
-        style={{
-          background:
-            "radial-gradient(ellipse at 70% 0%, #ff5c00bb 0%, transparent 75%)",
-        }}
-      />
-      <div className="flex items-center gap-3 mb-3 relative z-10">
-        <img
-          src={selectedPlan.mockupImg}
-          alt=""
-          className={`h-14 w-14 rounded-xl object-cover border-2 border-vf-orange/90 bg-black animate-pulse-subtle ${isAnimating ? 'animate-pulse' : ''}`}
-        />
-        <div>
-          <div className="font-extrabold text-xl text-vf-orange drop-shadow-[0_2px_10px_#ff5c00bb] animate-fade-in">{selectedPlan.name}</div>
-          <div className="text-base font-semibold text-vf-white mt-1">{selectedPlan.price}</div>
+      {/* Avatar do Plano */}
+      <div className="flex flex-col gap-2 items-center mb-2 z-20">
+        <div className={`mt-2 mb-2 ${isAnimating ? "animate-pulse" : ""}`}>
+          {getAvatar(selectedPlan.avatarType)}
         </div>
+        <div className="font-extrabold text-lg text-vf-orange drop-shadow-[0_2px_10px_#ff5c00bb] text-center">{selectedPlan.name}</div>
+        <div className="text-base font-extrabold mt-0.5 text-vf-white tracking-tight">{selectedPlan.price}</div>
       </div>
 
-      <div className="py-1.5 px-3 bg-gradient-to-r from-vf-orange/10 to-transparent rounded-lg mb-2 border border-vf-orange/20">
-        <h3 className="font-bold text-vf-orange mb-1 text-sm">O que você receberá:</h3>
+      <div className="bg-gradient-to-r from-vf-orange/15 to-transparent rounded-lg border border-vf-orange/15 py-1.5 px-3 mb-2 mt-2">
+        <h3 className="font-bold text-vf-orange mb-1 text-xs">O que você receberá:</h3>
       </div>
-
-      <ul className="space-y-1 mt-1 mb-2 relative z-10">
+      <ul className="space-y-1 mt-1 mb-2 px-2">
         {selectedPlan.description.map((item, i) => (
           <li
             key={i}
-            className="flex items-center text-vf-white text-sm font-medium animate-fade-in delay-100"
-            style={{ animationDelay: `${i * 80}ms` }}
+            className="flex items-center text-vf-white text-[15px] font-medium animate-fade-in delay-100"
+            style={{ animationDelay: `${i * 80}ms`}}
           >
-            <ShieldCheck size={19} className="mr-2 text-vf-orange flex-shrink-0" />
+            <ShieldCheck size={17} className="mr-2 text-vf-orange flex-shrink-0" />
             <span>{item}</span>
           </li>
         ))}
       </ul>
 
-      <div className="flex flex-col items-center z-10 mt-3 w-full gap-2">
+      {/* Botão grande e centralizado para trocar plano */}
+      <div className="flex flex-col items-center w-full mt-3 mb-0">
         <PlanSelectPopover
           plans={plans.map(p => ({
             id: p.id,
             name: p.name,
             price: p.price,
             highlight: p.highlight,
-            mockupImg: p.mockupImg || "",
+            mockupImg: "", // Não usar mockupImg pois agora usamos icons
           }))}
           selectedPlanId={selectedPlanId}
           onChange={onChangePlan}
