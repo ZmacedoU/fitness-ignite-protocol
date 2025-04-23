@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { ShieldCheck, Puzzle, Running } from "lucide-react";
+import { ShieldCheck, Puzzle, Activity } from "lucide-react";
 
 import PlanSelectPopover from "./PlanSelectPopover";
 
@@ -15,7 +15,7 @@ const BlackIcon = () => (
 // Starter boneco correndo - SVG (ou imagem se desejado)
 const StarterIcon = () => (
   <div className="flex items-center justify-center h-14 w-14 rounded-full bg-black border-2 border-vf-orange shadow-md neon-outline">
-    <Running size={38} className="text-vf-orange drop-shadow-[0_0_8px_#FF5C00]" />
+    <Activity size={38} className="text-vf-orange drop-shadow-[0_0_8px_#FF5C00]" />
   </div>
 );
 // Premium circular logo

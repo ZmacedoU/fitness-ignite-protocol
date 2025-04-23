@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -17,12 +18,14 @@ interface CheckoutFormProps {
   selectedPlanId: string;
   customerName: string;
   setCustomerName: (value: string) => void;
+  hideBoleto?: boolean;
 }
 
 const CheckoutForm: React.FC<CheckoutFormProps> = ({
   selectedPlanId,
   customerName,
   setCustomerName,
+  hideBoleto = false
 }) => {
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
