@@ -31,7 +31,7 @@ const CheckoutPage: React.FC = () => {
         }}
       >
         <img
-          src="/lovable-uploads/2c81f3c7-3074-499c-992f-75f61f1af038.png"
+          src="/lovable-uploads/fe7cdc4d-9702-4adf-9a90-6415ffd05191.png"
           alt="Logo Vinicius Di Fiore"
           className="h-20 w-auto"
           style={{ maxHeight: 86 }}

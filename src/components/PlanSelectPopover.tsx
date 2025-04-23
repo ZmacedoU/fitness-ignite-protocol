@@ -26,15 +26,15 @@ const PlanSelectPopover: React.FC<PlanSelectPopoverProps> = ({
     <Popover.Root>
       <Popover.Trigger asChild>
         <button
-          className="relative overflow-hidden group flex flex-col items-center justify-center w-full px-6 py-5 rounded-xl bg-gradient-to-r from-vf-orange to-orange-700 text-white font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 neon-outline transition-all duration-300 mb-0 whitespace-normal"
+          className="relative overflow-hidden group flex flex-col items-center justify-center w-full px-4 py-3 rounded-xl bg-gradient-to-r from-vf-orange to-orange-700 text-white font-bold text-base shadow-xl hover:shadow-2xl transform hover:scale-105 neon-outline transition-all duration-300 mb-0 text-center whitespace-normal"
           tabIndex={0}
           style={{
             minHeight: 58,
-            maxHeight: 66,
+            maxHeight: "none", // Remove height restriction
           }}
         >
-          <span className="tracking-wide text-center">Trocar plano</span>
-          <ChevronDown size={22} className="mt-2 group-hover:translate-y-0.5 transition-transform" />
+          <span className="tracking-wide">Trocar plano</span>
+          <ChevronDown size={20} className="mt-1 group-hover:translate-y-0.5 transition-transform" />
           {/* Animated background effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine" />
         </button>

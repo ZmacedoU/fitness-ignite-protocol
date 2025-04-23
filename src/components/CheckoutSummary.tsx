@@ -123,13 +123,13 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
 
   return (
     <aside
-      className={`glass min-w-[320px] w-full md:max-w-[435px] p-7 pb-8 mb-12 md:mb-0 flex flex-col justify-start gap-2 shadow-xl border-2 overflow-visible transition-all duration-300 rounded-2xl text-white relative
+      className={`glass min-w-[320px] w-full md:max-w-[450px] p-7 pb-8 mb-12 md:mb-0 flex flex-col justify-start gap-2 shadow-xl border-2 overflow-hidden transition-all duration-300 rounded-2xl text-white relative
         ${isAnimating ? "transform scale-[1.03]" : "transform scale-100"}
         ${selectedPlan.highlight ? "border-vf-orange/80" : "border-vf-orange/30"}
       `}
       style={{
-        minHeight: 470,
-        maxHeight: 595,
+        minHeight: 500,
+        maxHeight: 650,
         background: "linear-gradient(125deg,#18130e 80%,#ff5c0025 100%)",
         boxShadow: selectedPlan.highlight
           ? "0 0 32px 0 #ff5c0034"
@@ -163,8 +163,8 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
       </ul>
 
       {/* Botão grande e centralizado para trocar plano */}
-      <div className="flex flex-col items-center w-full mt-auto mb-0 px-0">
-        <div className="w-full pt-2">
+      <div className="flex flex-col items-center w-full mt-auto mb-0 px-0 pt-4">
+        <div className="w-full">
           <PlanSelectPopover
             plans={plans.map(p => ({
               id: p.id,
