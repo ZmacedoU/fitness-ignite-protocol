@@ -289,3 +289,52 @@
 .flip-horizontal {
   transform: scaleX(-1);
 }
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-vf-orange/20 rounded-2xl shadow-[0_4px_24px_#ff5c0044];
+  }
+  .neon-outline {
+    box-shadow: 0 0 8px 2px #FF5C00, 0 0 16px 2px #FF5C0022;
+    border: 2px solid #FF5C00 !important;
+    background: linear-gradient(110deg, #1a1a1a 60%, #ff5c001a 100%);
+    transition: box-shadow 0.2s, background 0.2s;
+  }
+  .neon-outline.selected {
+    box-shadow: 0 0 16px 4px #FF5C00cc, 0 0 40px 8px #FF5C0055;
+    background: linear-gradient(120deg, #19130e 60%, #ff5c00cc 100%);
+    border-width: 2.5px;
+  }
+  .animate-fade-slide-up {
+    opacity: 0;
+    transform: translateY(32px);
+    animation: fadeSlideUp 0.85s cubic-bezier(.19,1,.22,1) forwards;
+  }
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(32px);}
+    to   { opacity: 1; transform: translateY(0);}
+  }
+  .animate-fade-slide-left {
+    opacity: 0;
+    transform: translateX(32px);
+    animation: fadeSlideLeft 0.65s cubic-bezier(.19,1,.22,1) forwards;
+  }
+  @keyframes fadeSlideLeft {
+    from { opacity: 0; transform: translateX(32px);}
+    to   { opacity: 1; transform: translateX(0);}
+  }
+  .btn-animated {
+    @apply transition-all duration-150 shadow-lg;
+    box-shadow: 0 0 8px 0 #FF5C0088;
+    background: linear-gradient(93deg, #FF5C00 0%, #ffae0050 100%);
+  }
+  .btn-animated:hover, .btn-animated:focus {
+    box-shadow: 0 0 8px 2px #FF5C00, 0 0 24px 4px #FF5C0075;
+    background: linear-gradient(103deg, #FF5C00 0%, #ffae0030 100%);
+    transform: scale(1.04) translateY(-1px);
+  }
+  .btn-animated:active {
+    background: #FF5C00 !important;
+    transform: scale(0.97);
+  }
+}
