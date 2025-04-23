@@ -21,11 +21,19 @@ const CheckoutPage: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none z-0"
         style={{ background: "radial-gradient(circle at 80% 10%, #ff5c0266 0%, transparent 72%)" }}/>
         
-      <header className="flex justify-center items-center py-6 bg-black/90 z-40 border-b border-vf-orange/30 backdrop-blur-md animate-fade-slide-up sticky top-0">
+      <header
+        className="flex justify-center items-center py-6 z-40 border-b border-vf-orange/30 sticky top-0 animate-fade-slide-up"
+        style={{
+          background: "rgba(24, 23, 20, 0.38)",
+          backdropFilter: "blur(15px)",
+          WebkitBackdropFilter: "blur(15px)",
+          boxShadow: "0 6px 32px 0 #ff5c0030",
+        }}
+      >
         <img
-          src="/lovable-uploads/8096b669-3055-4c55-bad1-a9a6f8d32dd3.png"
+          src="/lovable-uploads/2c81f3c7-3074-499c-992f-75f61f1af038.png"
           alt="Logo Vinicius Di Fiore"
-          className="h-20 w-auto drop-shadow-[0_0_16px_#FF6600cc]"
+          className="h-20 w-auto"
           style={{ maxHeight: 86 }}
         />
       </header>

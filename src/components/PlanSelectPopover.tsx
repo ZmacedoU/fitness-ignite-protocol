@@ -26,8 +26,12 @@ const PlanSelectPopover: React.FC<PlanSelectPopoverProps> = ({
     <Popover.Root>
       <Popover.Trigger asChild>
         <button
-          className="relative overflow-hidden group flex flex-col items-center justify-center w-full px-6 py-4 rounded-xl bg-gradient-to-r from-vf-orange to-orange-700 text-white font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 neon-outline transition-all duration-300 mb-1 whitespace-normal"
+          className="relative overflow-hidden group flex flex-col items-center justify-center w-full px-6 py-5 rounded-xl bg-gradient-to-r from-vf-orange to-orange-700 text-white font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 neon-outline transition-all duration-300 mb-0 whitespace-normal"
           tabIndex={0}
+          style={{
+            minHeight: 58,
+            maxHeight: 66,
+          }}
         >
           <span className="tracking-wide text-center">Trocar plano</span>
           <ChevronDown size={22} className="mt-2 group-hover:translate-y-0.5 transition-transform" />
@@ -66,7 +70,8 @@ const PlanSelectPopover: React.FC<PlanSelectPopoverProps> = ({
                         className="object-contain w-7 h-7 rounded-full border-2 border-vf-orange" />
                     )}
                     {plan.id === "starter" && (
-                      <svg width="32" height="32" viewBox="0 0 32 32" className="w-6 h-6 text-vf-orange"><path fill="currentColor" d="M16 6a4 4 0 1 1 0 8a4 4 0 0 1 0-8zm0 2.5A1.5 1.5 0 1 0 16 11a1.5 1.5 0 0 0 0-3zm1 7a7 7 0 1 1-2 0v5h2v-5zm-2.5 6h3v8h-3v-8z"/></svg>
+                      <img src="/lovable-uploads/2c81f3c7-3074-499c-992f-75f61f1af038.png" alt=""
+                        className="object-contain w-7 h-7 rounded-full border-2 border-vf-orange" />
                     )}
                   </span>
                   <div className="flex flex-col items-start text-left">

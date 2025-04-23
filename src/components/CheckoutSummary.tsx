@@ -60,7 +60,7 @@ const plans: Plan[] = [
       "Grupo de dúvidas",
       "Acesso a treinos gravados",
     ],
-    avatarType: "icon-premium", // TROCA: agora Starter usa o avatar premium antigo
+    avatarType: "icon-premium", // Starter usa premium antigo (círculo laranja antigo)
   },
   {
     id: "premium",
@@ -71,7 +71,7 @@ const plans: Plan[] = [
       "Reunião de alinhamento mensal",
       "Acesso antecipado a novidades",
     ],
-    avatarType: "icon-starter", // TROCA: agora Premium usa o Starter (imagem enviada)
+    avatarType: "icon-starter", // Premium usa starter (imagem enviada)
   },
 ];
 
@@ -94,8 +94,16 @@ const getAvatar = (type: Plan["avatarType"]) => {
       </div>
     );
   }
-  // Premium agora usa a nova logo enviada
-  return <PremiumIcon />;
+  // Premium agora usa a nova logo enviada (starter)
+  return (
+    <div className="flex items-center justify-center h-20 w-20 rounded-full bg-black border-2 border-vf-orange shadow-md neon-outline">
+      <img
+        src="/lovable-uploads/2c81f3c7-3074-499c-992f-75f61f1af038.png"
+        alt="Logo Starter"
+        className="w-16 h-16 object-cover rounded-full border-2 border-vf-orange"
+      />
+    </div>
+  );
 };
 
 const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
@@ -115,13 +123,13 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
 
   return (
     <aside
-      className={`glass min-w-[320px] w-full md:max-w-[420px] p-7 mb-10 md:mb-0 flex flex-col justify-start gap-2 shadow-xl border-2 overflow-hidden transition-all duration-300 rounded-2xl text-white relative
+      className={`glass min-w-[320px] w-full md:max-w-[435px] p-7 pb-8 mb-12 md:mb-0 flex flex-col justify-start gap-2 shadow-xl border-2 overflow-visible transition-all duration-300 rounded-2xl text-white relative
         ${isAnimating ? "transform scale-[1.03]" : "transform scale-100"}
         ${selectedPlan.highlight ? "border-vf-orange/80" : "border-vf-orange/30"}
       `}
       style={{
-        minHeight: 440,
-        maxHeight: 580,
+        minHeight: 470,
+        maxHeight: 595,
         background: "linear-gradient(125deg,#18130e 80%,#ff5c0025 100%)",
         boxShadow: selectedPlan.highlight
           ? "0 0 32px 0 #ff5c0034"
@@ -134,7 +142,7 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
           {getAvatar(selectedPlan.avatarType)}
         </div>
         <div className="font-extrabold text-2xl text-vf-orange text-center tracking-tight">{selectedPlan.name}</div>
-        <div className="text-xl font-extrabold mt-0.5 text-vf-white tracking-tight">{selectedPlan.price}</div>
+        <div className="text-2xl font-extrabold mt-0.5 text-vf-white tracking-tight">{selectedPlan.price}</div>
       </div>
 
       <div className="bg-gradient-to-r from-vf-orange/15 to-transparent rounded-lg border border-vf-orange/15 py-2 px-4 mb-2 mt-3">
@@ -145,7 +153,7 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
         {selectedPlan.description.map((item, i) => (
           <li
             key={i}
-            className="flex items-center text-vf-white text-[1.2rem] font-semibold animate-fade-in delay-100"
+            className="flex items-center text-vf-white text-[1.15rem] font-semibold animate-fade-in delay-100"
             style={{ animationDelay: `${i * 80}ms`}}
           >
             <ShieldCheck size={22} className="mr-3 text-vf-orange flex-shrink-0" />
@@ -154,9 +162,9 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
         ))}
       </ul>
 
-      {/* Botão grande e centralizado para trocar plano - Corrigido para evitar recortes */}
+      {/* Botão grande e centralizado para trocar plano */}
       <div className="flex flex-col items-center w-full mt-auto mb-0 px-0">
-        <div className="w-full">
+        <div className="w-full pt-2">
           <PlanSelectPopover
             plans={plans.map(p => ({
               id: p.id,
