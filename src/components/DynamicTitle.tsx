@@ -54,9 +54,7 @@ const DynamicTitle: React.FC<DynamicTitleProps> = ({ selectedPlanId }) => {
         letterSpacing: "-1px"
       }}
     >
-      <span className="drop-shadow-xl">
-        {titleElement}
-      </span>
+      {titleElement}
     </h1>
   );
 };

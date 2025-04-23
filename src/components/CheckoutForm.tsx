@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
+// Endpoint da API Kirvano para processamento de pagamentos
 const KIRVANO_API_URL = "https://api.kirvano.com/v1/payment";
 
 interface CheckoutFormProps {
@@ -70,6 +71,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
     setStatus("processing");
     toast({ title: "Processando pagamento..." });
     try {
+      // Integração com a plataforma Kirvano para processamento de pagamento
       const response = await fetch(KIRVANO_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

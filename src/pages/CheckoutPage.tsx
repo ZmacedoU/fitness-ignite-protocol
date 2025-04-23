@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import CheckoutSummary from "@/components/CheckoutSummary";
 import CheckoutForm from "@/components/CheckoutForm";
 import CheckoutFAQ from "@/components/CheckoutFAQ";
-import SecurityBar from "@/components/SecurityBar";
 import DynamicTitle from "@/components/DynamicTitle";
 import { ShieldCheck } from "lucide-react";
 

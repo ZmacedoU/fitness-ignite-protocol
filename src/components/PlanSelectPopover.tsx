@@ -26,7 +26,7 @@ const PlanSelectPopover: React.FC<PlanSelectPopoverProps> = ({
     <Popover.Root>
       <Popover.Trigger asChild>
         <button
-          className="relative overflow-hidden group flex flex-col items-center justify-center w-full px-6 py-4 rounded-xl bg-gradient-to-r from-vf-orange to-orange-700 text-white font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 neon-outline transition-all duration-300 mb-1 transition"
+          className="relative overflow-hidden group flex flex-col items-center justify-center w-full px-6 py-4 rounded-xl bg-gradient-to-r from-vf-orange to-orange-700 text-white font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 neon-outline transition-all duration-300 mb-1"
           tabIndex={0}
         >
           <span className="tracking-wide">Trocar plano</span>

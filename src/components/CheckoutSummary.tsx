@@ -115,13 +115,13 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
 
   return (
     <aside
-      className={`glass min-w-[320px] w-[390px] max-w-sm p-7 mb-10 md:mb-0 flex flex-col justify-start gap-2 shadow-xl border-2 overflow-hidden transition-all duration-300 rounded-2xl text-white relative
+      className={`glass min-w-[320px] w-full md:max-w-[420px] p-7 mb-10 md:mb-0 flex flex-col justify-start gap-2 shadow-xl border-2 overflow-hidden transition-all duration-300 rounded-2xl text-white relative
         ${isAnimating ? "transform scale-[1.03]" : "transform scale-100"}
         ${selectedPlan.highlight ? "border-vf-orange/80" : "border-vf-orange/30"}
       `}
       style={{
-        minHeight: 410,
-        maxHeight: 550,
+        minHeight: 440,
+        maxHeight: 580,
         background: "linear-gradient(125deg,#18130e 80%,#ff5c0025 100%)",
         boxShadow: selectedPlan.highlight
           ? "0 0 32px 0 #ff5c0034"
@@ -141,32 +141,34 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
         <h3 className="font-bold text-vf-orange mb-1 text-base text-center">O que você receberá:</h3>
       </div>
 
-      <ul className="space-y-2 mt-1 mb-4 px-2">
+      <ul className="space-y-3 mt-2 mb-4 px-2">
         {selectedPlan.description.map((item, i) => (
           <li
             key={i}
-            className="flex items-center text-vf-white text-[1.13rem] font-semibold animate-fade-in delay-100"
+            className="flex items-center text-vf-white text-[1.2rem] font-semibold animate-fade-in delay-100"
             style={{ animationDelay: `${i * 80}ms`}}
           >
-            <ShieldCheck size={20} className="mr-3 text-vf-orange flex-shrink-0" />
+            <ShieldCheck size={22} className="mr-3 text-vf-orange flex-shrink-0" />
             <span>{item}</span>
           </li>
         ))}
       </ul>
 
-      {/* Botão grande e centralizado para trocar plano */}
-      <div className="flex flex-col items-center w-full mt-auto mb-0">
-        <PlanSelectPopover
-          plans={plans.map(p => ({
-            id: p.id,
-            name: p.name,
-            price: p.price,
-            highlight: p.highlight,
-            mockupImg: "",
-          }))}
-          selectedPlanId={selectedPlanId}
-          onChange={onChangePlan}
-        />
+      {/* Botão grande e centralizado para trocar plano - Corrigido para evitar recortes */}
+      <div className="flex flex-col items-center w-full mt-auto mb-0 px-0">
+        <div className="w-full">
+          <PlanSelectPopover
+            plans={plans.map(p => ({
+              id: p.id,
+              name: p.name,
+              price: p.price,
+              highlight: p.highlight,
+              mockupImg: "",
+            }))}
+            selectedPlanId={selectedPlanId}
+            onChange={onChangePlan}
+          />
+        </div>
       </div>
     </aside>
   );
