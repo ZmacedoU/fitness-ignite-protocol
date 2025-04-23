@@ -1,6 +1,7 @@
 
 import React from "react";
 import * as Popover from "@radix-ui/react-popover";
+import { ChevronDown } from "lucide-react";
 
 type Plan = {
   id: string;
@@ -25,19 +26,22 @@ const PlanSelectPopover: React.FC<PlanSelectPopoverProps> = ({
     <Popover.Root>
       <Popover.Trigger asChild>
         <button
-          className={`relative transition-all duration-150 px-4 py-2 rounded-lg bg-gradient-to-r from-[#1a1a1a] to-[#ff5c0020] border border-vf-orange/40 text-vf-orange font-semibold hover:text-vf-white hover:bg-vf-orange/20 shadow-md neon-outline focus:outline-none focus:ring-2 focus:ring-vf-orange/50`}
+          className="relative overflow-hidden group flex items-center gap-2 px-5 py-3 rounded-lg bg-gradient-to-r from-vf-orange to-orange-700 text-white font-bold text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
           tabIndex={0}
         >
-          Trocar plano
+          <span>Trocar plano</span>
+          <ChevronDown size={18} className="group-hover:translate-y-0.5 transition-transform" />
+          
+          {/* Animated background effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine" />
         </button>
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Content
           sideOffset={12}
-          className="z-50 rounded-2xl p-4 min-w-[260px] bg-black/90 glass border border-vf-orange/30 shadow-2xl animate-fade-in"
-          style={{ backdropFilter: 'blur(9px)' }}
+          className="z-50 rounded-2xl p-4 min-w-[280px] bg-black/90 border border-vf-orange/30 shadow-2xl animate-fade-in backdrop-blur-md"
         >
-          <div className="mb-2 font-bold text-vf-orange text-lg">Escolha um plano:</div>
+          <div className="mb-3 font-bold text-vf-orange text-lg">Escolha um plano:</div>
           <ul className="space-y-2">
             {plans.map((plan) => (
               <li key={plan.id}>
@@ -57,17 +61,17 @@ const PlanSelectPopover: React.FC<PlanSelectPopoverProps> = ({
                   <img
                     src={plan.mockupImg}
                     alt={plan.name}
-                    className={`h-11 w-11 rounded-md object-cover border-2 ${
+                    className={`h-12 w-12 rounded-md object-cover border-2 ${
                       plan.id === selectedPlanId
                         ? "border-vf-orange animate-pulse-subtle"
-                        : "border-transparent"
+                        : "border-vf-orange/30"
                     } bg-black`}
                   />
                   <div className="flex flex-col items-start text-left">
                     <span
                       className={`text-base font-bold ${
                         plan.id === selectedPlanId
-                          ? "text-vf-orange drop-shadow-[0_2px_8px_#ff5c0080]"
+                          ? "text-vf-orange"
                           : "text-vf-white"
                       }`}
                     >
@@ -85,11 +89,13 @@ const PlanSelectPopover: React.FC<PlanSelectPopoverProps> = ({
             ))}
           </ul>
           <Popover.Close
-            className="block mt-4 mx-auto text-sm px-4 py-1 rounded bg-vf-orange text-black font-bold shadow hover:bg-vf-orange/90 transition"
+            className="block mt-4 mx-auto text-sm px-4 py-1.5 rounded bg-vf-orange text-black font-bold shadow hover:bg-vf-orange/90 transition"
             aria-label="Fechar"
           >
             Fechar
           </Popover.Close>
+          
+          <Popover.Arrow className="fill-vf-orange" />
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>

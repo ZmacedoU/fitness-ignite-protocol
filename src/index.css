@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -43,7 +44,7 @@
 
   body {
     @apply bg-vf-black text-vf-white;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Montserrat', 'Oswald', sans-serif;
   }
 
   ::-webkit-scrollbar {

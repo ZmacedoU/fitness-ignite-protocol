@@ -65,8 +65,14 @@ export default {
 				},
 				// Custom colors for Vinicius Di Fiore brand
 				"vf-black": "#000000",
-				"vf-orange": "#FF5C00",
+				"vf-orange": "#FF6600",
 				"vf-white": "#FFFFFF",
+			},
+			fontFamily: {
+				'impact': ['Impact', 'sans-serif'],
+				'oswald': ['Oswald', 'sans-serif'],
+				'montserrat': ['Montserrat', 'sans-serif'],
+				'poppins': ['Poppins', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -118,17 +124,19 @@ export default {
 						opacity: '0.8'
 					}
 				},
+				'shine': {
+					'100%': { 
+						left: '125%', 
+					},
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out forwards',
 				'fade-in-right': 'fade-in-right 0.6s ease-out forwards',
-				'pulse-subtle': 'pulse-subtle 3s infinite'
-			},
-			fontFamily: {
-				'impact': ['Impact', 'sans-serif'],
-				'oswald': ['Oswald', 'sans-serif'],
+				'pulse-subtle': 'pulse-subtle 3s infinite',
+				'shine': 'shine 1s ease-in-out',
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

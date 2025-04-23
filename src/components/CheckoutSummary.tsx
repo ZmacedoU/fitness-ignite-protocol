@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ShieldCheck } from "lucide-react";
 import PlanSelectPopover from "./PlanSelectPopover";
 
@@ -61,24 +61,35 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
   onChangePlan,
 }) => {
   const selectedPlan = plans.find((p) => p.id === selectedPlanId) || plans[0];
+  const [isAnimating, setIsAnimating] = useState(false);
+  
+  useEffect(() => {
+    setIsAnimating(true);
+    const timer = setTimeout(() => {
+      setIsAnimating(false);
+    }, 600);
+    
+    return () => clearTimeout(timer);
+  }, [selectedPlanId]);
 
   return (
     <aside
-      className={`glass animate-fade-slide-left max-w-md w-full min-w-[280px] p-7 mb-10 md:mb-0 md:mr-8 relative
-        shadow-xl border-2 overflow-hidden
+      className={`glass max-w-md w-full min-w-[280px] p-7 mb-10 md:mb-0 md:mr-8 relative
+        shadow-xl border-2 overflow-hidden transition-all duration-300
+        ${isAnimating ? 'transform scale-[1.03]' : 'transform scale-100'}
         ${
           selectedPlan.highlight
-            ? "neon-outline selected"
-            : "neon-outline"
+            ? "border-vf-orange/80"
+            : "border-vf-orange/30"
         }
       `}
       style={{
-        transition: "box-shadow 0.4s, background 0.3s",
+        transition: "transform 0.4s, box-shadow 0.4s, background 0.3s",
         background: "linear-gradient(120deg,#19130e 66%,#ff5c0029 100%)",
         boxShadow:
           selectedPlan.highlight
-            ? "0 0 40px 0 #ff5c0034, 0 0 62px 6px #ff5c0144"
-            : "0 0 14px 0 #ff5c0034, 0 0 18px 3px #ff5c0122",
+            ? "0 0 40px 0 #ff5c0034"
+            : "0 0 14px 0 #ff5c0034",
       }}
     >
       {/* Gradient overlay highlight */}
@@ -93,26 +104,35 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
             "radial-gradient(ellipse at 70% 0%, #ff5c00bb 0%, transparent 75%)",
         }}
       />
-      <div className="flex items-center gap-4 mb-2 relative z-10">
+      <div className="flex items-center gap-4 mb-4 relative z-10">
         <img
           src={selectedPlan.mockupImg}
           alt=""
-          className="h-16 w-16 rounded-xl object-cover border-2 border-vf-orange/90 bg-black animate-pulse-subtle neon-outline"
+          className={`h-16 w-16 rounded-xl object-cover border-2 border-vf-orange/90 bg-black animate-pulse-subtle ${isAnimating ? 'animate-pulse' : ''}`}
         />
         <div>
           <div className="font-extrabold text-2xl text-vf-orange drop-shadow-[0_2px_10px_#ff5c00bb] animate-fade-in">{selectedPlan.name}</div>
           <div className="text-lg font-semibold text-vf-white mt-1">{selectedPlan.price}</div>
         </div>
       </div>
-      <ul className="space-y-2 mt-6 mb-5 relative z-10">
-        {selectedPlan.description.slice(0, 5).map((item, i) => (
-          <li key={i} className="flex items-center text-vf-white text-base font-medium animate-fade-in delay-100">
-            <ShieldCheck size={17} className="mr-2 text-vf-orange" />
-            {item}
+      
+      <div className="py-2 px-3 bg-gradient-to-r from-vf-orange/10 to-transparent rounded-lg mb-4 border border-vf-orange/20">
+        <h3 className="font-bold text-vf-orange mb-1">O que você receberá:</h3>
+      </div>
+      
+      <ul className="space-y-3 mt-4 mb-5 relative z-10">
+        {selectedPlan.description.map((item, i) => (
+          <li 
+            key={i} 
+            className="flex items-center text-vf-white text-base font-medium animate-fade-in delay-100"
+            style={{ animationDelay: `${i * 100}ms` }}
+          >
+            <ShieldCheck size={20} className="mr-3 text-vf-orange flex-shrink-0" />
+            <span>{item}</span>
           </li>
         ))}
       </ul>
-      <div className="flex justify-end z-10">
+      <div className="flex justify-end z-10 mt-4">
         <PlanSelectPopover
           plans={plans.map(p => ({
             id: p.id,
