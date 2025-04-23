@@ -23,7 +23,7 @@ const CheckoutPage: React.FC = () => {
         
       <header className="flex justify-center items-center py-6 bg-black/90 z-40 border-b border-vf-orange/30 backdrop-blur-md animate-fade-slide-up sticky top-0">
         <img
-          src="/lovable-uploads/bcd6a0e6-55b4-42d2-a3ea-5353cf9f8f6f.png"
+          src="/lovable-uploads/8096b669-3055-4c55-bad1-a9a6f8d32dd3.png"
           alt="Logo Vinicius Di Fiore"
           className="h-20 w-auto drop-shadow-[0_0_16px_#FF6600cc]"
           style={{ maxHeight: 86 }}
