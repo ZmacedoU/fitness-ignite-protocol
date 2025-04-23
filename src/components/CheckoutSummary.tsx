@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ShieldCheck } from "lucide-react";
 import PlanSelectPopover from "./PlanSelectPopover";
@@ -64,55 +63,28 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
 
   return (
     <aside
-      className={`glass animate-fade-slide-left max-w-md w-full min-w-[280px] p-7 mb-10 md:mb-0 md:mr-8 relative
-        shadow-xl border-2 overflow-hidden
-        ${
-          selectedPlan.highlight
-            ? "neon-outline selected"
-            : "neon-outline"
-        }
-      `}
-      style={{
-        transition: "box-shadow 0.4s, background 0.3s",
-        background: "linear-gradient(120deg,#19130e 66%,#ff5c0029 100%)",
-        boxShadow:
-          selectedPlan.highlight
-            ? "0 0 40px 0 #ff5c0034, 0 0 62px 6px #ff5c0144"
-            : "0 0 14px 0 #ff5c0034, 0 0 18px 3px #ff5c0122",
-      }}
+      className={`bg-black/10 border border-gray-800 w-full max-w-md p-7 mb-10 md:mb-0 md:mr-8 relative rounded-2xl`}
     >
-      {/* Gradient overlay highlight */}
-      <div
-        className={`pointer-events-none absolute inset-0 rounded-2xl z-0 transition-all duration-500 ${
-          selectedPlan.highlight
-            ? "opacity-40"
-            : "opacity-0"
-        }`}
-        style={{
-          background:
-            "radial-gradient(ellipse at 70% 0%, #ff5c00bb 0%, transparent 75%)",
-        }}
-      />
-      <div className="flex items-center gap-4 mb-2 relative z-10">
+      <div className="flex items-center gap-4 mb-2">
         <img
           src={selectedPlan.mockupImg}
           alt=""
-          className="h-16 w-16 rounded-xl object-cover border-2 border-vf-orange/90 bg-black animate-pulse-subtle neon-outline"
+          className="h-16 w-16 rounded-xl object-cover border-2 border-gray-700 bg-black"
         />
         <div>
-          <div className="font-extrabold text-2xl text-vf-orange drop-shadow-[0_2px_10px_#ff5c00bb] animate-fade-in">{selectedPlan.name}</div>
+          <div className="font-extrabold text-2xl text-vf-orange">{selectedPlan.name}</div>
           <div className="text-lg font-semibold text-vf-white mt-1">{selectedPlan.price}</div>
         </div>
       </div>
-      <ul className="space-y-2 mt-6 mb-5 relative z-10">
+      <ul className="space-y-2 mt-6 mb-5">
         {selectedPlan.description.slice(0, 5).map((item, i) => (
-          <li key={i} className="flex items-center text-vf-white text-base font-medium animate-fade-in delay-100">
+          <li key={i} className="flex items-center text-vf-white text-base font-medium">
             <ShieldCheck size={17} className="mr-2 text-vf-orange" />
             {item}
           </li>
         ))}
       </ul>
-      <div className="flex justify-end z-10">
+      <div className="flex justify-end">
         <PlanSelectPopover
           plans={plans.map(p => ({
             id: p.id,
