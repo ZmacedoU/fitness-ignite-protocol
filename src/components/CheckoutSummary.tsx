@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { ShieldCheck, Puzzle, Activity } from "lucide-react";
 import PlanSelectPopover from "./PlanSelectPopover";
@@ -50,7 +51,7 @@ const plans: Plan[] = [
   {
     id: "starter",
     name: "Plano Starter",
-    price: "R$ 97,00/mês",
+    price: "R$ 97,00/mês", // Updated price
     description: [
       "Protocolos básicos",
       "Grupo de dúvidas",

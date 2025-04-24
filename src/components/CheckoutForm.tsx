@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -12,7 +11,6 @@ import {
 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
-// Endpoint da API Kirvano para processamento de pagamentos
 const KIRVANO_API_URL = "https://api.kirvano.com/v1/payment";
 
 interface CheckoutFormProps {
@@ -49,7 +47,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         .replace(/(\d{3})(\d)/, '$1.$2')
         .replace(/(\d{3})(\d)/, '$1/$2')
         .replace(/(\d{4})(\d{1,2})/, '$1-$2')
-        .replace(/(-\d{2})\d+?$/, '$1');
+        .replace(/(-\d{4})\d+?$/, '$1');
     }
   };
 
@@ -71,7 +69,6 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
     setStatus("processing");
     toast({ title: "Processando pagamento..." });
     try {
-      // Integração com a plataforma Kirvano para processamento de pagamento
       const response = await fetch(KIRVANO_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -107,6 +104,12 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
         <CreditCard className="mr-2" size={20} />
         Informações de Pagamento
       </h2>
+
+      <div className="mb-4 p-4 rounded-lg bg-gradient-to-r from-vf-orange/15 to-transparent border border-vf-orange/30">
+        <p className="text-sm text-gray-300 text-center">
+          Ao prosseguir, você será redirecionado a página de vendas onde poderá concluir sua compra com os dados de cobrança.
+        </p>
+      </div>
 
       <div className="space-y-4 mb-6">
         <div>
