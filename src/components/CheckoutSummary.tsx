@@ -3,24 +3,20 @@ import { ShieldCheck, Puzzle, Activity } from "lucide-react";
 import PlanSelectPopover from "./PlanSelectPopover";
 import SubscriptionPeriodCards from "./SubscriptionPeriodCards";
 
-// Imagem circular - Protocolo premium nova logo
 const premiumAvatar = "/lovable-uploads/bcd6a0e6-55b4-42d2-a3ea-5353cf9f8f6f.png";
 
-// Icônico SVG peça de quebra-cabeça black usando lucide Puzzle
 const BlackIcon = () => (
   <div className="flex items-center justify-center h-20 w-20 rounded-full bg-black border-2 border-vf-orange shadow-md neon-outline selected">
     <Puzzle size={50} className="text-vf-orange" />
   </div>
 );
 
-// Starter boneco correndo - SVG (ou imagem se desejado)
 const StarterIcon = () => (
   <div className="flex items-center justify-center h-20 w-20 rounded-full bg-black border-2 border-vf-orange shadow-md neon-outline">
     <Activity size={50} className="text-vf-orange" />
   </div>
 );
 
-// Premium circular logo (imagem enviada)
 const PremiumIcon = () => (
   <div className="flex items-center justify-center h-20 w-20 rounded-full bg-black border-2 border-vf-orange shadow-md neon-outline">
     <img src={premiumAvatar} alt="" className="w-16 h-16 object-cover rounded-full border-2 border-vf-orange" />
@@ -40,7 +36,7 @@ const plans: Plan[] = [
   {
     id: "black",
     name: "Protocolo Black",
-    price: "R$ 499,00/mês",
+    price: "",
     description: [
       "Acesso ao Método Exclusivo",
       "Acompanhamento semanal",
@@ -54,24 +50,24 @@ const plans: Plan[] = [
   {
     id: "starter",
     name: "Plano Starter",
-    price: "R$ 187,00/mês",
+    price: "R$ 97,00/mês",
     description: [
       "Protocolos básicos",
       "Grupo de dúvidas",
       "Acesso a treinos gravados",
     ],
-    avatarType: "icon-premium", // Starter usa premium antigo (círculo laranja antigo)
+    avatarType: "icon-premium",
   },
   {
     id: "premium",
     name: "Protocolo Premium",
-    price: "R$ 849,00/mês",
+    price: "",
     description: [
       "Tudo do Black + Consultoria individual",
       "Reunião de alinhamento mensal",
       "Acesso antecipado a novidades",
     ],
-    avatarType: "icon-starter", // Premium usa starter (imagem enviada)
+    avatarType: "icon-starter",
   },
 ];
 
@@ -83,7 +79,6 @@ interface CheckoutSummaryProps {
 const getAvatar = (type: Plan["avatarType"]) => {
   if (type === "icon-black") return <BlackIcon />;
   if (type === "icon-premium") {
-    // Starter agora usa avatar antigo premium (círculo laranja das antigas)
     return (
       <div className="flex items-center justify-center h-20 w-20 rounded-full bg-black border-2 border-vf-orange shadow-md neon-outline">
         <img
@@ -94,7 +89,6 @@ const getAvatar = (type: Plan["avatarType"]) => {
       </div>
     );
   }
-  // Premium agora usa a nova logo enviada (starter)
   return (
     <div className="flex items-center justify-center h-20 w-20 rounded-full bg-black border-2 border-vf-orange shadow-md neon-outline">
       <img
@@ -137,7 +131,6 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
           : "0 0 14px 0 #ff5c0034",
       }}
     >
-      {/* Avatar do Plano e Nome */}
       <div className="flex flex-col gap-2 items-center mb-2 z-20">
         <div className={`mt-1 mb-2 ${isAnimating ? "animate-pulse" : ""}`}>
           {getAvatar(selectedPlan.avatarType)}
@@ -147,8 +140,7 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
         </div>
       </div>
 
-      {/* Adiciona seleção de período apenas para o plano Black */}
-      {selectedPlanId === "black" && (
+      {(selectedPlanId === "black" || selectedPlanId === "premium") && (
         <SubscriptionPeriodCards
           selectedPeriod={selectedPeriod}
           onSelectPeriod={setSelectedPeriod}
@@ -172,7 +164,6 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
         ))}
       </ul>
 
-      {/* Botão grande e centralizado para trocar plano */}
       <div className="flex flex-col items-center w-full mt-auto mb-0 px-0 pt-4">
         <div className="w-full">
           <PlanSelectPopover

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Calendar, Clock } from "lucide-react";
 
@@ -7,38 +6,72 @@ interface SubscriptionPeriodCardsProps {
   onSelectPeriod: (period: "bimestral" | "semestral" | "anual") => void;
 }
 
-const periods = [
-  {
-    id: "bimestral",
-    name: "Bimestral",
-    price: "R$ 639,80",
-    subtitle: "R$ 305,90/mês",
-    tag: "MELHOR CUSTO-BENEFÍCIO",
-    duration: "60 dias"
-  },
-  {
-    id: "semestral",
-    name: "Semestral",
-    price: "R$ 1.596,00",
-    subtitle: "R$ 266,00/mês",
-    tag: "MAIS ESCOLHIDO",
-    duration: "180 dias",
-    highlight: true
-  },
-  {
-    id: "anual",
-    name: "Anual",
-    price: "R$ 2.876,00",
-    subtitle: "R$ 239,67/mês",
-    tag: "ACESSO MAIS COMPLETO",
-    duration: "365 dias"
-  }
-];
+const getPeriodsByPlan = (planId: string) => {
+  const blackPeriods = [
+    {
+      id: "bimestral",
+      name: "Bimestral",
+      price: "R$ 639,80",
+      subtitle: "R$ 305,90/mês",
+      tag: "MELHOR CUSTO-BENEFÍCIO",
+      duration: "60 dias"
+    },
+    {
+      id: "semestral",
+      name: "Semestral",
+      price: "R$ 1.596,00",
+      subtitle: "R$ 266,00/mês",
+      tag: "MAIS ESCOLHIDO",
+      duration: "180 dias",
+      highlight: true
+    },
+    {
+      id: "anual",
+      name: "Anual",
+      price: "R$ 2.876,00",
+      subtitle: "R$ 239,67/mês",
+      tag: "ACESSO MAIS COMPLETO",
+      duration: "365 dias"
+    }
+  ];
+
+  const premiumPeriods = [
+    {
+      id: "bimestral",
+      name: "Bimestral",
+      price: "R$ 939,80",
+      subtitle: "R$ 469,90/mês",
+      tag: "MELHOR CUSTO-BENEFÍCIO",
+      duration: "60 dias"
+    },
+    {
+      id: "semestral",
+      name: "Semestral",
+      price: "R$ 2.396,00",
+      subtitle: "R$ 399,33/mês",
+      tag: "MAIS ESCOLHIDO",
+      duration: "180 dias",
+      highlight: true
+    },
+    {
+      id: "anual",
+      name: "Anual",
+      price: "R$ 4.276,00",
+      subtitle: "R$ 356,33/mês",
+      tag: "ACESSO MAIS COMPLETO",
+      duration: "365 dias"
+    }
+  ];
+
+  return planId === "premium" ? premiumPeriods : blackPeriods;
+};
 
 const SubscriptionPeriodCards: React.FC<SubscriptionPeriodCardsProps> = ({
   selectedPeriod,
   onSelectPeriod,
 }) => {
+  const periods = getPeriodsByPlan(selectedPlanId);
+
   return (
     <div className="w-full space-y-4 mt-6 mb-2">
       <h3 className="text-vf-orange font-bold text-lg text-center mb-6">Escolha o período:</h3>
