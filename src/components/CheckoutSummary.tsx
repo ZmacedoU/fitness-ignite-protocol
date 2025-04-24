@@ -149,8 +149,8 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
 
       {selectedPlanId === "starter" && (
         <div className="mt-4 p-4 rounded-lg bg-gradient-to-r from-vf-orange/15 to-transparent border border-vf-orange/30">
-          <p className="text-sm text-gray-300 text-center">
-            Ao prosseguir, você será redirecionado para a página de vendas onde poderá concluir sua compra com os dados de cobrança.
+          <p className="text-sm text-gray-300 text-center font-bold text-vf-white">
+            R$ 97,00/mês
           </p>
         </div>
       )}
