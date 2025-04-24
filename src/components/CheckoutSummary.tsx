@@ -118,13 +118,11 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
 
   return (
     <aside
-      className={`glass min-w-[360px] w-full md:max-w-[480px] p-7 pb-8 mb-12 md:mb-0 flex flex-col justify-start gap-2 shadow-xl border-2 overflow-hidden transition-all duration-300 rounded-2xl text-white relative
+      className={`glass min-w-[360px] w-full md:max-w-[480px] p-7 pb-8 mb-12 md:mb-0 flex flex-col justify-start gap-2 shadow-xl border-2 overflow-hidden transition-all duration-300 rounded-2xl text-white relative min-h-[720px]
         ${isAnimating ? "transform scale-[1.03]" : "transform scale-100"}
         ${selectedPlan.highlight ? "border-vf-orange/80" : "border-vf-orange/30"}
       `}
       style={{
-        minHeight: 520,
-        maxHeight: 'max-content',
         background: "linear-gradient(125deg,#18130e 80%,#ff5c0025 100%)",
         boxShadow: selectedPlan.highlight
           ? "0 0 32px 0 #ff5c0034"
@@ -146,6 +144,14 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
           onSelectPeriod={setSelectedPeriod}
           selectedPlanId={selectedPlanId}
         />
+      )}
+
+      {selectedPlanId === "starter" && (
+        <div className="mt-4 p-4 rounded-lg bg-gradient-to-r from-vf-orange/15 to-transparent border border-vf-orange/30">
+          <p className="text-sm text-gray-300 text-center">
+            Ao prosseguir, você será redirecionado para a página de vendas onde poderá concluir sua compra com os dados de cobrança.
+          </p>
+        </div>
       )}
 
       <div className="bg-gradient-to-r from-vf-orange/15 to-transparent rounded-lg border border-vf-orange/15 py-2 px-4 mb-2 mt-3">
