@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -27,20 +26,13 @@ const ThankYouPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-vf-black flex flex-col items-center overflow-x-hidden px-4 pb-24 md:pb-12">
-      {/* Header */}
-      <header className="w-full flex justify-center py-6 animate-fade-up">
-        <h1 className="text-xl md:text-2xl font-bold text-white">
-          Vinicius Di Fiore – Treinador
-        </h1>
-      </header>
-
+    <div className="min-h-screen bg-gradient-to-br from-black via-vf-black to-vf-orange/40 flex flex-col items-center overflow-x-hidden px-4 pb-24 md:pb-12">
       {/* Main Content */}
       <main className="max-w-4xl w-full flex flex-col items-center">
         {/* Title Section */}
-        <section className="w-full text-center mb-8 md:mb-12">
+        <section className="w-full text-center mb-8 md:mb-12 mt-12">
           <h1 className="text-3xl md:text-5xl font-bold text-white animate-fade-up">
-            🎉 Parabéns! Sua Transformação Começa Agora!
+            Parabéns! Sua Transformação Começa Agora
           </h1>
           <h2 className="text-xl md:text-2xl mt-4 text-vf-orange animate-fade-up">
             Seu plano está ativo e sua transformação épica começa agora.
