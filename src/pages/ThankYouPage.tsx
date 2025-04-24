@@ -1,10 +1,10 @@
-
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { WhatsappIcon, FileText, Film, ShieldCheck, Clock } from "lucide-react";
+import { Whatsapp, FileText, Film, ShieldCheck, Clock } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useIsMobile } from "@/hooks/use-mobile";
+import WhatsappIcon from "@/components/WhatsappIcon";
 
 const viniciusImage = "/lovable-uploads/6e7054a9-a7ed-4faa-a805-1c5579945f56.png";
 
