@@ -124,26 +124,27 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
 
   return (
     <aside
-      className={`glass min-w-[320px] w-full md:max-w-[450px] p-7 pb-8 mb-12 md:mb-0 flex flex-col justify-start gap-2 shadow-xl border-2 overflow-hidden transition-all duration-300 rounded-2xl text-white relative
+      className={`glass min-w-[360px] w-full md:max-w-[480px] p-7 pb-8 mb-12 md:mb-0 flex flex-col justify-start gap-2 shadow-xl border-2 overflow-hidden transition-all duration-300 rounded-2xl text-white relative
         ${isAnimating ? "transform scale-[1.03]" : "transform scale-100"}
         ${selectedPlan.highlight ? "border-vf-orange/80" : "border-vf-orange/30"}
       `}
       style={{
-        minHeight: 500,
-        maxHeight: 750,
+        minHeight: 520,
+        maxHeight: 'max-content',
         background: "linear-gradient(125deg,#18130e 80%,#ff5c0025 100%)",
         boxShadow: selectedPlan.highlight
           ? "0 0 32px 0 #ff5c0034"
           : "0 0 14px 0 #ff5c0034",
       }}
     >
-      {/* Avatar do Plano */}
+      {/* Avatar do Plano e Nome */}
       <div className="flex flex-col gap-2 items-center mb-2 z-20">
         <div className={`mt-1 mb-2 ${isAnimating ? "animate-pulse" : ""}`}>
           {getAvatar(selectedPlan.avatarType)}
         </div>
-        <div className="font-extrabold text-2xl text-vf-orange text-center tracking-tight">{selectedPlan.name}</div>
-        <div className="text-2xl font-extrabold mt-0.5 text-vf-white tracking-tight">{selectedPlan.price}</div>
+        <div className="font-extrabold text-2xl text-vf-orange text-center tracking-tight">
+          {selectedPlan.name}
+        </div>
       </div>
 
       {/* Adiciona seleção de período apenas para o plano Black */}
