@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from "react";
 import { ShieldCheck, Puzzle, Activity } from "lucide-react";
 import PlanSelectPopover from "./PlanSelectPopover";
+import SubscriptionPeriodCards from "./SubscriptionPeriodCards";
 
 // Imagem circular - Protocolo premium nova logo
 const premiumAvatar = "/lovable-uploads/bcd6a0e6-55b4-42d2-a3ea-5353cf9f8f6f.png";
@@ -112,6 +112,7 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
 }) => {
   const selectedPlan = plans.find((p) => p.id === selectedPlanId) || plans[0];
   const [isAnimating, setIsAnimating] = useState(false);
+  const [selectedPeriod, setSelectedPeriod] = useState<"bimestral" | "semestral" | "anual">("semestral");
 
   useEffect(() => {
     setIsAnimating(true);
@@ -129,7 +130,7 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
       `}
       style={{
         minHeight: 500,
-        maxHeight: 650,
+        maxHeight: 750,
         background: "linear-gradient(125deg,#18130e 80%,#ff5c0025 100%)",
         boxShadow: selectedPlan.highlight
           ? "0 0 32px 0 #ff5c0034"
@@ -144,6 +145,14 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
         <div className="font-extrabold text-2xl text-vf-orange text-center tracking-tight">{selectedPlan.name}</div>
         <div className="text-2xl font-extrabold mt-0.5 text-vf-white tracking-tight">{selectedPlan.price}</div>
       </div>
+
+      {/* Adiciona seleção de período apenas para o plano Black */}
+      {selectedPlanId === "black" && (
+        <SubscriptionPeriodCards
+          selectedPeriod={selectedPeriod}
+          onSelectPeriod={setSelectedPeriod}
+        />
+      )}
 
       <div className="bg-gradient-to-r from-vf-orange/15 to-transparent rounded-lg border border-vf-orange/15 py-2 px-4 mb-2 mt-3">
         <h3 className="font-bold text-vf-orange mb-1 text-base text-center">O que você receberá:</h3>
