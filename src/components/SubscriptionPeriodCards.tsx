@@ -1,9 +1,11 @@
+
 import React from "react";
 import { Calendar, Clock } from "lucide-react";
 
 interface SubscriptionPeriodCardsProps {
   selectedPeriod: "bimestral" | "semestral" | "anual";
   onSelectPeriod: (period: "bimestral" | "semestral" | "anual") => void;
+  selectedPlanId?: string; // Add this prop for determining which plan's periods to show
 }
 
 const getPeriodsByPlan = (planId: string) => {
@@ -69,6 +71,7 @@ const getPeriodsByPlan = (planId: string) => {
 const SubscriptionPeriodCards: React.FC<SubscriptionPeriodCardsProps> = ({
   selectedPeriod,
   onSelectPeriod,
+  selectedPlanId = "black", // Default to "black" if not provided
 }) => {
   const periods = getPeriodsByPlan(selectedPlanId);
 

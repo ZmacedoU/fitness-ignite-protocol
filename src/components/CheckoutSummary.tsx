@@ -144,6 +144,7 @@ const CheckoutSummary: React.FC<CheckoutSummaryProps> = ({
         <SubscriptionPeriodCards
           selectedPeriod={selectedPeriod}
           onSelectPeriod={setSelectedPeriod}
+          selectedPlanId={selectedPlanId}
         />
       )}
 
