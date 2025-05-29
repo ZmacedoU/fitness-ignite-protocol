@@ -73,43 +73,45 @@ const ThankYouPage: React.FC = () => {
 
         {/* CTA Card Section */}
         <section className="w-full animate-fade-up">
-          <div className="max-w-2xl mx-auto bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 md:p-12 text-center">
+          <div className="max-w-2xl mx-auto bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 md:p-12 text-center">
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
               Pronto para começar?
             </h2>
             
-            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-base md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed px-2">
               Me chame agora no WhatsApp para receber seu <strong className="text-vf-orange">Guia de Boas-Vindas</strong>, 
               acesso ao app e vídeos exclusivos. Vamos começar sua transformação!
             </p>
             
-            <a 
-              href="https://wa.me/5511999999999?text=Oi%20Vinicius%2C%20acabei%20de%20adquirir%20o%20Protocolo%20Black%20e%20quero%20começar!" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block mb-8"
-            >
-              <Button 
-                className={`btn-animated ${isMobile ? 'text-lg py-6 px-12' : 'text-xl md:text-2xl py-8 px-16'} flex gap-4 rounded-2xl group transform hover:scale-105 transition-all duration-300 shadow-2xl w-full md:w-auto`}
+            <div className="px-2 mb-6 md:mb-8">
+              <a 
+                href="https://wa.me/5511999999999?text=Oi%20Vinicius%2C%20acabei%20de%20adquirir%20o%20Protocolo%20Black%20e%20quero%20começar!" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block w-full"
               >
-                <WhatsappIcon size={isMobile ? 24 : 32} className="text-white group-hover:animate-pulse" />
-                <span>🚀 Me chama no WhatsApp</span>
-              </Button>
-            </a>
+                <Button 
+                  className={`btn-animated ${isMobile ? 'text-base py-4 px-6' : 'text-xl md:text-2xl py-8 px-16'} flex gap-3 md:gap-4 rounded-2xl group transform hover:scale-105 transition-all duration-300 shadow-2xl w-full`}
+                >
+                  <WhatsappIcon size={isMobile ? 20 : 32} className="text-white group-hover:animate-pulse flex-shrink-0" />
+                  <span className="text-center flex-1">🚀 Me chama no WhatsApp</span>
+                </Button>
+              </a>
+            </div>
 
             {/* Benefits integrated */}
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-gray-400 text-base md:text-lg">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">📚</span>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-6 text-gray-400 text-sm md:text-lg px-2">
+              <div className="flex items-center gap-2 md:gap-3">
+                <span className="text-xl md:text-2xl">📚</span>
                 <span>Guia de Boas-Vindas</span>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">🎥</span>
+              <div className="flex items-center gap-2 md:gap-3">
+                <span className="text-xl md:text-2xl">🎥</span>
                 <span>Vídeos Exclusivos</span>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">📱</span>
+              <div className="flex items-center gap-2 md:gap-3">
+                <span className="text-xl md:text-2xl">📱</span>
                 <span>Acesso ao App</span>
               </div>
             </div>
