@@ -1,8 +1,6 @@
+
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { FileText, Film, ShieldCheck, Clock } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useIsMobile } from "@/hooks/use-mobile";
 import WhatsappIcon from "@/components/WhatsappIcon";
 
@@ -15,7 +13,7 @@ const ThankYouPage: React.FC = () => {
     // Fade-in animation for elements with animate-fade-up class
     const fadeElements = document.querySelectorAll('.animate-fade-up');
     fadeElements.forEach((element, index) => {
-      (element as HTMLElement).style.animationDelay = `${index * 0.2}s`;
+      (element as HTMLElement).style.animationDelay = `${index * 0.3}s`;
     });
   }, []);
 
@@ -26,138 +24,140 @@ const ThankYouPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-vf-black to-vf-orange/40 flex flex-col items-center overflow-x-hidden px-4 pb-24 md:pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-vf-orange/20 flex flex-col items-center overflow-x-hidden px-4">
       {/* Main Content */}
-      <main className="max-w-4xl w-full flex flex-col items-center">
-        {/* Title Section */}
-        <section className="w-full text-center mb-8 md:mb-12 mt-12">
-          <h1 className="text-3xl md:text-5xl font-bold text-white animate-fade-up">
-            Parabéns! Sua Transformação Começa Agora
+      <main className="max-w-5xl w-full flex flex-col items-center py-12 md:py-20">
+        
+        {/* Hero Section */}
+        <section className="w-full text-center mb-16 animate-fade-up">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            Sua Transformação
+            <span className="block text-vf-orange">Começa Agora!</span>
           </h1>
-          <h2 className="text-xl md:text-2xl mt-4 text-vf-orange animate-fade-up">
-            Seu plano está ativo e sua transformação épica começa agora.
-          </h2>
-        </section>
-
-        {/* Photo Section */}
-        <section className="mb-8 md:mb-12 animate-fade-up">
-          <div className="glass rounded-xl p-2 border border-vf-orange/40 mb-6">
-            <img 
-              src={viniciusImage} 
-              alt="Vinicius Di Fiore agradecendo" 
-              className="rounded-lg w-full max-w-md max-h-[400px] object-cover mx-auto" 
-            />
-          </div>
-        </section>
-
-        {/* Quotes Carousel */}
-        <section className="w-full mb-10 md:mb-16 animate-fade-up">
-          {isMobile ? (
-            <Carousel className="w-full px-4">
-              <CarouselContent>
-                {quotes.map((quote, index) => (
-                  <CarouselItem key={index} className="pl-2 md:basis-1/1">
-                    <div className="glass p-5 rounded-xl border border-vf-orange/30 h-full flex items-center justify-center text-center">
-                      <p className="text-xl font-bold text-white">{quote}</p>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {quotes.map((quote, index) => (
-                <div 
-                  key={index}
-                  className="glass p-5 rounded-xl border border-vf-orange/30 h-full flex items-center justify-center text-center animate-fade-in"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <p className="text-xl font-bold text-white">{quote}</p>
-                </div>
-              ))}
-            </div>
-          )}
-        </section>
-
-        {/* CTA Section */}
-        <section className="w-full mb-12 text-center animate-fade-up">
-          <p className="text-xl text-white mb-6">
-            Para receber seu Guia de Boas-Vindas e acessar o app, me chame agora no WhatsApp.
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Parabéns! Seu plano está ativo e sua jornada épica rumo ao corpo dos seus sonhos começa agora mesmo.
           </p>
-          
-          <a 
-            href="https://wa.me/5511999999999?text=Oi%20Vinicius%2C%20acabei%20de%20adquirir%20o%20Protocolo%20Black%20e%20quero%20começar!" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-block"
-          >
-            <Button 
-              className="btn-animated text-xl p-6 flex gap-3 rounded-lg group transform hover:scale-105 transition-all"
-            >
-              <WhatsappIcon size={24} className="text-white" />
-              <span>🚀 Me chama no WhatsApp</span>
-            </Button>
-          </a>
         </section>
 
-        {/* What You'll Receive Section */}
-        <section className="w-full mb-10 animate-fade-up">
-          <h3 className="text-2xl font-bold text-white text-center mb-6">O que você vai receber</h3>
+        {/* Photo & Quote Section */}
+        <section className="w-full flex flex-col lg:flex-row items-center gap-12 mb-20 animate-fade-up">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="glass border border-vf-orange/30 p-6 flex flex-col items-center text-center">
-              <FileText size={48} className="text-vf-orange mb-4" />
-              <h4 className="text-xl font-bold text-white mb-2">Guia de Boas-Vindas (PDF)</h4>
-              <p className="text-gray-300">Instruções detalhadas para começar sua jornada</p>
-            </Card>
-            
-            <Card className="glass border border-vf-orange/30 p-6 flex flex-col items-center text-center">
-              <Film size={48} className="text-vf-orange mb-4" />
-              <h4 className="text-xl font-bold text-white mb-2">Acesso ao app e vídeos exclusivos</h4>
-              <p className="text-gray-300">Conteúdo premium para sua transformação</p>
-            </Card>
+          {/* Photo */}
+          <div className="flex-1 flex justify-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-vf-orange/20 rounded-2xl blur-xl transform rotate-3"></div>
+              <img 
+                src={viniciusImage} 
+                alt="Vinicius Di Fiore" 
+                className="relative rounded-2xl w-full max-w-sm h-auto object-cover shadow-2xl border-2 border-vf-orange/30" 
+              />
+            </div>
+          </div>
+
+          {/* Quotes */}
+          <div className="flex-1 space-y-8">
+            {quotes.map((quote, index) => (
+              <div 
+                key={index}
+                className="group cursor-default"
+                style={{ animationDelay: `${(index + 2) * 0.3}s` }}
+              >
+                <blockquote className="text-2xl md:text-3xl font-bold text-white leading-relaxed relative pl-6 border-l-4 border-vf-orange group-hover:border-vf-orange/60 transition-all duration-300">
+                  <span className="block group-hover:text-vf-orange/90 transition-colors duration-300">
+                    "{quote}"
+                  </span>
+                </blockquote>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Guarantee & Support Section */}
-        <section className="w-full mb-8 animate-fade-up">
-          <div className="glass border border-vf-orange/20 rounded-xl p-6">
-            <div className="flex flex-col md:flex-row justify-center gap-6 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-3">
-                <ShieldCheck size={24} className="text-vf-orange" />
-                <p className="text-white">Garantia de satisfação de 7 dias — sem burocracia.</p>
-              </div>
-              
-              <div className="flex items-center justify-center md:justify-start gap-3">
-                <Clock size={24} className="text-vf-orange" />
-                <p className="text-white">Suporte via WhatsApp de seg a sex</p>
+        {/* Call to Action Section */}
+        <section className="w-full text-center animate-fade-up">
+          <div className="glass rounded-3xl p-8 md:p-12 border border-vf-orange/30 max-w-4xl mx-auto">
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Pronto para começar?
+            </h2>
+            
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              Me chame agora no WhatsApp para receber seu <strong className="text-vf-orange">Guia de Boas-Vindas</strong>, 
+              acesso ao app e vídeos exclusivos. Vamos começar sua transformação!
+            </p>
+            
+            <a 
+              href="https://wa.me/5511999999999?text=Oi%20Vinicius%2C%20acabei%20de%20adquirir%20o%20Protocolo%20Black%20e%20quero%20começar!" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Button 
+                className="btn-animated text-xl md:text-2xl py-6 px-12 flex gap-4 rounded-2xl group transform hover:scale-105 transition-all duration-300 shadow-2xl"
+              >
+                <WhatsappIcon size={28} className="text-white group-hover:animate-pulse" />
+                <span>🚀 Me chama no WhatsApp</span>
+              </Button>
+            </a>
+
+            {/* Benefits List */}
+            <div className="mt-8 pt-8 border-t border-vf-orange/20">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-vf-orange/20 flex items-center justify-center mb-3">
+                    <span className="text-2xl">📚</span>
+                  </div>
+                  <p className="text-gray-300">Guia de Boas-Vindas</p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-vf-orange/20 flex items-center justify-center mb-3">
+                    <span className="text-2xl">🎥</span>
+                  </div>
+                  <p className="text-gray-300">Vídeos Exclusivos</p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-vf-orange/20 flex items-center justify-center mb-3">
+                    <span className="text-2xl">📱</span>
+                  </div>
+                  <p className="text-gray-300">Acesso ao App</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
+
       </main>
 
       {/* Footer */}
-      <footer className="w-full max-w-4xl text-center py-6 mt-auto">
-        <p className="text-gray-500 text-sm">
+      <footer className="w-full max-w-4xl text-center py-8 mt-auto">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-gray-500 text-sm mb-4">
+          <div className="flex items-center gap-2">
+            <span className="text-vf-orange">🛡️</span>
+            <span>Garantia de 7 dias</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-vf-orange">💬</span>
+            <span>Suporte via WhatsApp</span>
+          </div>
+        </div>
+        <p className="text-gray-600 text-sm">
           © 2025 Vinicius Di Fiore. Todos os direitos reservados.
         </p>
       </footer>
 
       {/* Fixed CTA for Mobile */}
       {isMobile && (
-        <div className="fixed bottom-0 left-0 w-full bg-gradient-to-t from-black via-black to-transparent pt-10 pb-4 px-4 flex justify-center">
+        <div className="fixed bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/95 to-transparent pt-8 pb-6 px-4 flex justify-center z-50">
           <a 
             href="https://wa.me/5511999999999?text=Oi%20Vinicius%2C%20acabei%20de%20adquirir%20o%20Protocolo%20Black%20e%20quero%20começar!" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="w-full"
+            className="w-full max-w-sm"
           >
             <Button 
-              className="btn-animated w-full text-lg py-5 flex gap-2 rounded-lg"
+              className="btn-animated w-full text-lg py-6 flex gap-3 rounded-xl shadow-2xl"
             >
-              <WhatsappIcon size={20} />
-              <span>Me chama no WhatsApp</span>
+              <WhatsappIcon size={24} />
+              <span>🚀 Me chama no WhatsApp</span>
             </Button>
           </a>
         </div>
