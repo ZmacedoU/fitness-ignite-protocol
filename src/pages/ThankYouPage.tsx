@@ -10,10 +10,9 @@ const ThankYouPage: React.FC = () => {
   const isMobile = useIsMobile();
   
   useEffect(() => {
-    // Fade-in animation for elements with animate-fade-up class
     const fadeElements = document.querySelectorAll('.animate-fade-up');
     fadeElements.forEach((element, index) => {
-      (element as HTMLElement).style.animationDelay = `${index * 0.3}s`;
+      (element as HTMLElement).style.animationDelay = `${index * 0.2}s`;
     });
   }, []);
 
@@ -25,31 +24,31 @@ const ThankYouPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-vf-orange/20 flex flex-col items-center overflow-x-hidden px-4">
-      {/* Main Content */}
-      <main className="max-w-5xl w-full flex flex-col items-center py-12 md:py-20">
+      
+      <main className="max-w-4xl w-full flex flex-col items-center py-16 md:py-24">
         
         {/* Hero Section */}
         <section className="w-full text-center mb-16 animate-fade-up">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
             Sua Transformação
-            <span className="block text-vf-orange">Começa Agora!</span>
+            <span className="block text-vf-orange mt-2">Começa Agora!</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Parabéns! Seu plano está ativo e sua jornada épica rumo ao corpo dos seus sonhos começa agora mesmo.
           </p>
         </section>
 
-        {/* Photo & Quote Section */}
-        <section className="w-full flex flex-col lg:flex-row items-center gap-12 mb-20 animate-fade-up">
+        {/* Photo & Quotes Section */}
+        <section className="w-full flex flex-col lg:flex-row items-center gap-16 mb-20 animate-fade-up">
           
           {/* Photo */}
           <div className="flex-1 flex justify-center">
             <div className="relative">
-              <div className="absolute inset-0 bg-vf-orange/20 rounded-2xl blur-xl transform rotate-3"></div>
+              <div className="absolute inset-0 bg-vf-orange/10 rounded-3xl blur-2xl"></div>
               <img 
                 src={viniciusImage} 
                 alt="Vinicius Di Fiore" 
-                className="relative rounded-2xl w-full max-w-sm h-auto object-cover shadow-2xl border-2 border-vf-orange/30" 
+                className="relative rounded-3xl w-full max-w-sm h-auto object-cover shadow-2xl" 
               />
             </div>
           </div>
@@ -59,10 +58,10 @@ const ThankYouPage: React.FC = () => {
             {quotes.map((quote, index) => (
               <div 
                 key={index}
-                className="group cursor-default"
-                style={{ animationDelay: `${(index + 2) * 0.3}s` }}
+                className="group cursor-default animate-fade-up"
+                style={{ animationDelay: `${(index + 2) * 0.2}s` }}
               >
-                <blockquote className="text-2xl md:text-3xl font-bold text-white leading-relaxed relative pl-6 border-l-4 border-vf-orange group-hover:border-vf-orange/60 transition-all duration-300">
+                <blockquote className="text-2xl md:text-3xl font-bold text-white leading-relaxed relative pl-6 border-l-4 border-vf-orange group-hover:border-vf-orange/80 transition-all duration-300">
                   <span className="block group-hover:text-vf-orange/90 transition-colors duration-300">
                     "{quote}"
                   </span>
@@ -72,15 +71,15 @@ const ThankYouPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Call to Action Section */}
+        {/* Main CTA Section */}
         <section className="w-full text-center animate-fade-up">
-          <div className="glass rounded-3xl p-8 md:p-12 border border-vf-orange/30 max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
               Pronto para começar?
             </h2>
             
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
               Me chame agora no WhatsApp para receber seu <strong className="text-vf-orange">Guia de Boas-Vindas</strong>, 
               acesso ao app e vídeos exclusivos. Vamos começar sua transformação!
             </p>
@@ -89,37 +88,29 @@ const ThankYouPage: React.FC = () => {
               href="https://wa.me/5511999999999?text=Oi%20Vinicius%2C%20acabei%20de%20adquirir%20o%20Protocolo%20Black%20e%20quero%20começar!" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block"
+              className="inline-block mb-12"
             >
               <Button 
-                className="btn-animated text-xl md:text-2xl py-6 px-12 flex gap-4 rounded-2xl group transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                className="btn-animated text-xl md:text-2xl py-8 px-16 flex gap-4 rounded-2xl group transform hover:scale-105 transition-all duration-300 shadow-2xl"
               >
-                <WhatsappIcon size={28} className="text-white group-hover:animate-pulse" />
+                <WhatsappIcon size={32} className="text-white group-hover:animate-pulse" />
                 <span>🚀 Me chama no WhatsApp</span>
               </Button>
             </a>
 
-            {/* Benefits List */}
-            <div className="mt-8 pt-8 border-t border-vf-orange/20">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-vf-orange/20 flex items-center justify-center mb-3">
-                    <span className="text-2xl">📚</span>
-                  </div>
-                  <p className="text-gray-300">Guia de Boas-Vindas</p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-vf-orange/20 flex items-center justify-center mb-3">
-                    <span className="text-2xl">🎥</span>
-                  </div>
-                  <p className="text-gray-300">Vídeos Exclusivos</p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-vf-orange/20 flex items-center justify-center mb-3">
-                    <span className="text-2xl">📱</span>
-                  </div>
-                  <p className="text-gray-300">Acesso ao App</p>
-                </div>
+            {/* Benefits integrated */}
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-gray-400 text-lg">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">📚</span>
+                <span>Guia de Boas-Vindas</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">🎥</span>
+                <span>Vídeos Exclusivos</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">📱</span>
+                <span>Acesso ao App</span>
               </div>
             </div>
           </div>
@@ -128,8 +119,8 @@ const ThankYouPage: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="w-full max-w-4xl text-center py-8 mt-auto">
-        <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-gray-500 text-sm mb-4">
+      <footer className="w-full text-center py-8 mt-auto">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 text-gray-500 text-sm mb-4">
           <div className="flex items-center gap-2">
             <span className="text-vf-orange">🛡️</span>
             <span>Garantia de 7 dias</span>
