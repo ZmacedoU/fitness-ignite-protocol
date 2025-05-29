@@ -29,17 +29,17 @@ const ThankYouPage: React.FC = () => {
         
         {/* Hero Section */}
         <section className="w-full text-center mb-16 animate-fade-up">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
             Sua Transformação
             <span className="block text-vf-orange mt-2">Começa Agora!</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Parabéns! Seu plano está ativo e sua jornada épica rumo ao corpo dos seus sonhos começa agora mesmo.
           </p>
         </section>
 
         {/* Photo & Quotes Section */}
-        <section className="w-full flex flex-col lg:flex-row items-center gap-16 mb-20 animate-fade-up">
+        <section className="w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16 mb-16 animate-fade-up">
           
           {/* Photo */}
           <div className="flex-1 flex justify-center">
@@ -48,20 +48,20 @@ const ThankYouPage: React.FC = () => {
               <img 
                 src={viniciusImage} 
                 alt="Vinicius Di Fiore" 
-                className="relative rounded-3xl w-full max-w-sm h-auto object-cover shadow-2xl" 
+                className="relative rounded-3xl w-full max-w-xs md:max-w-sm h-auto object-cover shadow-2xl" 
               />
             </div>
           </div>
 
           {/* Quotes */}
-          <div className="flex-1 space-y-8">
+          <div className="flex-1 space-y-6 lg:space-y-8">
             {quotes.map((quote, index) => (
               <div 
                 key={index}
                 className="group cursor-default animate-fade-up"
                 style={{ animationDelay: `${(index + 2) * 0.2}s` }}
               >
-                <blockquote className="text-2xl md:text-3xl font-bold text-white leading-relaxed relative pl-6 border-l-4 border-vf-orange group-hover:border-vf-orange/80 transition-all duration-300">
+                <blockquote className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-relaxed relative pl-4 md:pl-6 border-l-4 border-vf-orange group-hover:border-vf-orange/80 transition-all duration-300">
                   <span className="block group-hover:text-vf-orange/90 transition-colors duration-300">
                     "{quote}"
                   </span>
@@ -71,15 +71,15 @@ const ThankYouPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Main CTA Section */}
-        <section className="w-full text-center animate-fade-up">
-          <div className="max-w-3xl mx-auto">
+        {/* CTA Card Section */}
+        <section className="w-full animate-fade-up">
+          <div className="max-w-2xl mx-auto bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 md:p-12 text-center">
             
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Pronto para começar?
             </h2>
             
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
               Me chame agora no WhatsApp para receber seu <strong className="text-vf-orange">Guia de Boas-Vindas</strong>, 
               acesso ao app e vídeos exclusivos. Vamos começar sua transformação!
             </p>
@@ -88,18 +88,18 @@ const ThankYouPage: React.FC = () => {
               href="https://wa.me/5511999999999?text=Oi%20Vinicius%2C%20acabei%20de%20adquirir%20o%20Protocolo%20Black%20e%20quero%20começar!" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block mb-12"
+              className="inline-block mb-8"
             >
               <Button 
-                className="btn-animated text-xl md:text-2xl py-8 px-16 flex gap-4 rounded-2xl group transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                className={`btn-animated ${isMobile ? 'text-lg py-6 px-12' : 'text-xl md:text-2xl py-8 px-16'} flex gap-4 rounded-2xl group transform hover:scale-105 transition-all duration-300 shadow-2xl w-full md:w-auto`}
               >
-                <WhatsappIcon size={32} className="text-white group-hover:animate-pulse" />
+                <WhatsappIcon size={isMobile ? 24 : 32} className="text-white group-hover:animate-pulse" />
                 <span>🚀 Me chama no WhatsApp</span>
               </Button>
             </a>
 
             {/* Benefits integrated */}
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-gray-400 text-lg">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-gray-400 text-base md:text-lg">
               <div className="flex items-center gap-3">
                 <span className="text-2xl">📚</span>
                 <span>Guia de Boas-Vindas</span>
@@ -120,7 +120,7 @@ const ThankYouPage: React.FC = () => {
 
       {/* Footer */}
       <footer className="w-full text-center py-8 mt-auto">
-        <div className="flex flex-col md:flex-row justify-center items-center gap-6 text-gray-500 text-sm mb-4">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-gray-500 text-sm mb-4">
           <div className="flex items-center gap-2">
             <span className="text-vf-orange">🛡️</span>
             <span>Garantia de 7 dias</span>
@@ -137,7 +137,7 @@ const ThankYouPage: React.FC = () => {
 
       {/* Fixed CTA for Mobile */}
       {isMobile && (
-        <div className="fixed bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/95 to-transparent pt-8 pb-6 px-4 flex justify-center z-50">
+        <div className="fixed bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/95 to-transparent pt-6 pb-4 px-4 flex justify-center z-50">
           <a 
             href="https://wa.me/5511999999999?text=Oi%20Vinicius%2C%20acabei%20de%20adquirir%20o%20Protocolo%20Black%20e%20quero%20começar!" 
             target="_blank" 
@@ -145,9 +145,9 @@ const ThankYouPage: React.FC = () => {
             className="w-full max-w-sm"
           >
             <Button 
-              className="btn-animated w-full text-lg py-6 flex gap-3 rounded-xl shadow-2xl"
+              className="btn-animated w-full text-base py-5 flex gap-3 rounded-xl shadow-2xl"
             >
-              <WhatsappIcon size={24} />
+              <WhatsappIcon size={20} />
               <span>🚀 Me chama no WhatsApp</span>
             </Button>
           </a>
